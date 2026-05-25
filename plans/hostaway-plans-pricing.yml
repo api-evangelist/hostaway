@@ -1,0 +1,69 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Hostaway
+providerId: hostaway
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - Vacation Rentals
+  - Property Management
+  - SaaS
+description: |
+  Hostaway uses a quote-based pricing model rather than published self-serve plan
+  pricing. The platform is sold as tiered subscription plans gated by a multi-step
+  questionnaire and a sales conversation. The hostaway.com/pricing page collects
+  inputs (portfolio size, channels, region) and routes prospects to a quote. No
+  free public tier is published. A free product demo is offered via
+  hostaway.com/get-free-demo.
+sources:
+  - https://www.hostaway.com/pricing/
+  - https://www.hostaway.com/get-free-demo/
+plans:
+  - id: hostaway-quote
+    name: Quote-Based Subscription
+    type: subscription
+    description: |
+      All Hostaway tiers are quoted by sales after a portfolio assessment. Pricing
+      scales with number of listings and channels. Modules include channel
+      manager, unified inbox, automation, direct booking, revenue management,
+      tasks, owner statements, and the marketplace.
+    entries:
+      - label: Subscription
+        name: subscription
+        type: subscription
+        metric: listing
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'quote'
+        userMultiplied: false
+        description: Per-listing subscription pricing, quoted by Hostaway sales.
+    elements:
+      - name: Multi-channel distribution (Airbnb, Vrbo, Booking.com, Expedia, Google Vacation Rentals, Marriott Homes & Villas)
+      - name: Unified inbox and guest messaging across channels
+      - name: Calendar synchronization and rate management
+      - name: Direct booking website
+      - name: Automation rules and tasks
+      - name: Reporting and analytics
+      - name: Marketplace integrations (100+ vendors)
+      - name: Public API access (OAuth 2.0)
+      - name: Webhooks for reservation and message events
+  - id: hostaway-demo
+    name: Free Demo
+    type: trial
+    description: Hostaway offers a free product demo (no self-serve trial) to evaluate the platform with sales involvement.
+    entries:
+      - label: Demo
+        name: demo
+        type: trial
+        metric: session
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: 'Free'
+        userMultiplied: false
+    elements:
+      - name: Guided platform walkthrough
+      - name: Custom quote provided after demo

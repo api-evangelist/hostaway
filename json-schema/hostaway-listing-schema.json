@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/hostaway/main/json-schema/hostaway-listing-schema.json",
+  "title": "Hostaway Listing",
+  "description": "A vacation rental listing managed in Hostaway.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "name": { "type": "string" },
+    "externalListingName": { "type": "string" },
+    "propertyTypeId": { "type": "integer" },
+    "address": { "type": "string" },
+    "city": { "type": "string" },
+    "country": { "type": "string", "description": "ISO 3166-2 country code" },
+    "latitude": { "type": "number" },
+    "longitude": { "type": "number" },
+    "currencyCode": { "type": "string", "examples": ["USD", "EUR"] },
+    "timeZoneName": { "type": "string" },
+    "personCapacity": { "type": "integer" },
+    "bedroomsNumber": { "type": "integer" },
+    "bathroomsNumber": { "type": "number" },
+    "bedsNumber": { "type": "integer" },
+    "squareMeters": { "type": "number" },
+    "price": { "type": "number" },
+    "cleaningFee": { "type": "number" },
+    "checkInTimeStart": { "type": "integer" },
+    "checkInTimeEnd": { "type": "integer" },
+    "checkOutTime": { "type": "integer" },
+    "isActive": { "type": "integer", "enum": [0, 1] },
+    "insertedOn": { "type": "string", "format": "date-time" }
+  },
+  "required": ["name"]
+}

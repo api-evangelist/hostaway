@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/hostaway/main/json-schema/hostaway-reservation-schema.json",
+  "title": "Hostaway Reservation",
+  "description": "A reservation booked through any channel and managed in Hostaway.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "reservationId": { "type": "string" },
+    "hostawayReservationId": { "type": "string" },
+    "listingMapId": { "type": "integer" },
+    "channelId": { "type": "integer" },
+    "channelName": { "type": "string" },
+    "arrivalDate": { "type": "string", "format": "date" },
+    "departureDate": { "type": "string", "format": "date" },
+    "guestName": { "type": "string" },
+    "guestFirstName": { "type": "string" },
+    "guestLastName": { "type": "string" },
+    "guestEmail": { "type": "string", "format": "email" },
+    "numberOfGuests": { "type": "integer" },
+    "adults": { "type": "integer" },
+    "children": { "type": "integer" },
+    "infants": { "type": "integer" },
+    "totalPrice": { "type": "number" },
+    "currency": { "type": "string" },
+    "status": { "type": "string" },
+    "insertedOn": { "type": "string", "format": "date-time" }
+  },
+  "required": ["listingMapId", "arrivalDate", "departureDate"]
+}

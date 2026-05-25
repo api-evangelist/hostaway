@@ -1,0 +1,37 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Hostaway
+providerId: hostaway
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Vacation Rentals
+description: |
+  Hostaway enforces request-rate caps both per IP address and per account on the
+  public API at https://api.hostaway.com/v1. Exceeding either limit returns
+  HTTP 429. Access tokens issued from /v1/accessTokens are valid for 24 months;
+  callers should wait at least one second after issuing a new token before using
+  it.
+sources:
+  - https://api.hostaway.com/documentation
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+algorithm: fixed-window
+limits:
+  - scope: per-ip
+    requests: 15
+    window: 10s
+    description: 15 requests per 10 seconds per source IP address.
+  - scope: per-account
+    requests: 20
+    window: 10s
+    description: 20 requests per 10 seconds per Hostaway account ID.
+notes:
+  - Tokens are bearer tokens issued via OAuth 2.0 client_credentials.
+  - Tokens have a 24-month validity period and may be revoked via DELETE /v1/accessTokens.
+  - Newly issued tokens must wait at least 1 second before first use.
+  - Webhook deliveries retry up to 3 times on non-success responses before an alert email is sent.

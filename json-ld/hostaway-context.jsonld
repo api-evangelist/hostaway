@@ -1,0 +1,150 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "hostaway": "https://api.hostaway.com/v1/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Listing": {
+      "@id": "hostaway:Listing",
+      "@context": {
+        "id": {
+          "@id": "hostaway:Listing/id",
+          "@type": "xsd:integer"
+        },
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "address": {
+          "@id": "schema:address",
+          "@type": "xsd:string"
+        },
+        "city": {
+          "@id": "schema:addressLocality",
+          "@type": "xsd:string"
+        },
+        "country": {
+          "@id": "schema:addressCountry",
+          "@type": "xsd:string"
+        },
+        "latitude": {
+          "@id": "schema:latitude",
+          "@type": "xsd:double"
+        },
+        "longitude": {
+          "@id": "schema:longitude",
+          "@type": "xsd:double"
+        },
+        "personCapacity": {
+          "@id": "schema:occupancy",
+          "@type": "xsd:integer"
+        },
+        "bedroomsNumber": {
+          "@id": "schema:numberOfBedrooms",
+          "@type": "xsd:integer"
+        },
+        "bathroomsNumber": {
+          "@id": "schema:numberOfBathroomsTotal",
+          "@type": "xsd:number"
+        },
+        "currencyCode": {
+          "@id": "schema:priceCurrency",
+          "@type": "xsd:string"
+        },
+        "price": {
+          "@id": "schema:price",
+          "@type": "xsd:number"
+        }
+      }
+    },
+
+    "Reservation": {
+      "@id": "hostaway:Reservation",
+      "@context": {
+        "id": {
+          "@id": "hostaway:Reservation/id",
+          "@type": "xsd:integer"
+        },
+        "arrivalDate": {
+          "@id": "schema:checkinTime",
+          "@type": "xsd:date"
+        },
+        "departureDate": {
+          "@id": "schema:checkoutTime",
+          "@type": "xsd:date"
+        },
+        "guestName": {
+          "@id": "schema:underName",
+          "@type": "xsd:string"
+        },
+        "guestEmail": {
+          "@id": "schema:email",
+          "@type": "xsd:string"
+        },
+        "numberOfGuests": {
+          "@id": "schema:numAdults",
+          "@type": "xsd:integer"
+        },
+        "totalPrice": {
+          "@id": "schema:totalPrice",
+          "@type": "xsd:number"
+        },
+        "currency": {
+          "@id": "schema:priceCurrency",
+          "@type": "xsd:string"
+        },
+        "channelName": {
+          "@id": "hostaway:Reservation/channel",
+          "@type": "xsd:string"
+        },
+        "status": {
+          "@id": "schema:reservationStatus",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "CalendarDay": {
+      "@id": "hostaway:CalendarDay",
+      "@context": {
+        "date": {
+          "@id": "hostaway:CalendarDay/date",
+          "@type": "xsd:date"
+        },
+        "price": {
+          "@id": "schema:price",
+          "@type": "xsd:number"
+        },
+        "isAvailable": {
+          "@id": "hostaway:CalendarDay/available",
+          "@type": "xsd:boolean"
+        },
+        "minimumStay": {
+          "@id": "hostaway:CalendarDay/minimumStay",
+          "@type": "xsd:integer"
+        }
+      }
+    },
+
+    "Webhook": {
+      "@id": "hostaway:Webhook",
+      "@context": {
+        "id": {
+          "@id": "hostaway:Webhook/id",
+          "@type": "xsd:integer"
+        },
+        "url": {
+          "@id": "schema:url",
+          "@type": "xsd:anyURI"
+        },
+        "isEnabled": {
+          "@id": "hostaway:Webhook/enabled",
+          "@type": "xsd:boolean"
+        }
+      }
+    }
+  }
+}

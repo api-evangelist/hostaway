@@ -1,0 +1,127 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Hostaway Listings API — Listings
+  description: 'Hostaway Listings API — Listings. Self-contained Naftiko capability covering one Hostaway business surface.'
+  tags:
+  - Hostaway
+  - Listings
+  - Vacation Rentals
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    HOSTAWAY_ACCESS_TOKEN: HOSTAWAY_ACCESS_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: listings-listings
+    baseUri: https://api.hostaway.com
+    description: Hostaway Listings API — Listings business capability.
+    resources:
+    - name: v1-listings
+      path: /v1/listings
+      operations:
+      - name: listlistings
+        method: GET
+        description: Hostaway List Listings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createlisting
+        method: POST
+        description: Hostaway Create Listing
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-listings-listing_id
+      path: /v1/listings/{listingId}
+      operations:
+      - name: getlisting
+        method: GET
+        description: Hostaway Get Listing
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatelisting
+        method: PUT
+        description: Hostaway Update Listing
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      value: '{{env.HOSTAWAY_ACCESS_TOKEN}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: listings-listings-rest
+    port: 8080
+    description: REST adapter for Hostaway Listings — Listings.
+    resources:
+    - path: /v1/listings
+      name: v1-listings
+      description: REST surface for v1-listings.
+      operations:
+      - method: GET
+        name: listlistings
+        description: Hostaway List Listings
+        call: listings-listings.listlistings
+      - method: POST
+        name: createlisting
+        description: Hostaway Create Listing
+        call: listings-listings.createlisting
+    - path: /v1/listings/{listing-id}
+      name: v1-listings-listing-id
+      description: REST surface for v1-listings-listing_id.
+      operations:
+      - method: GET
+        name: getlisting
+        description: Hostaway Get Listing
+        call: listings-listings.getlisting
+      - method: PUT
+        name: updatelisting
+        description: Hostaway Update Listing
+        call: listings-listings.updatelisting
+  - type: mcp
+    namespace: listings-listings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Hostaway Listings — Listings.
+    tools:
+    - name: hostaway-list-listings
+      description: Hostaway List Listings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: listings-listings.listlistings
+    - name: hostaway-create-listing
+      description: Hostaway Create Listing
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: listings-listings.createlisting
+    - name: hostaway-get-listing
+      description: Hostaway Get Listing
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: listings-listings.getlisting
+    - name: hostaway-update-listing
+      description: Hostaway Update Listing
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: listings-listings.updatelisting

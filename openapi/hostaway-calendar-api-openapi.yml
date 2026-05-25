@@ -1,0 +1,174 @@
+openapi: 3.1.0
+info:
+  title: Hostaway Calendar API
+  description: |
+    Read and update availability and nightly pricing on the Hostaway listing
+    calendar. Supports per-day retrieval, batch updates, and embedded
+    reservation context via the includeResources query parameter.
+  version: '1.0.0'
+  contact:
+    name: Hostaway Support
+    email: support@hostaway.com
+    url: https://api.hostaway.com/documentation
+  x-logo:
+    url: https://www.hostaway.com/favicon.ico
+
+servers:
+  - url: https://api.hostaway.com/v1
+    description: Production API
+
+security:
+  - OAuth2ClientCredentials: []
+
+tags:
+  - name: Calendar
+    description: Listing calendar availability and pricing
+
+paths:
+  /listings/{listingId}/calendar:
+    parameters:
+      - $ref: '#/components/parameters/ListingId'
+    get:
+      summary: Hostaway Get Calendar Days
+      operationId: getCalendarDays
+      tags:
+        - Calendar
+      parameters:
+        - name: startDate
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: endDate
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: includeResources
+          in: query
+          schema:
+            type: integer
+            enum: [0, 1]
+      responses:
+        '200':
+          description: Calendar days collection
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalendarResponse'
+    put:
+      summary: Hostaway Update Calendar Day
+      operationId: updateCalendarDay
+      tags:
+        - Calendar
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalendarDayInput'
+      responses:
+        '200':
+          description: Calendar day updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalendarResponse'
+  /listings/{listingId}/calendar/batch:
+    parameters:
+      - $ref: '#/components/parameters/ListingId'
+    post:
+      summary: Hostaway Batch Update Calendar
+      operationId: batchUpdateCalendar
+      tags:
+        - Calendar
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dates:
+                  type: array
+                  items:
+                    type: string
+                    format: date
+                price:
+                  type: number
+                minimumStay:
+                  type: integer
+                isAvailable:
+                  type: integer
+                  enum: [0, 1]
+                note:
+                  type: string
+      responses:
+        '200':
+          description: Batch update applied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalendarResponse'
+
+components:
+  securitySchemes:
+    OAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.hostaway.com/v1/accessTokens
+          scopes:
+            general: General API access scope
+  parameters:
+    ListingId:
+      name: listingId
+      in: path
+      required: true
+      schema:
+        type: integer
+  schemas:
+    CalendarDayInput:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        price:
+          type: number
+        minimumStay:
+          type: integer
+        maximumStay:
+          type: integer
+        closedOnArrival:
+          type: integer
+          enum: [0, 1]
+        closedOnDeparture:
+          type: integer
+          enum: [0, 1]
+        isAvailable:
+          type: integer
+          enum: [0, 1]
+        note:
+          type: string
+    CalendarDay:
+      allOf:
+        - $ref: '#/components/schemas/CalendarDayInput'
+        - type: object
+          properties:
+            reservationId:
+              type: integer
+              nullable: true
+            status:
+              type: string
+              description: available, reserved, blocked
+    CalendarResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [success, fail]
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/CalendarDay'

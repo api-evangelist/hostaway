@@ -1,0 +1,96 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Hostaway Calendar API — Calendar
+  description: 'Hostaway Calendar API — Calendar. Self-contained Naftiko capability for reading and updating listing availability and pricing.'
+  tags:
+  - Hostaway
+  - Calendar
+  - Vacation Rentals
+  - Availability
+  - Pricing
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    HOSTAWAY_ACCESS_TOKEN: HOSTAWAY_ACCESS_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: calendar-calendar
+    baseUri: https://api.hostaway.com
+    description: Hostaway Calendar API — Calendar business capability.
+    resources:
+    - name: v1-listings-calendar
+      path: /v1/listings/{listingId}/calendar
+      operations:
+      - name: getcalendardays
+        method: GET
+        description: Hostaway Get Calendar Days
+        outputRawFormat: json
+      - name: updatecalendarday
+        method: PUT
+        description: Hostaway Update Calendar Day
+        outputRawFormat: json
+    - name: v1-listings-calendar-batch
+      path: /v1/listings/{listingId}/calendar/batch
+      operations:
+      - name: batchupdatecalendar
+        method: POST
+        description: Hostaway Batch Update Calendar
+        outputRawFormat: json
+    authentication:
+      type: bearer
+      value: '{{env.HOSTAWAY_ACCESS_TOKEN}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: calendar-calendar-rest
+    port: 8080
+    description: REST adapter for Hostaway Calendar.
+    resources:
+    - path: /v1/listings/{listing-id}/calendar
+      name: v1-listings-calendar
+      operations:
+      - method: GET
+        name: getcalendardays
+        description: Hostaway Get Calendar Days
+        call: calendar-calendar.getcalendardays
+      - method: PUT
+        name: updatecalendarday
+        description: Hostaway Update Calendar Day
+        call: calendar-calendar.updatecalendarday
+    - path: /v1/listings/{listing-id}/calendar/batch
+      name: v1-listings-calendar-batch
+      operations:
+      - method: POST
+        name: batchupdatecalendar
+        description: Hostaway Batch Update Calendar
+        call: calendar-calendar.batchupdatecalendar
+  - type: mcp
+    namespace: calendar-calendar-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Hostaway Calendar.
+    tools:
+    - name: hostaway-get-calendar-days
+      description: Hostaway Get Calendar Days
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: calendar-calendar.getcalendardays
+    - name: hostaway-update-calendar-day
+      description: Hostaway Update Calendar Day
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: calendar-calendar.updatecalendarday
+    - name: hostaway-batch-update-calendar
+      description: Hostaway Batch Update Calendar
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: calendar-calendar.batchupdatecalendar

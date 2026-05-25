@@ -1,0 +1,298 @@
+openapi: 3.1.0
+info:
+  title: Hostaway Reservations API
+  description: |
+    Create, read, and update reservations across all connected channels
+    (Airbnb, Vrbo, Booking.com, Expedia, direct, etc.). Includes coupons,
+    reservation fees, reservation units, and host proxy email handling.
+  version: '1.0.0'
+  contact:
+    name: Hostaway Support
+    email: support@hostaway.com
+    url: https://api.hostaway.com/documentation
+  x-logo:
+    url: https://www.hostaway.com/favicon.ico
+
+servers:
+  - url: https://api.hostaway.com/v1
+    description: Production API
+
+security:
+  - OAuth2ClientCredentials: []
+
+tags:
+  - name: Reservations
+    description: Bookings and reservations across channels
+  - name: Reservation Coupons
+    description: Coupons applied to a reservation
+  - name: Reservation Fees
+    description: Fees applied to a reservation
+  - name: Reservation Units
+    description: Sub-units associated with a reservation
+
+paths:
+  /reservations:
+    get:
+      summary: Hostaway List Reservations
+      operationId: listReservations
+      tags:
+        - Reservations
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - name: listingId
+          in: query
+          schema:
+            type: integer
+        - name: arrivalStartDate
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: arrivalEndDate
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: channelId
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Reservations collection
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationsResponse'
+    post:
+      summary: Hostaway Create Reservation
+      operationId: createReservation
+      tags:
+        - Reservations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReservationInput'
+      responses:
+        '200':
+          description: Reservation created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationResponse'
+  /reservations/{reservationId}:
+    parameters:
+      - $ref: '#/components/parameters/ReservationId'
+    get:
+      summary: Hostaway Get Reservation
+      operationId: getReservation
+      tags:
+        - Reservations
+      responses:
+        '200':
+          description: Single reservation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationResponse'
+    put:
+      summary: Hostaway Update Reservation
+      operationId: updateReservation
+      tags:
+        - Reservations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReservationInput'
+      responses:
+        '200':
+          description: Reservation updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationResponse'
+  /reservations/{reservationId}/coupons:
+    parameters:
+      - $ref: '#/components/parameters/ReservationId'
+    post:
+      summary: Hostaway Create Reservation Coupon
+      operationId: createReservationCoupon
+      tags:
+        - Reservation Coupons
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                amount:
+                  type: number
+                discountType:
+                  type: string
+                  enum: [fixed, percent]
+      responses:
+        '200':
+          description: Coupon created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StandardResponse'
+  /reservations/{reservationId}/fees:
+    parameters:
+      - $ref: '#/components/parameters/ReservationId'
+    get:
+      summary: Hostaway List Reservation Fees
+      operationId: listReservationFees
+      tags:
+        - Reservation Fees
+      responses:
+        '200':
+          description: Fees collection
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StandardResponse'
+  /reservations/{reservationId}/units:
+    parameters:
+      - $ref: '#/components/parameters/ReservationId'
+    get:
+      summary: Hostaway List Reservation Units
+      operationId: listReservationUnits
+      tags:
+        - Reservation Units
+      responses:
+        '200':
+          description: Units collection
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StandardResponse'
+
+components:
+  securitySchemes:
+    OAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.hostaway.com/v1/accessTokens
+          scopes:
+            general: General API access scope
+  parameters:
+    ReservationId:
+      name: reservationId
+      in: path
+      required: true
+      schema:
+        type: integer
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 10
+    Offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        default: 0
+  schemas:
+    StandardResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [success, fail]
+        result:
+          type: object
+    ReservationInput:
+      type: object
+      required:
+        - listingMapId
+        - arrivalDate
+        - departureDate
+      properties:
+        listingMapId:
+          type: integer
+        channelId:
+          type: integer
+          description: Channel of origin (Airbnb, Vrbo, Booking.com, etc.)
+        channelName:
+          type: string
+        arrivalDate:
+          type: string
+          format: date
+        departureDate:
+          type: string
+          format: date
+        guestName:
+          type: string
+        guestFirstName:
+          type: string
+        guestLastName:
+          type: string
+        guestEmail:
+          type: string
+          format: email
+        guestPicture:
+          type: string
+          format: uri
+        numberOfGuests:
+          type: integer
+        adults:
+          type: integer
+        children:
+          type: integer
+        infants:
+          type: integer
+        totalPrice:
+          type: number
+        currency:
+          type: string
+        status:
+          type: string
+          description: Reservation status (new, modified, cancelled, etc.)
+    Reservation:
+      allOf:
+        - $ref: '#/components/schemas/ReservationInput'
+        - type: object
+          properties:
+            id:
+              type: integer
+            reservationId:
+              type: string
+            hostawayReservationId:
+              type: string
+            insertedOn:
+              type: string
+              format: date-time
+    ReservationResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        result:
+          $ref: '#/components/schemas/Reservation'
+    ReservationsResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        count:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reservation'
