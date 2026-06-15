@@ -1,303 +1,308 @@
 aid: hostaway
 url: https://raw.githubusercontent.com/api-evangelist/hostaway/refs/heads/main/apis.yml
 apis:
-- aid: hostaway:hostaway-listings-api
-  name: Hostaway Listings API
-  tags:
-  - Vacation Rentals
-  - Listings
-  - Properties
-  humanURL: https://api.hostaway.com/documentation
-  properties:
-  - url: https://api.hostaway.com/documentation
-    type: Documentation
-  - url: openapi/hostaway-listings-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/hostaway-listing-schema.json
-    type: JSONSchema
-  - url: json-ld/hostaway-context.jsonld
-    type: JSONLD
-  - type: NaftikoCapability
-    url: capabilities/listings-listings.yaml
-  description: Manage vacation rental listings — properties, amenities, bed types, images, and custom field values.
-    Each Hostaway listing maps to one or more external channels (Airbnb, Vrbo, Booking.com, Expedia, Google
-    Vacation Rentals, Marriott Homes & Villas) and is the primary inventory object in the platform.
-- aid: hostaway:hostaway-reservations-api
-  name: Hostaway Reservations API
-  tags:
-  - Vacation Rentals
-  - Reservations
-  - Bookings
-  humanURL: https://api.hostaway.com/documentation
-  properties:
-  - url: https://api.hostaway.com/documentation
-    type: Documentation
-  - url: openapi/hostaway-reservations-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/hostaway-reservation-schema.json
-    type: JSONSchema
-  - url: json-ld/hostaway-context.jsonld
-    type: JSONLD
-  - type: NaftikoCapability
-    url: capabilities/reservations-reservations.yaml
-  description: Create, read, and update reservations across all connected channels. Includes coupons, reservation
-    fees, reservation units, host proxy email handling, and channel-of-origin context (channelId/channelName)
-    for every booking.
-- aid: hostaway:hostaway-calendar-api
-  name: Hostaway Calendar API
-  tags:
-  - Vacation Rentals
-  - Calendar
-  - Availability
-  - Pricing
-  humanURL: https://api.hostaway.com/documentation
-  properties:
-  - url: https://api.hostaway.com/documentation
-    type: Documentation
-  - url: openapi/hostaway-calendar-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/calendar-calendar.yaml
-  description: Read and update the per-listing availability and nightly pricing calendar. Supports per-day
-    retrieval, batch updates across date ranges, and inline reservation context via the includeResources query
-    parameter.
-- aid: hostaway:hostaway-messaging-api
-  name: Hostaway Messaging API
-  tags:
-  - Vacation Rentals
-  - Messaging
-  - Conversations
-  humanURL: https://api.hostaway.com/documentation
-  properties:
-  - url: https://api.hostaway.com/documentation
-    type: Documentation
-  description: Unified guest messaging across Airbnb, Vrbo, Booking.com, Expedia, email, SMS, and WhatsApp.
-    Resources include conversations, conversation messages, and reusable message templates.
-- aid: hostaway:hostaway-finance-api
-  name: Hostaway Finance API
-  tags:
-  - Vacation Rentals
-  - Finance
-  - Owner Statements
-  humanURL: https://api.hostaway.com/documentation
-  properties:
-  - url: https://api.hostaway.com/documentation
-    type: Documentation
-  description: Financial operations for vacation rental managers — finance fields, price calculations, expenses
-    and extras, offline charges, and owner statements.
-- aid: hostaway:hostaway-tasks-api
-  name: Hostaway Tasks API
-  tags:
-  - Vacation Rentals
-  - Tasks
-  - Operations
-  humanURL: https://api.hostaway.com/documentation
-  properties:
-  - url: https://api.hostaway.com/documentation
-    type: Documentation
-  description: Create, assign, and complete operational tasks (cleaning, maintenance, inspection) tied to listings
-    and reservations.
-- aid: hostaway:hostaway-custom-fields-api
-  name: Hostaway Custom Fields API
-  tags:
-  - Vacation Rentals
-  - Custom Fields
-  - Configuration
-  humanURL: https://api.hostaway.com/documentation
-  properties:
-  - url: https://api.hostaway.com/documentation
-    type: Documentation
-  description: Define and manage custom fields on listings and reservations, plus retrieve and set custom field
-    values on individual records.
-- aid: hostaway:hostaway-guest-payments-api
-  name: Hostaway Guest Payments API
-  tags:
-  - Vacation Rentals
-  - Payments
-  - Auto-Payment
-  humanURL: https://api.hostaway.com/documentation
-  properties:
-  - url: https://api.hostaway.com/documentation
-    type: Documentation
-  description: Manage guest payments and auto-payment rules for reservations.
-- aid: hostaway:hostaway-reference-data-api
-  name: Hostaway Reference Data API
-  tags:
-  - Vacation Rentals
-  - Reference Data
-  humanURL: https://api.hostaway.com/documentation
-  properties:
-  - url: https://api.hostaway.com/documentation
-    type: Documentation
-  description: Reference-data endpoints for cancellation policies (Airbnb, Vrbo, Booking.com, Marriott), countries,
-    currencies, languages, and timezones.
-- aid: hostaway:hostaway-webhooks-api
-  name: Hostaway Webhooks API
-  tags:
-  - Vacation Rentals
-  - Webhooks
-  - Events
-  humanURL: https://api.hostaway.com/documentation
-  properties:
-  - url: https://api.hostaway.com/documentation
-    type: Documentation
-  - url: openapi/hostaway-webhooks-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/webhooks-webhooks.yaml
-  description: Manage unified webhooks for the three Hostaway event types — reservation created, reservation
-    updated, and new message received. Failed deliveries retry up to three times before a failure email is sent
-    to the configured alert recipient.
+  - aid: hostaway:hostaway-listings-api
+    name: Hostaway Listings API
+    tags:
+      - Vacation Rentals
+      - Listings
+      - Properties
+    humanURL: https://api.hostaway.com/documentation
+    properties:
+      - url: https://api.hostaway.com/documentation
+        type: Documentation
+      - url: openapi/hostaway-listings-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/hostaway-listing-schema.json
+        type: JSONSchema
+      - url: json-ld/hostaway-context.jsonld
+        type: JSONLD
+    description: >-
+      Manage vacation rental listings — properties, amenities, bed types, images, and custom field values. Each Hostaway
+      listing maps to one or more external channels (Airbnb, Vrbo, Booking.com, Expedia, Google Vacation Rentals,
+      Marriott Homes & Villas) and is the primary inventory object in the platform.
+  - aid: hostaway:hostaway-reservations-api
+    name: Hostaway Reservations API
+    tags:
+      - Vacation Rentals
+      - Reservations
+      - Bookings
+    humanURL: https://api.hostaway.com/documentation
+    properties:
+      - url: https://api.hostaway.com/documentation
+        type: Documentation
+      - url: openapi/hostaway-reservations-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/hostaway-reservation-schema.json
+        type: JSONSchema
+      - url: json-ld/hostaway-context.jsonld
+        type: JSONLD
+    description: >-
+      Create, read, and update reservations across all connected channels. Includes coupons, reservation fees,
+      reservation units, host proxy email handling, and channel-of-origin context (channelId/channelName) for every
+      booking.
+  - aid: hostaway:hostaway-calendar-api
+    name: Hostaway Calendar API
+    tags:
+      - Vacation Rentals
+      - Calendar
+      - Availability
+      - Pricing
+    humanURL: https://api.hostaway.com/documentation
+    properties:
+      - url: https://api.hostaway.com/documentation
+        type: Documentation
+      - url: openapi/hostaway-calendar-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Read and update the per-listing availability and nightly pricing calendar. Supports per-day retrieval, batch
+      updates across date ranges, and inline reservation context via the includeResources query parameter.
+  - aid: hostaway:hostaway-messaging-api
+    name: Hostaway Messaging API
+    tags:
+      - Vacation Rentals
+      - Messaging
+      - Conversations
+    humanURL: https://api.hostaway.com/documentation
+    properties:
+      - url: https://api.hostaway.com/documentation
+        type: Documentation
+    description: >-
+      Unified guest messaging across Airbnb, Vrbo, Booking.com, Expedia, email, SMS, and WhatsApp. Resources include
+      conversations, conversation messages, and reusable message templates.
+  - aid: hostaway:hostaway-finance-api
+    name: Hostaway Finance API
+    tags:
+      - Vacation Rentals
+      - Finance
+      - Owner Statements
+    humanURL: https://api.hostaway.com/documentation
+    properties:
+      - url: https://api.hostaway.com/documentation
+        type: Documentation
+    description: >-
+      Financial operations for vacation rental managers — finance fields, price calculations, expenses and extras,
+      offline charges, and owner statements.
+  - aid: hostaway:hostaway-tasks-api
+    name: Hostaway Tasks API
+    tags:
+      - Vacation Rentals
+      - Tasks
+      - Operations
+    humanURL: https://api.hostaway.com/documentation
+    properties:
+      - url: https://api.hostaway.com/documentation
+        type: Documentation
+    description: >-
+      Create, assign, and complete operational tasks (cleaning, maintenance, inspection) tied to listings and
+      reservations.
+  - aid: hostaway:hostaway-custom-fields-api
+    name: Hostaway Custom Fields API
+    tags:
+      - Vacation Rentals
+      - Custom Fields
+      - Configuration
+    humanURL: https://api.hostaway.com/documentation
+    properties:
+      - url: https://api.hostaway.com/documentation
+        type: Documentation
+    description: >-
+      Define and manage custom fields on listings and reservations, plus retrieve and set custom field values on
+      individual records.
+  - aid: hostaway:hostaway-guest-payments-api
+    name: Hostaway Guest Payments API
+    tags:
+      - Vacation Rentals
+      - Payments
+      - Auto-Payment
+    humanURL: https://api.hostaway.com/documentation
+    properties:
+      - url: https://api.hostaway.com/documentation
+        type: Documentation
+    description: Manage guest payments and auto-payment rules for reservations.
+  - aid: hostaway:hostaway-reference-data-api
+    name: Hostaway Reference Data API
+    tags:
+      - Vacation Rentals
+      - Reference Data
+    humanURL: https://api.hostaway.com/documentation
+    properties:
+      - url: https://api.hostaway.com/documentation
+        type: Documentation
+    description: >-
+      Reference-data endpoints for cancellation policies (Airbnb, Vrbo, Booking.com, Marriott), countries, currencies,
+      languages, and timezones.
+  - aid: hostaway:hostaway-webhooks-api
+    name: Hostaway Webhooks API
+    tags:
+      - Vacation Rentals
+      - Webhooks
+      - Events
+    humanURL: https://api.hostaway.com/documentation
+    properties:
+      - url: https://api.hostaway.com/documentation
+        type: Documentation
+      - url: openapi/hostaway-webhooks-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Manage unified webhooks for the three Hostaway event types — reservation created, reservation updated, and new
+      message received. Failed deliveries retry up to three times before a failure email is sent to the configured alert
+      recipient.
 name: Hostaway
 tags:
-- Vacation Rentals
-- Short-Term Rentals
-- Property Management
-- Channel Manager
-- Airbnb
-- Vrbo
-- Booking.com
-- Expedia
-- SaaS
+  - Vacation Rentals
+  - Short-Term Rentals
+  - Property Management
+  - Channel Manager
+  - Airbnb
+  - Vrbo
+  - Booking.com
+  - Expedia
+  - SaaS
 kind: contract
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
-- url: https://www.hostaway.com
-  type: Portal
-- url: https://api.hostaway.com/documentation
-  name: Hostaway API Documentation
-  type: Documentation
-- url: https://dashboard.hostaway.com/login
-  type: SignUp
-- url: https://dashboard.hostaway.com/settings/integrations
-  name: Webhook Configuration
-  type: Documentation
-- url: https://www.hostaway.com/pricing/
-  name: Pricing
-  type: Pricing
-- url: https://www.hostaway.com/get-free-demo/
-  name: Free Demo
-  type: GettingStarted
-- url: https://www.hostaway.com/features/
-  name: Features
-  type: Documentation
-- url: https://www.hostaway.com/blog/
-  name: Hostaway Blog
-  type: Blog
-- url: https://www.hostaway.com/marketplace/
-  name: Hostaway Marketplace
-  type: Marketplace
-- url: https://www.hostaway.com/partners/
-  name: Partners
-  type: Partners
-- url: https://www.hostaway.com/about-us/
-  name: About Hostaway
-  type: About
-- url: https://www.hostaway.com/contact/
-  name: Contact
-  type: Support
-- url: https://www.hostaway.com/privacy-policy/
-  type: PrivacyPolicy
-- url: https://www.hostaway.com/terms-and-conditions/
-  type: TermsOfService
-- url: https://www.linkedin.com/company/hostaway
-  type: LinkedIn
-- url: https://www.facebook.com/hostawaycom
-  type: Facebook
-- url: https://twitter.com/hostawaycom
-  type: Twitter
-- url: https://www.instagram.com/hostawaycom/
-  type: Instagram
-- url: https://www.youtube.com/@hostaway
-  type: YouTube
-- url: https://github.com/Hostaway
-  type: GitHubOrganization
-- url: https://plans/hostaway-plans-pricing.yml
-  type: Plans
-- url: https://rate-limits/hostaway-rate-limits.yml
-  type: RateLimits
-- url: https://finops/hostaway-finops.yml
-  type: FinOps
-- type: Authentication
-  data:
-  - name: OAuth 2.0 — Client Credentials grant
-  - name: Token endpoint POST https://api.hostaway.com/v1/accessTokens
-  - name: Bearer access_token with 24-month validity
-  - name: Wait at least 1 second before using a freshly-issued token
-  - name: Tokens may be revoked via DELETE https://api.hostaway.com/v1/accessTokens
-  sources:
-  - https://api.hostaway.com/documentation
-- type: Channels
-  data:
-  - name: Airbnb (2025 Preferred Partner)
-  - name: Vrbo (2025 Elite Partner)
-  - name: Booking.com (2025 Premier Partner / 2026 Premier Plus Connectivity Partner)
-  - name: Expedia
-  - name: Google Vacation Rentals
-  - name: Marriott Homes & Villas
-  - name: HomeAway
-  sources:
-  - https://www.hostaway.com/
-  - https://www.hostaway.com/blog/
-- type: Features
-  data:
-  - Channel manager for Airbnb, Vrbo, Booking.com, Expedia, Google Vacation Rentals, and Marriott Homes & Villas
-  - Unified inbox across email, SMS, WhatsApp, and channel-native messaging
-  - Listing and reservation management with custom fields
-  - Calendar with per-day pricing, minimum stay, batch updates, and inline reservation context
-  - Owner statements, finance fields, expenses & extras, offline charges
-  - Price calculation engine with coupons and per-channel fee modeling
-  - Automation rules and tasks (cleaning, maintenance, inspection)
-  - Direct booking website
-  - Guest payments and auto-payment rules
-  - Marketplace with 100+ integrated vendors (Pricelabs, Wheelhouse, Beyond, Breezeway, Turno, Operto, RemoteLock, QuickBooks, Stripe, etc.)
-  - Unified webhooks for reservation created, reservation updated, and new message received
-  - Reference data for cancellation policies (Airbnb, Vrbo, Booking.com, Marriott), countries, currencies, languages, timezones
-  - Public REST API at https://api.hostaway.com/v1 with OAuth 2.0 client_credentials
-  - Documented rate limits — 15 req/10s per IP and 20 req/10s per account
-  - Standard envelope response with status, result, and pagination (limit, offset, count, page, totalPages)
-  - HTTPS-only, JSON request/response, UTC timestamps, ISO 3166-2 country codes, booleans as 0/1
-  sources:
-  - https://www.hostaway.com/
-  - https://www.hostaway.com/features/
-  - https://api.hostaway.com/documentation
-- type: Integrations
-  data:
-  - Pricelabs, Wheelhouse, Beyond, DPGO — revenue management
-  - Breezeway, Turno, Operto, Doinn — property operations and cleaning
-  - Safely, Autohost, Truvi — guest screening and safety
-  - RemoteLock, August, Yale, Nuki, Schlage — smart locks
-  - Stripe, Braintree, ChargeAutomation, Authorize.net — payments
-  - QuickBooks, Ximplifi, Clearing — accounting
-  - Slack, WhatsApp, Zapier — communication
-  - Lula Cleaning, Keepers, Tidy, Pacho — cleaning and maintenance
-  sources:
-  - https://www.hostaway.com/marketplace/
-- type: Recognition
-  data:
-  - 2025 Airbnb Preferred Partner
-  - 2025 Vrbo Elite Partner
-  - 2025 Booking.com Premier Partner
-  - 2026 Booking.com Premier Plus Connectivity Partner
-  - G2 Fastest Growing
-  - 2026 Silver Stevie Award
-  - 4.8/5 rating across 5,500+ reviews
-  sources:
-  - https://www.hostaway.com/
+  - url: https://www.hostaway.com
+    type: Portal
+  - url: https://api.hostaway.com/documentation
+    name: Hostaway API Documentation
+    type: Documentation
+  - url: https://dashboard.hostaway.com/login
+    type: SignUp
+  - url: https://dashboard.hostaway.com/settings/integrations
+    name: Webhook Configuration
+    type: Documentation
+  - url: https://www.hostaway.com/pricing/
+    name: Pricing
+    type: Pricing
+  - url: https://www.hostaway.com/get-free-demo/
+    name: Free Demo
+    type: GettingStarted
+  - url: https://www.hostaway.com/features/
+    name: Features
+    type: Documentation
+  - url: https://www.hostaway.com/blog/
+    name: Hostaway Blog
+    type: Blog
+  - url: https://www.hostaway.com/marketplace/
+    name: Hostaway Marketplace
+    type: Marketplace
+  - url: https://www.hostaway.com/partners/
+    name: Partners
+    type: Partners
+  - url: https://www.hostaway.com/about-us/
+    name: About Hostaway
+    type: About
+  - url: https://www.hostaway.com/contact/
+    name: Contact
+    type: Support
+  - url: https://www.hostaway.com/privacy-policy/
+    type: PrivacyPolicy
+  - url: https://www.hostaway.com/terms-and-conditions/
+    type: TermsOfService
+  - url: https://www.linkedin.com/company/hostaway
+    type: LinkedIn
+  - url: https://www.facebook.com/hostawaycom
+    type: Facebook
+  - url: https://twitter.com/hostawaycom
+    type: Twitter
+  - url: https://www.instagram.com/hostawaycom/
+    type: Instagram
+  - url: https://www.youtube.com/@hostaway
+    type: YouTube
+  - url: https://github.com/Hostaway
+    type: GitHubOrganization
+  - url: https://plans/hostaway-plans-pricing.yml
+    type: Plans
+  - url: https://rate-limits/hostaway-rate-limits.yml
+    type: RateLimits
+  - url: https://finops/hostaway-finops.yml
+    type: FinOps
+  - type: Authentication
+    data:
+      - name: OAuth 2.0 — Client Credentials grant
+      - name: Token endpoint POST https://api.hostaway.com/v1/accessTokens
+      - name: Bearer access_token with 24-month validity
+      - name: Wait at least 1 second before using a freshly-issued token
+      - name: Tokens may be revoked via DELETE https://api.hostaway.com/v1/accessTokens
+    sources:
+      - https://api.hostaway.com/documentation
+  - type: Channels
+    data:
+      - name: Airbnb (2025 Preferred Partner)
+      - name: Vrbo (2025 Elite Partner)
+      - name: Booking.com (2025 Premier Partner / 2026 Premier Plus Connectivity Partner)
+      - name: Expedia
+      - name: Google Vacation Rentals
+      - name: Marriott Homes & Villas
+      - name: HomeAway
+    sources:
+      - https://www.hostaway.com/
+      - https://www.hostaway.com/blog/
+  - type: Features
+    data:
+      - Channel manager for Airbnb, Vrbo, Booking.com, Expedia, Google Vacation Rentals, and Marriott Homes & Villas
+      - Unified inbox across email, SMS, WhatsApp, and channel-native messaging
+      - Listing and reservation management with custom fields
+      - Calendar with per-day pricing, minimum stay, batch updates, and inline reservation context
+      - Owner statements, finance fields, expenses & extras, offline charges
+      - Price calculation engine with coupons and per-channel fee modeling
+      - Automation rules and tasks (cleaning, maintenance, inspection)
+      - Direct booking website
+      - Guest payments and auto-payment rules
+      - >-
+        Marketplace with 100+ integrated vendors (Pricelabs, Wheelhouse, Beyond, Breezeway, Turno, Operto, RemoteLock,
+        QuickBooks, Stripe, etc.)
+      - Unified webhooks for reservation created, reservation updated, and new message received
+      - >-
+        Reference data for cancellation policies (Airbnb, Vrbo, Booking.com, Marriott), countries, currencies,
+        languages, timezones
+      - Public REST API at https://api.hostaway.com/v1 with OAuth 2.0 client_credentials
+      - Documented rate limits — 15 req/10s per IP and 20 req/10s per account
+      - Standard envelope response with status, result, and pagination (limit, offset, count, page, totalPages)
+      - HTTPS-only, JSON request/response, UTC timestamps, ISO 3166-2 country codes, booleans as 0/1
+    sources:
+      - https://www.hostaway.com/
+      - https://www.hostaway.com/features/
+      - https://api.hostaway.com/documentation
+  - type: Integrations
+    data:
+      - Pricelabs, Wheelhouse, Beyond, DPGO — revenue management
+      - Breezeway, Turno, Operto, Doinn — property operations and cleaning
+      - Safely, Autohost, Truvi — guest screening and safety
+      - RemoteLock, August, Yale, Nuki, Schlage — smart locks
+      - Stripe, Braintree, ChargeAutomation, Authorize.net — payments
+      - QuickBooks, Ximplifi, Clearing — accounting
+      - Slack, WhatsApp, Zapier — communication
+      - Lula Cleaning, Keepers, Tidy, Pacho — cleaning and maintenance
+    sources:
+      - https://www.hostaway.com/marketplace/
+  - type: Recognition
+    data:
+      - 2025 Airbnb Preferred Partner
+      - 2025 Vrbo Elite Partner
+      - 2025 Booking.com Premier Partner
+      - 2026 Booking.com Premier Plus Connectivity Partner
+      - G2 Fastest Growing
+      - 2026 Silver Stevie Award
+      - 4.8/5 rating across 5,500+ reviews
+    sources:
+      - https://www.hostaway.com/
 created: '2026-05-25'
 modified: '2026-05-25'
 position: Consuming
-description: Hostaway is an AI-powered vacation rental management platform that consolidates property management,
-  channel management, direct booking, guest messaging, automation, and revenue optimization for short-term rental
-  operators. The platform connects to Airbnb, Vrbo, Booking.com, Expedia, Google Vacation Rentals, and Marriott
-  Homes & Villas, and exposes a documented OAuth 2.0 public REST API at https://api.hostaway.com/v1 covering
-  listings, reservations, calendar, messaging, finance, tasks, custom fields, guest payments, and unified
-  webhooks. Pricing is quote-based; a free product demo is available. The Hostaway Marketplace contains 100+
-  integrated vendors spanning revenue management, operations, smart locks, payments, and accounting.
+description: >-
+  Hostaway is an AI-powered vacation rental management platform that consolidates property management, channel
+  management, direct booking, guest messaging, automation, and revenue optimization for short-term rental operators. The
+  platform connects to Airbnb, Vrbo, Booking.com, Expedia, Google Vacation Rentals, and Marriott Homes & Villas, and
+  exposes a documented OAuth 2.0 public REST API at https://api.hostaway.com/v1 covering listings, reservations,
+  calendar, messaging, finance, tasks, custom fields, guest payments, and unified webhooks. Pricing is quote-based; a
+  free product demo is available. The Hostaway Marketplace contains 100+ integrated vendors spanning revenue management,
+  operations, smart locks, payments, and accounting.
 maintainers:
-- FN: Kin Lane
-  email: info@apievangelist.com
-  X: apievangelist
-  url: https://apievangelist.com
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    X: apievangelist
+    url: https://apievangelist.com
 specificationVersion: '0.16'

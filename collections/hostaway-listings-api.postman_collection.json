@@ -1,0 +1,881 @@
+{
+  "item": [
+    {
+      "id": "a2ea0547-d9ae-4b50-855f-63c9b96f1cf8",
+      "name": "Listings",
+      "description": {
+        "content": "Vacation rental listings and properties",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "29662727-ff49-4a05-aada-c96ff1627e42",
+          "name": "Hostaway List Listings",
+          "request": {
+            "name": "Hostaway List Listings",
+            "description": {},
+            "url": {
+              "path": [
+                "listings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09569e52-1c14-41a1-8383-ca3e8a2a9c55",
+              "name": "Listings collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"count\": 6194,\n  \"limit\": 8684,\n  \"offset\": 7957,\n  \"result\": [\n    {\n      \"name\": \"string\",\n      \"externalListingName\": \"string\",\n      \"propertyTypeId\": 4351,\n      \"address\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"latitude\": 9012.079832547422,\n      \"longitude\": 8310.137111697144,\n      \"currencyCode\": \"USD\",\n      \"timeZoneName\": \"string\",\n      \"personCapacity\": 8969,\n      \"bedroomsNumber\": 8492,\n      \"bathroomsNumber\": 7098.030367816696,\n      \"bedsNumber\": 2601,\n      \"squareMeters\": 743.34310827753,\n      \"price\": 6532.607521827303,\n      \"cleaningFee\": 5700.989887878662,\n      \"checkInTimeStart\": 1353,\n      \"checkInTimeEnd\": 7040,\n      \"checkOutTime\": 544,\n      \"id\": 1148,\n      \"isActive\": 399,\n      \"insertedOn\": \"1966-02-24T11:33:51.275Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"externalListingName\": \"string\",\n      \"propertyTypeId\": 3836,\n      \"address\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"latitude\": 7038.148522675736,\n      \"longitude\": 3384.199065262774,\n      \"currencyCode\": \"USD\",\n      \"timeZoneName\": \"string\",\n      \"personCapacity\": 2093,\n      \"bedroomsNumber\": 4776,\n      \"bathroomsNumber\": 1455.8941503497847,\n      \"bedsNumber\": 6667,\n      \"squareMeters\": 614.5312456603547,\n      \"price\": 5757.5820053132275,\n      \"cleaningFee\": 8276.252495225855,\n      \"checkInTimeStart\": 9299,\n      \"checkInTimeEnd\": 6007,\n      \"checkOutTime\": 2162,\n      \"id\": 24,\n      \"isActive\": 1642,\n      \"insertedOn\": \"2022-10-27T11:06:54.266Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a669394f-31f9-46e6-8fcd-b01a43ef692f",
+          "name": "Hostaway Create Listing",
+          "request": {
+            "name": "Hostaway Create Listing",
+            "description": {},
+            "url": {
+              "path": [
+                "listings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"externalListingName\": \"<string>\",\n  \"propertyTypeId\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"latitude\": \"<double>\",\n  \"longitude\": \"<double>\",\n  \"currencyCode\": \"<string>\",\n  \"timeZoneName\": \"<string>\",\n  \"personCapacity\": \"<integer>\",\n  \"bedroomsNumber\": \"<integer>\",\n  \"bathroomsNumber\": \"<number>\",\n  \"bedsNumber\": \"<integer>\",\n  \"squareMeters\": \"<number>\",\n  \"price\": \"<number>\",\n  \"cleaningFee\": \"<number>\",\n  \"checkInTimeStart\": \"<integer>\",\n  \"checkInTimeEnd\": \"<integer>\",\n  \"checkOutTime\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8d4c4499-b7bf-4460-8f38-2e75a74af47a",
+              "name": "Listing created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"externalListingName\": \"<string>\",\n  \"propertyTypeId\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"latitude\": \"<double>\",\n  \"longitude\": \"<double>\",\n  \"currencyCode\": \"USD\",\n  \"timeZoneName\": \"<string>\",\n  \"personCapacity\": \"<integer>\",\n  \"bedroomsNumber\": \"<integer>\",\n  \"bathroomsNumber\": \"<number>\",\n  \"bedsNumber\": \"<integer>\",\n  \"squareMeters\": \"<number>\",\n  \"price\": \"<number>\",\n  \"cleaningFee\": \"<number>\",\n  \"checkInTimeStart\": \"<integer>\",\n  \"checkInTimeEnd\": \"<integer>\",\n  \"checkOutTime\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"name\": \"string\",\n    \"externalListingName\": \"string\",\n    \"propertyTypeId\": 3205,\n    \"address\": \"string\",\n    \"city\": \"string\",\n    \"country\": \"string\",\n    \"latitude\": 2656.818054850628,\n    \"longitude\": 3192.6522284535486,\n    \"currencyCode\": \"USD\",\n    \"timeZoneName\": \"string\",\n    \"personCapacity\": 2807,\n    \"bedroomsNumber\": 5392,\n    \"bathroomsNumber\": 9642.291410844566,\n    \"bedsNumber\": 9762,\n    \"squareMeters\": 2588.134211391191,\n    \"price\": 6362.085144721702,\n    \"cleaningFee\": 2951.4467312568536,\n    \"checkInTimeStart\": 478,\n    \"checkInTimeEnd\": 1636,\n    \"checkOutTime\": 3491,\n    \"id\": 4757,\n    \"isActive\": 7839,\n    \"insertedOn\": \"2020-05-23T09:16:03.064Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b8cafd5-5b31-48d7-bb21-caf25bdb9346",
+          "name": "Hostaway Get Listing",
+          "request": {
+            "name": "Hostaway Get Listing",
+            "description": {},
+            "url": {
+              "path": [
+                "listings",
+                ":listingId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "listingId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "12e31674-5706-4531-a23b-6d76f7447470",
+              "name": "Single listing",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings",
+                    ":listingId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "listingId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"name\": \"string\",\n    \"externalListingName\": \"string\",\n    \"propertyTypeId\": 3205,\n    \"address\": \"string\",\n    \"city\": \"string\",\n    \"country\": \"string\",\n    \"latitude\": 2656.818054850628,\n    \"longitude\": 3192.6522284535486,\n    \"currencyCode\": \"USD\",\n    \"timeZoneName\": \"string\",\n    \"personCapacity\": 2807,\n    \"bedroomsNumber\": 5392,\n    \"bathroomsNumber\": 9642.291410844566,\n    \"bedsNumber\": 9762,\n    \"squareMeters\": 2588.134211391191,\n    \"price\": 6362.085144721702,\n    \"cleaningFee\": 2951.4467312568536,\n    \"checkInTimeStart\": 478,\n    \"checkInTimeEnd\": 1636,\n    \"checkOutTime\": 3491,\n    \"id\": 4757,\n    \"isActive\": 7839,\n    \"insertedOn\": \"2020-05-23T09:16:03.064Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9fa9a7c-aeac-4913-8b28-00ba8f276330",
+          "name": "Hostaway Update Listing",
+          "request": {
+            "name": "Hostaway Update Listing",
+            "description": {},
+            "url": {
+              "path": [
+                "listings",
+                ":listingId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "listingId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"externalListingName\": \"<string>\",\n  \"propertyTypeId\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"latitude\": \"<double>\",\n  \"longitude\": \"<double>\",\n  \"currencyCode\": \"<string>\",\n  \"timeZoneName\": \"<string>\",\n  \"personCapacity\": \"<integer>\",\n  \"bedroomsNumber\": \"<integer>\",\n  \"bathroomsNumber\": \"<number>\",\n  \"bedsNumber\": \"<integer>\",\n  \"squareMeters\": \"<number>\",\n  \"price\": \"<number>\",\n  \"cleaningFee\": \"<number>\",\n  \"checkInTimeStart\": \"<integer>\",\n  \"checkInTimeEnd\": \"<integer>\",\n  \"checkOutTime\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e0bf4189-788a-471c-83b4-fc69ca191c6c",
+              "name": "Listing updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings",
+                    ":listingId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "listingId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"externalListingName\": \"<string>\",\n  \"propertyTypeId\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"latitude\": \"<double>\",\n  \"longitude\": \"<double>\",\n  \"currencyCode\": \"USD\",\n  \"timeZoneName\": \"<string>\",\n  \"personCapacity\": \"<integer>\",\n  \"bedroomsNumber\": \"<integer>\",\n  \"bathroomsNumber\": \"<number>\",\n  \"bedsNumber\": \"<integer>\",\n  \"squareMeters\": \"<number>\",\n  \"price\": \"<number>\",\n  \"cleaningFee\": \"<number>\",\n  \"checkInTimeStart\": \"<integer>\",\n  \"checkInTimeEnd\": \"<integer>\",\n  \"checkOutTime\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"name\": \"string\",\n    \"externalListingName\": \"string\",\n    \"propertyTypeId\": 3205,\n    \"address\": \"string\",\n    \"city\": \"string\",\n    \"country\": \"string\",\n    \"latitude\": 2656.818054850628,\n    \"longitude\": 3192.6522284535486,\n    \"currencyCode\": \"USD\",\n    \"timeZoneName\": \"string\",\n    \"personCapacity\": 2807,\n    \"bedroomsNumber\": 5392,\n    \"bathroomsNumber\": 9642.291410844566,\n    \"bedsNumber\": 9762,\n    \"squareMeters\": 2588.134211391191,\n    \"price\": 6362.085144721702,\n    \"cleaningFee\": 2951.4467312568536,\n    \"checkInTimeStart\": 478,\n    \"checkInTimeEnd\": 1636,\n    \"checkOutTime\": 3491,\n    \"id\": 4757,\n    \"isActive\": 7839,\n    \"insertedOn\": \"2020-05-23T09:16:03.064Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5eeac248-2025-45d5-8a92-9bb534546b1b",
+      "name": "Listing Amenities",
+      "description": {
+        "content": "Amenities offered by a listing",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a38d0d3e-1d26-47d1-a494-796426b518e0",
+          "name": "Hostaway List Listing Amenities",
+          "request": {
+            "name": "Hostaway List Listing Amenities",
+            "description": {},
+            "url": {
+              "path": [
+                "listings",
+                ":listingId",
+                "amenities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "listingId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f88b8df2-a6e9-4b80-8804-fb5af59b397d",
+              "name": "Amenities collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings",
+                    ":listingId",
+                    "amenities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "listingId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"fail\",\n  \"result\": {},\n  \"count\": 7980,\n  \"limit\": 8649,\n  \"offset\": 145,\n  \"page\": 3855,\n  \"totalPages\": 8850\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1d7a1fb7-1684-453d-8063-1e6fde9af17b",
+      "name": "Listing Bed Types",
+      "description": {
+        "content": "Bed types configured for a listing",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a50641c7-7a92-4255-8618-d77a84df4c56",
+          "name": "Hostaway List Listing Bed Types",
+          "request": {
+            "name": "Hostaway List Listing Bed Types",
+            "description": {},
+            "url": {
+              "path": [
+                "listings",
+                ":listingId",
+                "bedTypes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "listingId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b5c73a2c-7c8d-49e3-802c-09c0c6a3fbad",
+              "name": "Bed types collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings",
+                    ":listingId",
+                    "bedTypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "listingId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"fail\",\n  \"result\": {},\n  \"count\": 7980,\n  \"limit\": 8649,\n  \"offset\": 145,\n  \"page\": 3855,\n  \"totalPages\": 8850\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f765fc15-cdc1-4572-b255-198754028e14",
+      "name": "Listing Images",
+      "description": {
+        "content": "Photographs attached to a listing",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a131c5c3-9005-4f86-9f6c-d9860d2591d0",
+          "name": "Hostaway List Listing Images",
+          "request": {
+            "name": "Hostaway List Listing Images",
+            "description": {},
+            "url": {
+              "path": [
+                "listings",
+                ":listingId",
+                "images"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "listingId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "06391848-2843-4401-9156-3dee5e2312e1",
+              "name": "Images collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings",
+                    ":listingId",
+                    "images"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "listingId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"fail\",\n  \"result\": {},\n  \"count\": 7980,\n  \"limit\": 8649,\n  \"offset\": 145,\n  \"page\": 3855,\n  \"totalPages\": 8850\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3022d77-e381-45e0-bab7-202eb3539bcc",
+          "name": "Hostaway Add Listing Image",
+          "request": {
+            "name": "Hostaway Add Listing Image",
+            "description": {},
+            "url": {
+              "path": [
+                "listings",
+                ":listingId",
+                "images"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "listingId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<uri>\",\n  \"caption\": \"<string>\",\n  \"sortOrder\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "45131b80-62b5-4c0f-bd09-f926c1d0c622",
+              "name": "Image added",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings",
+                    ":listingId",
+                    "images"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "listingId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<uri>\",\n  \"caption\": \"<string>\",\n  \"sortOrder\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"fail\",\n  \"result\": {},\n  \"count\": 7980,\n  \"limit\": 8649,\n  \"offset\": 145,\n  \"page\": 3855,\n  \"totalPages\": 8850\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.hostaway.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "general"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.hostaway.com/v1/accessTokens"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "27e4103d-e005-488c-b304-fecd116b3e03",
+    "name": "Hostaway Listings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage vacation rental listings in Hostaway: properties, amenities, bed types,\nimages, and custom field values. Hostaway is a property-management system used\nby short-term rental operators to publish to Airbnb, Vrbo, Booking.com,\nExpedia, Google Vacation Rentals, and Marriott Homes & Villas.\n\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
+      "type": "text/plain"
+    }
+  }
+}

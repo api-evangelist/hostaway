@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hostaway Webhooks API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.hostaway.com/v1/accessTokens",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Webhooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Hostaway List Unified Webhooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hostaway.com/v1/webhooks/unifiedWebhooks"
+          },
+          "docs": "Hostaway List Unified Webhooks"
+        },
+        {
+          "info": {
+            "name": "Hostaway Create Unified Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.hostaway.com/v1/webhooks/unifiedWebhooks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Hostaway Create Unified Webhook"
+        },
+        {
+          "info": {
+            "name": "Hostaway Get Unified Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hostaway.com/v1/webhooks/unifiedWebhooks/:webhookId",
+            "params": [
+              {
+                "name": "webhookId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Hostaway Get Unified Webhook"
+        },
+        {
+          "info": {
+            "name": "Hostaway Update Unified Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.hostaway.com/v1/webhooks/unifiedWebhooks/:webhookId",
+            "params": [
+              {
+                "name": "webhookId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Hostaway Update Unified Webhook"
+        },
+        {
+          "info": {
+            "name": "Hostaway Delete Unified Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.hostaway.com/v1/webhooks/unifiedWebhooks/:webhookId",
+            "params": [
+              {
+                "name": "webhookId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Hostaway Delete Unified Webhook"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

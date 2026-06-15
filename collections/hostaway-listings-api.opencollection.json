@@ -1,0 +1,207 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hostaway Listings API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.hostaway.com/v1/accessTokens",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Listings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Hostaway List Listings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hostaway.com/v1/listings",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Hostaway List Listings"
+        },
+        {
+          "info": {
+            "name": "Hostaway Create Listing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.hostaway.com/v1/listings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Hostaway Create Listing"
+        },
+        {
+          "info": {
+            "name": "Hostaway Get Listing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hostaway.com/v1/listings/:listingId",
+            "params": [
+              {
+                "name": "listingId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Hostaway Get Listing"
+        },
+        {
+          "info": {
+            "name": "Hostaway Update Listing",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.hostaway.com/v1/listings/:listingId",
+            "params": [
+              {
+                "name": "listingId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Hostaway Update Listing"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Listing Amenities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Hostaway List Listing Amenities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hostaway.com/v1/listings/:listingId/amenities",
+            "params": [
+              {
+                "name": "listingId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Hostaway List Listing Amenities"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Listing Bed Types",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Hostaway List Listing Bed Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hostaway.com/v1/listings/:listingId/bedTypes",
+            "params": [
+              {
+                "name": "listingId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Hostaway List Listing Bed Types"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Listing Images",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Hostaway List Listing Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hostaway.com/v1/listings/:listingId/images",
+            "params": [
+              {
+                "name": "listingId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Hostaway List Listing Images"
+        },
+        {
+          "info": {
+            "name": "Hostaway Add Listing Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.hostaway.com/v1/listings/:listingId/images",
+            "params": [
+              {
+                "name": "listingId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Hostaway Add Listing Image"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

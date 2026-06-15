@@ -1,0 +1,209 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hostaway Reservations API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.hostaway.com/v1/accessTokens",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reservations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Hostaway List Reservations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hostaway.com/v1/reservations",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "listingId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "arrivalStartDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "arrivalEndDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "channelId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Hostaway List Reservations"
+        },
+        {
+          "info": {
+            "name": "Hostaway Create Reservation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.hostaway.com/v1/reservations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Hostaway Create Reservation"
+        },
+        {
+          "info": {
+            "name": "Hostaway Get Reservation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hostaway.com/v1/reservations/:reservationId",
+            "params": [
+              {
+                "name": "reservationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Hostaway Get Reservation"
+        },
+        {
+          "info": {
+            "name": "Hostaway Update Reservation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.hostaway.com/v1/reservations/:reservationId",
+            "params": [
+              {
+                "name": "reservationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Hostaway Update Reservation"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Reservation Coupons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Hostaway Create Reservation Coupon",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.hostaway.com/v1/reservations/:reservationId/coupons",
+            "params": [
+              {
+                "name": "reservationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Hostaway Create Reservation Coupon"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Reservation Fees",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Hostaway List Reservation Fees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hostaway.com/v1/reservations/:reservationId/fees",
+            "params": [
+              {
+                "name": "reservationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Hostaway List Reservation Fees"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Reservation Units",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Hostaway List Reservation Units",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hostaway.com/v1/reservations/:reservationId/units",
+            "params": [
+              {
+                "name": "reservationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Hostaway List Reservation Units"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
