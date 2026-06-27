@@ -169,7 +169,7 @@ common:
     name: Hostaway API Documentation
     type: Documentation
   - url: https://dashboard.hostaway.com/login
-    type: SignUp
+    type: Signup
   - url: https://dashboard.hostaway.com/settings/integrations
     name: Webhook Configuration
     type: Documentation
