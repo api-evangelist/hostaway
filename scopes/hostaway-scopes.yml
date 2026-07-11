@@ -1,0 +1,35 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/hostaway-calendar-api-openapi.yml, openapi/hostaway-listings-api-openapi.yml,
+  openapi/hostaway-reservations-api-openapi.yml, openapi/hostaway-webhooks-api-openapi.yml
+schemes:
+- name: OAuth2ClientCredentials
+  source: openapi/hostaway-calendar-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.hostaway.com/v1/accessTokens
+- name: OAuth2ClientCredentials
+  source: openapi/hostaway-listings-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.hostaway.com/v1/accessTokens
+- name: OAuth2ClientCredentials
+  source: openapi/hostaway-reservations-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.hostaway.com/v1/accessTokens
+- name: OAuth2ClientCredentials
+  source: openapi/hostaway-webhooks-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.hostaway.com/v1/accessTokens
+scopes:
+- scope: general
+  description: General API access scope
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/hostaway-calendar-api-openapi.yml
+  - openapi/hostaway-listings-api-openapi.yml
+  - openapi/hostaway-reservations-api-openapi.yml
+  - openapi/hostaway-webhooks-api-openapi.yml
