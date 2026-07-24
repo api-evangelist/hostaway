@@ -1,63 +1,56 @@
 openapi: 3.1.0
 info:
-  title: Hostaway Reservations API
-  description: |
-    Create, read, and update reservations across all connected channels
-    (Airbnb, Vrbo, Booking.com, Expedia, direct, etc.). Includes coupons,
-    reservation fees, reservation units, and host proxy email handling.
-  version: '1.0.0'
+  title: Hostaway Calendar Reservations API
+  description: 'Read and update availability and nightly pricing on the Hostaway listing
+
+    calendar. Supports per-day retrieval, batch updates, and embedded
+
+    reservation context via the includeResources query parameter.
+
+    '
+  version: 1.0.0
   contact:
     name: Hostaway Support
     email: support@hostaway.com
     url: https://api.hostaway.com/documentation
   x-logo:
     url: https://www.hostaway.com/favicon.ico
-
 servers:
-  - url: https://api.hostaway.com/v1
-    description: Production API
-
+- url: https://api.hostaway.com/v1
+  description: Production API
 security:
-  - OAuth2ClientCredentials: []
-
+- OAuth2ClientCredentials: []
 tags:
-  - name: Reservations
-    description: Bookings and reservations across channels
-  - name: Reservation Coupons
-    description: Coupons applied to a reservation
-  - name: Reservation Fees
-    description: Fees applied to a reservation
-  - name: Reservation Units
-    description: Sub-units associated with a reservation
-
+- name: Reservations
+  description: Bookings and reservations across channels
 paths:
   /reservations:
     get:
       summary: Hostaway List Reservations
       operationId: listReservations
       tags:
-        - Reservations
+      - Reservations
       parameters:
-        - $ref: '#/components/parameters/Limit'
-        - $ref: '#/components/parameters/Offset'
-        - name: listingId
-          in: query
-          schema:
-            type: integer
-        - name: arrivalStartDate
-          in: query
-          schema:
-            type: string
-            format: date
-        - name: arrivalEndDate
-          in: query
-          schema:
-            type: string
-            format: date
-        - name: channelId
-          in: query
-          schema:
-            type: integer
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      - name: listingId
+        in: query
+        schema:
+          type: integer
+      - name: arrivalStartDate
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: arrivalEndDate
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: channelId
+        in: query
+        schema:
+          type: integer
       responses:
         '200':
           description: Reservations collection
@@ -69,7 +62,7 @@ paths:
       summary: Hostaway Create Reservation
       operationId: createReservation
       tags:
-        - Reservations
+      - Reservations
       requestBody:
         required: true
         content:
@@ -85,12 +78,12 @@ paths:
                 $ref: '#/components/schemas/ReservationResponse'
   /reservations/{reservationId}:
     parameters:
-      - $ref: '#/components/parameters/ReservationId'
+    - $ref: '#/components/parameters/ReservationId'
     get:
       summary: Hostaway Get Reservation
       operationId: getReservation
       tags:
-        - Reservations
+      - Reservations
       responses:
         '200':
           description: Single reservation
@@ -102,7 +95,7 @@ paths:
       summary: Hostaway Update Reservation
       operationId: updateReservation
       tags:
-        - Reservations
+      - Reservations
       requestBody:
         required: true
         content:
@@ -116,109 +109,35 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ReservationResponse'
-  /reservations/{reservationId}/coupons:
-    parameters:
-      - $ref: '#/components/parameters/ReservationId'
-    post:
-      summary: Hostaway Create Reservation Coupon
-      operationId: createReservationCoupon
-      tags:
-        - Reservation Coupons
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                code:
-                  type: string
-                amount:
-                  type: number
-                discountType:
-                  type: string
-                  enum: [fixed, percent]
-      responses:
-        '200':
-          description: Coupon created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StandardResponse'
-  /reservations/{reservationId}/fees:
-    parameters:
-      - $ref: '#/components/parameters/ReservationId'
-    get:
-      summary: Hostaway List Reservation Fees
-      operationId: listReservationFees
-      tags:
-        - Reservation Fees
-      responses:
-        '200':
-          description: Fees collection
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StandardResponse'
-  /reservations/{reservationId}/units:
-    parameters:
-      - $ref: '#/components/parameters/ReservationId'
-    get:
-      summary: Hostaway List Reservation Units
-      operationId: listReservationUnits
-      tags:
-        - Reservation Units
-      responses:
-        '200':
-          description: Units collection
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StandardResponse'
-
 components:
-  securitySchemes:
-    OAuth2ClientCredentials:
-      type: oauth2
-      flows:
-        clientCredentials:
-          tokenUrl: https://api.hostaway.com/v1/accessTokens
-          scopes:
-            general: General API access scope
-  parameters:
-    ReservationId:
-      name: reservationId
-      in: path
-      required: true
-      schema:
-        type: integer
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 10
-    Offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        default: 0
   schemas:
-    StandardResponse:
+    ReservationResponse:
       type: object
       properties:
         status:
           type: string
-          enum: [success, fail]
         result:
-          type: object
+          $ref: '#/components/schemas/Reservation'
+    Reservation:
+      allOf:
+      - $ref: '#/components/schemas/ReservationInput'
+      - type: object
+        properties:
+          id:
+            type: integer
+          reservationId:
+            type: string
+          hostawayReservationId:
+            type: string
+          insertedOn:
+            type: string
+            format: date-time
     ReservationInput:
       type: object
       required:
-        - listingMapId
-        - arrivalDate
-        - departureDate
+      - listingMapId
+      - arrivalDate
+      - departureDate
       properties:
         listingMapId:
           type: integer
@@ -260,27 +179,6 @@ components:
         status:
           type: string
           description: Reservation status (new, modified, cancelled, etc.)
-    Reservation:
-      allOf:
-        - $ref: '#/components/schemas/ReservationInput'
-        - type: object
-          properties:
-            id:
-              type: integer
-            reservationId:
-              type: string
-            hostawayReservationId:
-              type: string
-            insertedOn:
-              type: string
-              format: date-time
-    ReservationResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        result:
-          $ref: '#/components/schemas/Reservation'
     ReservationsResponse:
       type: object
       properties:
@@ -296,3 +194,30 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Reservation'
+  parameters:
+    Offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        default: 0
+    ReservationId:
+      name: reservationId
+      in: path
+      required: true
+      schema:
+        type: integer
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 10
+  securitySchemes:
+    OAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.hostaway.com/v1/accessTokens
+          scopes:
+            general: General API access scope

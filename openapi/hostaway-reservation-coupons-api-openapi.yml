@@ -1,0 +1,84 @@
+openapi: 3.1.0
+info:
+  title: Hostaway Calendar Reservation Coupons API
+  description: 'Read and update availability and nightly pricing on the Hostaway listing
+
+    calendar. Supports per-day retrieval, batch updates, and embedded
+
+    reservation context via the includeResources query parameter.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Hostaway Support
+    email: support@hostaway.com
+    url: https://api.hostaway.com/documentation
+  x-logo:
+    url: https://www.hostaway.com/favicon.ico
+servers:
+- url: https://api.hostaway.com/v1
+  description: Production API
+security:
+- OAuth2ClientCredentials: []
+tags:
+- name: Reservation Coupons
+  description: Coupons applied to a reservation
+paths:
+  /reservations/{reservationId}/coupons:
+    parameters:
+    - $ref: '#/components/parameters/ReservationId'
+    post:
+      summary: Hostaway Create Reservation Coupon
+      operationId: createReservationCoupon
+      tags:
+      - Reservation Coupons
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                amount:
+                  type: number
+                discountType:
+                  type: string
+                  enum:
+                  - fixed
+                  - percent
+      responses:
+        '200':
+          description: Coupon created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StandardResponse'
+components:
+  schemas:
+    StandardResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+          - fail
+        result:
+          type: object
+  parameters:
+    ReservationId:
+      name: reservationId
+      in: path
+      required: true
+      schema:
+        type: integer
+  securitySchemes:
+    OAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.hostaway.com/v1/accessTokens
+          scopes:
+            general: General API access scope

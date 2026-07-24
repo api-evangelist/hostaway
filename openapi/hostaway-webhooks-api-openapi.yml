@@ -1,36 +1,35 @@
 openapi: 3.1.0
 info:
-  title: Hostaway Webhooks API
-  description: |
-    Manage unified webhooks for Hostaway events: reservation created,
-    reservation updated, and new message received. Webhooks may also be
-    configured through the dashboard at
-    https://dashboard.hostaway.com/settings/integrations. Failed deliveries
-    are retried up to 3 times before a failure notification is emailed.
-  version: '1.0.0'
+  title: Hostaway Calendar Webhooks API
+  description: 'Read and update availability and nightly pricing on the Hostaway listing
+
+    calendar. Supports per-day retrieval, batch updates, and embedded
+
+    reservation context via the includeResources query parameter.
+
+    '
+  version: 1.0.0
   contact:
     name: Hostaway Support
     email: support@hostaway.com
     url: https://api.hostaway.com/documentation
-
+  x-logo:
+    url: https://www.hostaway.com/favicon.ico
 servers:
-  - url: https://api.hostaway.com/v1
-    description: Production API
-
+- url: https://api.hostaway.com/v1
+  description: Production API
 security:
-  - OAuth2ClientCredentials: []
-
+- OAuth2ClientCredentials: []
 tags:
-  - name: Webhooks
-    description: Unified event webhooks
-
+- name: Webhooks
+  description: Unified event webhooks
 paths:
   /webhooks/unifiedWebhooks:
     get:
       summary: Hostaway List Unified Webhooks
       operationId: listUnifiedWebhooks
       tags:
-        - Webhooks
+      - Webhooks
       responses:
         '200':
           description: Webhooks collection
@@ -42,7 +41,7 @@ paths:
       summary: Hostaway Create Unified Webhook
       operationId: createUnifiedWebhook
       tags:
-        - Webhooks
+      - Webhooks
       requestBody:
         required: true
         content:
@@ -58,16 +57,16 @@ paths:
                 $ref: '#/components/schemas/WebhookResponse'
   /webhooks/unifiedWebhooks/{webhookId}:
     parameters:
-      - name: webhookId
-        in: path
-        required: true
-        schema:
-          type: integer
+    - name: webhookId
+      in: path
+      required: true
+      schema:
+        type: integer
     get:
       summary: Hostaway Get Unified Webhook
       operationId: getUnifiedWebhook
       tags:
-        - Webhooks
+      - Webhooks
       responses:
         '200':
           description: Webhook
@@ -79,7 +78,7 @@ paths:
       summary: Hostaway Update Unified Webhook
       operationId: updateUnifiedWebhook
       tags:
-        - Webhooks
+      - Webhooks
       requestBody:
         required: true
         content:
@@ -97,7 +96,7 @@ paths:
       summary: Hostaway Delete Unified Webhook
       operationId: deleteUnifiedWebhook
       tags:
-        - Webhooks
+      - Webhooks
       responses:
         '200':
           description: Webhook deleted
@@ -105,29 +104,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/StandardResponse'
-
 components:
-  securitySchemes:
-    OAuth2ClientCredentials:
-      type: oauth2
-      flows:
-        clientCredentials:
-          tokenUrl: https://api.hostaway.com/v1/accessTokens
-          scopes:
-            general: General API access scope
   schemas:
-    StandardResponse:
+    WebhookListResponse:
       type: object
       properties:
         status:
           type: string
-          enum: [success, fail]
         result:
-          type: object
+          type: array
+          items:
+            $ref: '#/components/schemas/Webhook'
     WebhookInput:
       type: object
       required:
-        - url
+      - url
       properties:
         url:
           type: string
@@ -144,17 +135,9 @@ components:
           description: Recipient for delivery-failure notifications
         isEnabled:
           type: integer
-          enum: [0, 1]
-    Webhook:
-      allOf:
-        - $ref: '#/components/schemas/WebhookInput'
-        - type: object
-          properties:
-            id:
-              type: integer
-            insertedOn:
-              type: string
-              format: date-time
+          enum:
+          - 0
+          - 1
     WebhookResponse:
       type: object
       properties:
@@ -162,12 +145,31 @@ components:
           type: string
         result:
           $ref: '#/components/schemas/Webhook'
-    WebhookListResponse:
+    StandardResponse:
       type: object
       properties:
         status:
           type: string
+          enum:
+          - success
+          - fail
         result:
-          type: array
-          items:
-            $ref: '#/components/schemas/Webhook'
+          type: object
+    Webhook:
+      allOf:
+      - $ref: '#/components/schemas/WebhookInput'
+      - type: object
+        properties:
+          id:
+            type: integer
+          insertedOn:
+            type: string
+            format: date-time
+  securitySchemes:
+    OAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.hostaway.com/v1/accessTokens
+          scopes:
+            general: General API access scope

@@ -1,46 +1,38 @@
 openapi: 3.1.0
 info:
-  title: Hostaway Listings API
-  description: |
-    Manage vacation rental listings in Hostaway: properties, amenities, bed types,
-    images, and custom field values. Hostaway is a property-management system used
-    by short-term rental operators to publish to Airbnb, Vrbo, Booking.com,
-    Expedia, Google Vacation Rentals, and Marriott Homes & Villas.
-  version: '1.0.0'
+  title: Hostaway Calendar Listings API
+  description: 'Read and update availability and nightly pricing on the Hostaway listing
+
+    calendar. Supports per-day retrieval, batch updates, and embedded
+
+    reservation context via the includeResources query parameter.
+
+    '
+  version: 1.0.0
   contact:
     name: Hostaway Support
     email: support@hostaway.com
     url: https://api.hostaway.com/documentation
   x-logo:
     url: https://www.hostaway.com/favicon.ico
-
 servers:
-  - url: https://api.hostaway.com/v1
-    description: Production API
-
+- url: https://api.hostaway.com/v1
+  description: Production API
 security:
-  - OAuth2ClientCredentials: []
-
+- OAuth2ClientCredentials: []
 tags:
-  - name: Listings
-    description: Vacation rental listings and properties
-  - name: Listing Amenities
-    description: Amenities offered by a listing
-  - name: Listing Bed Types
-    description: Bed types configured for a listing
-  - name: Listing Images
-    description: Photographs attached to a listing
-
+- name: Listings
+  description: Vacation rental listings and properties
 paths:
   /listings:
     get:
       summary: Hostaway List Listings
       operationId: listListings
       tags:
-        - Listings
+      - Listings
       parameters:
-        - $ref: '#/components/parameters/Limit'
-        - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
       responses:
         '200':
           description: Listings collection
@@ -52,7 +44,7 @@ paths:
       summary: Hostaway Create Listing
       operationId: createListing
       tags:
-        - Listings
+      - Listings
       requestBody:
         required: true
         content:
@@ -68,12 +60,12 @@ paths:
                 $ref: '#/components/schemas/ListingResponse'
   /listings/{listingId}:
     parameters:
-      - $ref: '#/components/parameters/ListingId'
+    - $ref: '#/components/parameters/ListingId'
     get:
       summary: Hostaway Get Listing
       operationId: getListing
       tags:
-        - Listings
+      - Listings
       responses:
         '200':
           description: Single listing
@@ -85,7 +77,7 @@ paths:
       summary: Hostaway Update Listing
       operationId: updateListing
       tags:
-        - Listings
+      - Listings
       requestBody:
         required: true
         content:
@@ -99,87 +91,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListingResponse'
-  /listings/{listingId}/amenities:
-    parameters:
-      - $ref: '#/components/parameters/ListingId'
-    get:
-      summary: Hostaway List Listing Amenities
-      operationId: listListingAmenities
-      tags:
-        - Listing Amenities
-      responses:
-        '200':
-          description: Amenities collection
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StandardResponse'
-  /listings/{listingId}/bedTypes:
-    parameters:
-      - $ref: '#/components/parameters/ListingId'
-    get:
-      summary: Hostaway List Listing Bed Types
-      operationId: listListingBedTypes
-      tags:
-        - Listing Bed Types
-      responses:
-        '200':
-          description: Bed types collection
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StandardResponse'
-  /listings/{listingId}/images:
-    parameters:
-      - $ref: '#/components/parameters/ListingId'
-    get:
-      summary: Hostaway List Listing Images
-      operationId: listListingImages
-      tags:
-        - Listing Images
-      responses:
-        '200':
-          description: Images collection
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StandardResponse'
-    post:
-      summary: Hostaway Add Listing Image
-      operationId: addListingImage
-      tags:
-        - Listing Images
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                url:
-                  type: string
-                  format: uri
-                caption:
-                  type: string
-                sortOrder:
-                  type: integer
-      responses:
-        '200':
-          description: Image added
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StandardResponse'
-
 components:
-  securitySchemes:
-    OAuth2ClientCredentials:
-      type: oauth2
-      flows:
-        clientCredentials:
-          tokenUrl: https://api.hostaway.com/v1/accessTokens
-          scopes:
-            general: General API access scope
   parameters:
     ListingId:
       name: listingId
@@ -187,37 +99,32 @@ components:
       required: true
       schema:
         type: integer
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 10
     Offset:
       name: offset
       in: query
       schema:
         type: integer
         default: 0
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 10
   schemas:
-    StandardResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          enum: [success, fail]
-        result:
-          type: object
-        count:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        page:
-          type: integer
-        totalPages:
-          type: integer
+    Listing:
+      allOf:
+      - $ref: '#/components/schemas/ListingInput'
+      - type: object
+        properties:
+          id:
+            type: integer
+          isActive:
+            type: integer
+            description: 0 or 1
+          insertedOn:
+            type: string
+            format: date-time
     ListingInput:
       type: object
       properties:
@@ -265,33 +172,14 @@ components:
           type: integer
         checkOutTime:
           type: integer
-    Listing:
-      allOf:
-        - $ref: '#/components/schemas/ListingInput'
-        - type: object
-          properties:
-            id:
-              type: integer
-            isActive:
-              type: integer
-              description: 0 or 1
-            insertedOn:
-              type: string
-              format: date-time
-    ListingResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          enum: [success, fail]
-        result:
-          $ref: '#/components/schemas/Listing'
     ListingsResponse:
       type: object
       properties:
         status:
           type: string
-          enum: [success, fail]
+          enum:
+          - success
+          - fail
         count:
           type: integer
         limit:
@@ -302,3 +190,21 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Listing'
+    ListingResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+          - fail
+        result:
+          $ref: '#/components/schemas/Listing'
+  securitySchemes:
+    OAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.hostaway.com/v1/accessTokens
+          scopes:
+            general: General API access scope
