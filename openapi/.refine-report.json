@@ -1,0 +1,32 @@
+{
+  "provider": "hostaway",
+  "sources": [
+    "hostaway-calendar-api-openapi.yml",
+    "hostaway-listing-amenities-api-openapi.yml",
+    "hostaway-listing-bed-types-api-openapi.yml",
+    "hostaway-listing-images-api-openapi.yml",
+    "hostaway-listings-api-openapi.yml",
+    "hostaway-reservation-coupons-api-openapi.yml",
+    "hostaway-reservation-fees-api-openapi.yml",
+    "hostaway-reservation-units-api-openapi.yml",
+    "hostaway-reservations-api-openapi.yml",
+    "hostaway-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "hostaway-calendar-api-openapi.yml",
+    "hostaway-listing-amenities-api-openapi.yml",
+    "hostaway-listing-bed-types-api-openapi.yml",
+    "hostaway-listing-images-api-openapi.yml",
+    "hostaway-listings-api-openapi.yml",
+    "hostaway-reservation-coupons-api-openapi.yml",
+    "hostaway-reservation-fees-api-openapi.yml",
+    "hostaway-reservation-units-api-openapi.yml",
+    "hostaway-reservations-api-openapi.yml",
+    "hostaway-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
