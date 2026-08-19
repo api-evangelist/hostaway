@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "572b3a68-80c8-4f7b-bdcc-330c197709cb",
+      "id": "c86f1860-f965-4bcd-8846-0913825ea9c2",
       "name": "Calendar",
       "description": {
         "content": "Listing calendar availability and pricing",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "bbd65b05-9124-4341-a0a5-d408717e37ab",
+          "id": "28c97dbe-bada-4495-b27a-9f14273cdf18",
           "name": "Hostaway Get Calendar Days",
           "request": {
             "name": "Hostaway Get Calendar Days",
@@ -61,7 +61,7 @@
           },
           "response": [
             {
-              "id": "dfc441b0-bc8b-41ca-aa50-200aa7440f7a",
+              "id": "6298a2f7-ff88-4d31-9105-2a83ffa56653",
               "name": "Calendar days collection",
               "originalRequest": {
                 "url": {
@@ -122,7 +122,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": \"success\",\n  \"result\": [\n    {\n      \"date\": \"1947-04-08\",\n      \"price\": 1480.6898602557383,\n      \"minimumStay\": 3411,\n      \"maximumStay\": 6690,\n      \"closedOnArrival\": 1,\n      \"closedOnDeparture\": 1,\n      \"isAvailable\": 0,\n      \"note\": \"string\",\n      \"reservationId\": 1736,\n      \"status\": \"string\"\n    },\n    {\n      \"date\": \"2009-05-10\",\n      \"price\": 8213.811102549185,\n      \"minimumStay\": 5418,\n      \"maximumStay\": 5669,\n      \"closedOnArrival\": 0,\n      \"closedOnDeparture\": 1,\n      \"isAvailable\": 0,\n      \"note\": \"string\",\n      \"reservationId\": 6045,\n      \"status\": \"string\"\n    }\n  ]\n}",
+              "body": "{\n  \"status\": \"fail\",\n  \"result\": [\n    {\n      \"date\": \"1954-09-03\",\n      \"price\": 1817.0829417995194,\n      \"minimumStay\": 848,\n      \"maximumStay\": 2967,\n      \"closedOnArrival\": 0,\n      \"closedOnDeparture\": 1,\n      \"isAvailable\": 0,\n      \"note\": \"string\",\n      \"reservationId\": 5085,\n      \"status\": \"string\"\n    },\n    {\n      \"date\": \"1988-09-01\",\n      \"price\": 8462.756283058026,\n      \"minimumStay\": 509,\n      \"maximumStay\": 6081,\n      \"closedOnArrival\": 1,\n      \"closedOnDeparture\": 1,\n      \"isAvailable\": 0,\n      \"note\": \"string\",\n      \"reservationId\": 6938,\n      \"status\": \"string\"\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -133,7 +133,7 @@
           }
         },
         {
-          "id": "4686640e-7213-45b6-b249-2dcb5fc0c90b",
+          "id": "2a12da22-fcec-4cfc-bae2-25e5b78c5f50",
           "name": "Hostaway Update Calendar Day",
           "request": {
             "name": "Hostaway Update Calendar Day",
@@ -182,7 +182,7 @@
           },
           "response": [
             {
-              "id": "720b590d-bff8-4187-8458-2a62c8c1ca92",
+              "id": "bf9a71b7-629d-4201-8987-1a5973f2cc37",
               "name": "Calendar day updated",
               "originalRequest": {
                 "url": {
@@ -238,7 +238,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": \"success\",\n  \"result\": [\n    {\n      \"date\": \"1947-04-08\",\n      \"price\": 1480.6898602557383,\n      \"minimumStay\": 3411,\n      \"maximumStay\": 6690,\n      \"closedOnArrival\": 1,\n      \"closedOnDeparture\": 1,\n      \"isAvailable\": 0,\n      \"note\": \"string\",\n      \"reservationId\": 1736,\n      \"status\": \"string\"\n    },\n    {\n      \"date\": \"2009-05-10\",\n      \"price\": 8213.811102549185,\n      \"minimumStay\": 5418,\n      \"maximumStay\": 5669,\n      \"closedOnArrival\": 0,\n      \"closedOnDeparture\": 1,\n      \"isAvailable\": 0,\n      \"note\": \"string\",\n      \"reservationId\": 6045,\n      \"status\": \"string\"\n    }\n  ]\n}",
+              "body": "{\n  \"status\": \"fail\",\n  \"result\": [\n    {\n      \"date\": \"1954-09-03\",\n      \"price\": 1817.0829417995194,\n      \"minimumStay\": 848,\n      \"maximumStay\": 2967,\n      \"closedOnArrival\": 0,\n      \"closedOnDeparture\": 1,\n      \"isAvailable\": 0,\n      \"note\": \"string\",\n      \"reservationId\": 5085,\n      \"status\": \"string\"\n    },\n    {\n      \"date\": \"1988-09-01\",\n      \"price\": 8462.756283058026,\n      \"minimumStay\": 509,\n      \"maximumStay\": 6081,\n      \"closedOnArrival\": 1,\n      \"closedOnDeparture\": 1,\n      \"isAvailable\": 0,\n      \"note\": \"string\",\n      \"reservationId\": 6938,\n      \"status\": \"string\"\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -249,7 +249,7 @@
           }
         },
         {
-          "id": "b3244462-6ead-4081-8974-7296a233c4e7",
+          "id": "4cb843c9-e5a2-4327-a394-3a823a41395b",
           "name": "Hostaway Batch Update Calendar",
           "request": {
             "name": "Hostaway Batch Update Calendar",
@@ -299,7 +299,7 @@
           },
           "response": [
             {
-              "id": "e6672728-6522-4792-828a-a561b8808ede",
+              "id": "ec4808f7-6d9d-4281-b61b-39a1d5ef4eca",
               "name": "Batch update applied",
               "originalRequest": {
                 "url": {
@@ -356,7 +356,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": \"success\",\n  \"result\": [\n    {\n      \"date\": \"1947-04-08\",\n      \"price\": 1480.6898602557383,\n      \"minimumStay\": 3411,\n      \"maximumStay\": 6690,\n      \"closedOnArrival\": 1,\n      \"closedOnDeparture\": 1,\n      \"isAvailable\": 0,\n      \"note\": \"string\",\n      \"reservationId\": 1736,\n      \"status\": \"string\"\n    },\n    {\n      \"date\": \"2009-05-10\",\n      \"price\": 8213.811102549185,\n      \"minimumStay\": 5418,\n      \"maximumStay\": 5669,\n      \"closedOnArrival\": 0,\n      \"closedOnDeparture\": 1,\n      \"isAvailable\": 0,\n      \"note\": \"string\",\n      \"reservationId\": 6045,\n      \"status\": \"string\"\n    }\n  ]\n}",
+              "body": "{\n  \"status\": \"fail\",\n  \"result\": [\n    {\n      \"date\": \"1954-09-03\",\n      \"price\": 1817.0829417995194,\n      \"minimumStay\": 848,\n      \"maximumStay\": 2967,\n      \"closedOnArrival\": 0,\n      \"closedOnDeparture\": 1,\n      \"isAvailable\": 0,\n      \"note\": \"string\",\n      \"reservationId\": 5085,\n      \"status\": \"string\"\n    },\n    {\n      \"date\": \"1988-09-01\",\n      \"price\": 8462.756283058026,\n      \"minimumStay\": 509,\n      \"maximumStay\": 6081,\n      \"closedOnArrival\": 1,\n      \"closedOnDeparture\": 1,\n      \"isAvailable\": 0,\n      \"note\": \"string\",\n      \"reservationId\": 6938,\n      \"status\": \"string\"\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -396,7 +396,7 @@
     ]
   },
   "info": {
-    "_postman_id": "77f4d835-f14e-4a39-86dc-11d550895fc3",
+    "_postman_id": "a9f6f5c0-0857-4589-b1d5-e9b80db9d48d",
     "name": "Hostaway Calendar API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {

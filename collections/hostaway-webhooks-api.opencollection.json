@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Hostaway Webhooks API",
+    "name": "Hostaway Calendar Webhooks API",
     "version": "1.0.0"
   },
   "request": {

@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "b73276f9-d705-4d11-93a5-d85802ce1bf2",
+      "id": "6d760d7e-034a-4482-b5c1-b42477483daf",
       "name": "Webhooks",
       "description": {
         "content": "Unified event webhooks",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "b66bbe75-f0c0-4acf-a530-f73bb2f0e897",
+          "id": "ee7bb573-096a-4d96-ad9c-944ec0e321be",
           "name": "Hostaway List Unified Webhooks",
           "request": {
             "name": "Hostaway List Unified Webhooks",
@@ -36,7 +36,7 @@
           },
           "response": [
             {
-              "id": "8f29212c-295f-41c4-8177-ffb2542f4ee0",
+              "id": "4f1d8019-9ab7-4732-8cd8-da759c5b5f73",
               "name": "Webhooks collection",
               "originalRequest": {
                 "url": {
@@ -75,7 +75,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": \"string\",\n  \"result\": [\n    {\n      \"url\": \"http://eIcNAjO.meuneHJ0W8g9www\",\n      \"login\": \"string\",\n      \"password\": \"string\",\n      \"alertingEmailAddress\": \"LnUWXpBsn1R@CmVqzjiZmn.kcl\",\n      \"isEnabled\": 1,\n      \"id\": 1063,\n      \"insertedOn\": \"1957-07-20T19:43:05.598Z\"\n    },\n    {\n      \"url\": \"http://RHEvQZOfQWOanuKZPNreXFIHNlHucwaYL.nsuIgxif09tbIc-iwVaw+EpC2JgWQHjCxQAbCJsMO06dt6ra13VwkkDMOpKRA7fY\",\n      \"login\": \"string\",\n      \"password\": \"string\",\n      \"alertingEmailAddress\": \"U1XG@fG.hrpa\",\n      \"isEnabled\": 1,\n      \"id\": 7562,\n      \"insertedOn\": \"1948-11-24T03:58:18.060Z\"\n    }\n  ]\n}",
+              "body": "{\n  \"status\": \"string\",\n  \"result\": [\n    {\n      \"url\": \"https://bG.jceaEleJEdLZ5vUNQyF+SVdw769\",\n      \"login\": \"string\",\n      \"password\": \"string\",\n      \"alertingEmailAddress\": \"n79o@gjMdVvswZFMDyQslPYjB.ey\",\n      \"isEnabled\": 0,\n      \"id\": 2376,\n      \"insertedOn\": \"2007-06-20T16:02:00.853Z\"\n    },\n    {\n      \"url\": \"https://isDdrfZnIpkIJXrmmLcRLLSoaMNaK.examF-wkzxeSc4QTvspaxeUjMeeGMDYJTfxex1fmHHdn.pb0dnPU.iafRhz\",\n      \"login\": \"string\",\n      \"password\": \"string\",\n      \"alertingEmailAddress\": \"6NCcSCQPvZ@wMuOTFSmeCEpUFQOvqCqbXbBEB.ig\",\n      \"isEnabled\": 0,\n      \"id\": 9261,\n      \"insertedOn\": \"1989-08-14T17:27:22.730Z\"\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -86,7 +86,7 @@
           }
         },
         {
-          "id": "6b58d28a-3446-4102-a047-115ba9ed909e",
+          "id": "936e3ff0-a394-479f-875f-1f89b75e26cb",
           "name": "Hostaway Create Unified Webhook",
           "request": {
             "name": "Hostaway Create Unified Webhook",
@@ -126,7 +126,7 @@
           },
           "response": [
             {
-              "id": "d574e656-41b5-41a3-8f99-19de40c23b87",
+              "id": "bc206f0e-34cd-47eb-a1ec-29cc26aa22eb",
               "name": "Webhook created",
               "originalRequest": {
                 "url": {
@@ -173,7 +173,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": \"string\",\n  \"result\": {\n    \"url\": \"https://WBuzAJtiLBNbPvfYQfci.zuoV-vTwZBNeDMaayYCS2aKbwc\",\n    \"login\": \"string\",\n    \"password\": \"string\",\n    \"alertingEmailAddress\": \"NukDyG1xYupO6uG@ZKMocyVAuRmNDhwVY.sbm\",\n    \"isEnabled\": 0,\n    \"id\": 5253,\n    \"insertedOn\": \"1948-11-26T20:50:07.064Z\"\n  }\n}",
+              "body": "{\n  \"status\": \"string\",\n  \"result\": {\n    \"url\": \"https://px.qhzaM.0l,wNjt\",\n    \"login\": \"string\",\n    \"password\": \"string\",\n    \"alertingEmailAddress\": \"sKMFln14imK-v1@tWYp.iivn\",\n    \"isEnabled\": 1,\n    \"id\": 8488,\n    \"insertedOn\": \"1973-10-10T01:30:35.475Z\"\n  }\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -184,7 +184,7 @@
           }
         },
         {
-          "id": "6bf0de14-ff85-4d42-a188-9305ba1ed86a",
+          "id": "3bf62b66-30ea-4a07-88f3-36390c134292",
           "name": "Hostaway Get Unified Webhook",
           "request": {
             "name": "Hostaway Get Unified Webhook",
@@ -220,7 +220,7 @@
           },
           "response": [
             {
-              "id": "4f0a5bc5-43a0-46d5-ae19-278ffab9994c",
+              "id": "50d372f5-18b8-4645-b0cd-bc4c6d008965",
               "name": "Webhook",
               "originalRequest": {
                 "url": {
@@ -268,7 +268,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": \"string\",\n  \"result\": {\n    \"url\": \"https://WBuzAJtiLBNbPvfYQfci.zuoV-vTwZBNeDMaayYCS2aKbwc\",\n    \"login\": \"string\",\n    \"password\": \"string\",\n    \"alertingEmailAddress\": \"NukDyG1xYupO6uG@ZKMocyVAuRmNDhwVY.sbm\",\n    \"isEnabled\": 0,\n    \"id\": 5253,\n    \"insertedOn\": \"1948-11-26T20:50:07.064Z\"\n  }\n}",
+              "body": "{\n  \"status\": \"string\",\n  \"result\": {\n    \"url\": \"https://px.qhzaM.0l,wNjt\",\n    \"login\": \"string\",\n    \"password\": \"string\",\n    \"alertingEmailAddress\": \"sKMFln14imK-v1@tWYp.iivn\",\n    \"isEnabled\": 1,\n    \"id\": 8488,\n    \"insertedOn\": \"1973-10-10T01:30:35.475Z\"\n  }\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -279,7 +279,7 @@
           }
         },
         {
-          "id": "93f4a09f-1bc5-42fe-9bb8-275e09c5566b",
+          "id": "8aa7eb84-a513-48c0-b747-8cc2da00ca1a",
           "name": "Hostaway Update Unified Webhook",
           "request": {
             "name": "Hostaway Update Unified Webhook",
@@ -328,7 +328,7 @@
           },
           "response": [
             {
-              "id": "a241903a-6408-403b-902c-cc5b58723ce8",
+              "id": "8032828e-c703-4ec0-a8fc-e187b7d31991",
               "name": "Webhook updated",
               "originalRequest": {
                 "url": {
@@ -384,7 +384,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": \"string\",\n  \"result\": {\n    \"url\": \"https://WBuzAJtiLBNbPvfYQfci.zuoV-vTwZBNeDMaayYCS2aKbwc\",\n    \"login\": \"string\",\n    \"password\": \"string\",\n    \"alertingEmailAddress\": \"NukDyG1xYupO6uG@ZKMocyVAuRmNDhwVY.sbm\",\n    \"isEnabled\": 0,\n    \"id\": 5253,\n    \"insertedOn\": \"1948-11-26T20:50:07.064Z\"\n  }\n}",
+              "body": "{\n  \"status\": \"string\",\n  \"result\": {\n    \"url\": \"https://px.qhzaM.0l,wNjt\",\n    \"login\": \"string\",\n    \"password\": \"string\",\n    \"alertingEmailAddress\": \"sKMFln14imK-v1@tWYp.iivn\",\n    \"isEnabled\": 1,\n    \"id\": 8488,\n    \"insertedOn\": \"1973-10-10T01:30:35.475Z\"\n  }\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -395,7 +395,7 @@
           }
         },
         {
-          "id": "ab3520ba-3884-45d7-8693-58a9f04875d5",
+          "id": "a6b6b1f9-4df6-4652-9f06-c79d1905f14e",
           "name": "Hostaway Delete Unified Webhook",
           "request": {
             "name": "Hostaway Delete Unified Webhook",
@@ -431,7 +431,7 @@
           },
           "response": [
             {
-              "id": "92997a2d-c473-4cc8-a253-996cb6261c4c",
+              "id": "1f484af6-6c78-433b-b1ad-7cfa18877544",
               "name": "Webhook deleted",
               "originalRequest": {
                 "url": {
@@ -519,11 +519,11 @@
     ]
   },
   "info": {
-    "_postman_id": "64d1f024-a36a-4e4c-998c-77a2eb695c15",
-    "name": "Hostaway Webhooks API",
+    "_postman_id": "81d8c522-3de1-4336-ae25-f317b896589a",
+    "name": "Hostaway Calendar Webhooks API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "Manage unified webhooks for Hostaway events: reservation created,\nreservation updated, and new message received. Webhooks may also be\nconfigured through the dashboard at\nhttps://dashboard.hostaway.com/settings/integrations. Failed deliveries\nare retried up to 3 times before a failure notification is emailed.\n\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
+      "content": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
       "type": "text/plain"
     }
   }

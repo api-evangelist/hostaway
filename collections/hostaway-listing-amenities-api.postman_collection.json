@@ -1,0 +1,144 @@
+{
+  "item": [
+    {
+      "id": "e184bb95-7432-41c3-bf46-b1aea1220ecd",
+      "name": "Listing Amenities",
+      "description": {
+        "content": "Amenities offered by a listing",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "303d13c9-9a5d-4364-9e64-1ceda9325658",
+          "name": "Hostaway List Listing Amenities",
+          "request": {
+            "name": "Hostaway List Listing Amenities",
+            "description": {},
+            "url": {
+              "path": [
+                "listings",
+                ":listingId",
+                "amenities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "listingId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba47ac67-af26-4deb-9b02-b5749ea19ac5",
+              "name": "Amenities collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings",
+                    ":listingId",
+                    "amenities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "listingId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"result\": {},\n  \"count\": 5408,\n  \"limit\": 4797,\n  \"offset\": 5375,\n  \"page\": 7103,\n  \"totalPages\": 8357\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.hostaway.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "general"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.hostaway.com/v1/accessTokens"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b1dbcf08-cb2b-4ef3-b085-3ea27a5ceda9",
+    "name": "Hostaway Calendar Listing Amenities API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
+      "type": "text/plain"
+    }
+  }
+}

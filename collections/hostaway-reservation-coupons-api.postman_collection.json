@@ -1,0 +1,165 @@
+{
+  "item": [
+    {
+      "id": "b726cf1d-10b4-4058-8b97-e69ab9410a04",
+      "name": "Reservation Coupons",
+      "description": {
+        "content": "Coupons applied to a reservation",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fbce1be4-6ab7-4302-b542-0e4be918d26e",
+          "name": "Hostaway Create Reservation Coupon",
+          "request": {
+            "name": "Hostaway Create Reservation Coupon",
+            "description": {},
+            "url": {
+              "path": [
+                "reservations",
+                ":reservationId",
+                "coupons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "reservationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"discountType\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "40ef2622-1b86-4b65-985f-75f942283e72",
+              "name": "Coupon created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reservations",
+                    ":reservationId",
+                    "coupons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reservationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"discountType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"fail\",\n  \"result\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.hostaway.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "general"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.hostaway.com/v1/accessTokens"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c35d4d43-81a2-49a2-9465-03389f857dc3",
+    "name": "Hostaway Calendar Reservation Coupons API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
+      "type": "text/plain"
+    }
+  }
+}

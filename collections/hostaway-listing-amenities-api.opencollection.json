@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hostaway Calendar Listing Amenities API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.hostaway.com/v1/accessTokens",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Listing Amenities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Hostaway List Listing Amenities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hostaway.com/v1/listings/:listingId/amenities",
+            "params": [
+              {
+                "name": "listingId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Hostaway List Listing Amenities"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

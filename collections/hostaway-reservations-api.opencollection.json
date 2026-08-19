@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Hostaway Reservations API",
+    "name": "Hostaway Calendar Reservations API",
     "version": "1.0.0"
   },
   "request": {
@@ -119,88 +119,6 @@
             }
           },
           "docs": "Hostaway Update Reservation"
-        }
-      ]
-    },
-    {
-      "info": {
-        "name": "Reservation Coupons",
-        "type": "folder"
-      },
-      "items": [
-        {
-          "info": {
-            "name": "Hostaway Create Reservation Coupon",
-            "type": "http"
-          },
-          "http": {
-            "method": "POST",
-            "url": "https://api.hostaway.com/v1/reservations/:reservationId/coupons",
-            "params": [
-              {
-                "name": "reservationId",
-                "value": "",
-                "type": "path"
-              }
-            ],
-            "body": {
-              "type": "json",
-              "data": "{}"
-            }
-          },
-          "docs": "Hostaway Create Reservation Coupon"
-        }
-      ]
-    },
-    {
-      "info": {
-        "name": "Reservation Fees",
-        "type": "folder"
-      },
-      "items": [
-        {
-          "info": {
-            "name": "Hostaway List Reservation Fees",
-            "type": "http"
-          },
-          "http": {
-            "method": "GET",
-            "url": "https://api.hostaway.com/v1/reservations/:reservationId/fees",
-            "params": [
-              {
-                "name": "reservationId",
-                "value": "",
-                "type": "path"
-              }
-            ]
-          },
-          "docs": "Hostaway List Reservation Fees"
-        }
-      ]
-    },
-    {
-      "info": {
-        "name": "Reservation Units",
-        "type": "folder"
-      },
-      "items": [
-        {
-          "info": {
-            "name": "Hostaway List Reservation Units",
-            "type": "http"
-          },
-          "http": {
-            "method": "GET",
-            "url": "https://api.hostaway.com/v1/reservations/:reservationId/units",
-            "params": [
-              {
-                "name": "reservationId",
-                "value": "",
-                "type": "path"
-              }
-            ]
-          },
-          "docs": "Hostaway List Reservation Units"
         }
       ]
     }

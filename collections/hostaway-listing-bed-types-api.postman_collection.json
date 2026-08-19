@@ -1,0 +1,144 @@
+{
+  "item": [
+    {
+      "id": "c348ef68-4c6d-4e21-b598-47fd4392567a",
+      "name": "Listing Bed Types",
+      "description": {
+        "content": "Bed types configured for a listing",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e64eb86b-4e9c-4a2f-8b23-abca450dd07e",
+          "name": "Hostaway List Listing Bed Types",
+          "request": {
+            "name": "Hostaway List Listing Bed Types",
+            "description": {},
+            "url": {
+              "path": [
+                "listings",
+                ":listingId",
+                "bedTypes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "listingId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78456fb0-c96e-4aa3-a7f8-11c70d7ecccc",
+              "name": "Bed types collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings",
+                    ":listingId",
+                    "bedTypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "listingId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"result\": {},\n  \"count\": 3821,\n  \"limit\": 4715,\n  \"offset\": 101,\n  \"page\": 9974,\n  \"totalPages\": 5534\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.hostaway.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "general"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.hostaway.com/v1/accessTokens"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "41ae01a2-8882-4de7-8650-ba410eb34ceb",
+    "name": "Hostaway Calendar Listing Bed Types API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
+      "type": "text/plain"
+    }
+  }
+}
