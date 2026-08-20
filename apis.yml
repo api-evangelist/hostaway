@@ -87,6 +87,9 @@ apis:
   name: Hostaway Tasks API
   tags:
   - Vacation Rentals
+  - Task
+  tags_raw:
+  - Vacation Rentals
   - Tasks
   - Operations
   humanURL: https://api.hostaway.com/documentation
@@ -135,6 +138,10 @@ apis:
 - aid: hostaway:hostaway-webhooks-api
   name: Hostaway Webhooks API
   tags:
+  - Vacation Rentals
+  - Webhook
+  - Event
+  tags_raw:
   - Vacation Rentals
   - Webhooks
   - Events
@@ -204,6 +211,16 @@ apis:
     url: openapi/hostaway-reservation-units-api-openapi.yml
 name: Hostaway
 tags:
+  - Vacation Rentals
+  - Short-Term Rentals
+  - Property Management
+  - Channel Manager
+  - Airbnb
+  - Vrbo
+  - Booking.com
+  - Expedia
+  - Software-as-a-Service
+tags_raw:
   - Vacation Rentals
   - Short-Term Rentals
   - Property Management
