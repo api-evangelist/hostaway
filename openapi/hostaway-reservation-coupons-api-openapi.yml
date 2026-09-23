@@ -1,13 +1,11 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Hostaway Calendar Reservation Coupons API
   description: 'Read and update availability and nightly pricing on the Hostaway listing
 
     calendar. Supports per-day retrieval, batch updates, and embedded
 
-    reservation context via the includeResources query parameter.
-
-    '
+    reservation context via the includeResources query parameter.'
   version: 1.0.0
   contact:
     name: Hostaway Support

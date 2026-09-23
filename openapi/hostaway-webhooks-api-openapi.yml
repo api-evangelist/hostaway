@@ -1,13 +1,11 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Hostaway Calendar Webhooks API
   description: 'Read and update availability and nightly pricing on the Hostaway listing
 
     calendar. Supports per-day retrieval, batch updates, and embedded
 
-    reservation context via the includeResources query parameter.
-
-    '
+    reservation context via the includeResources query parameter.'
   version: 1.0.0
   contact:
     name: Hostaway Support
@@ -106,15 +104,16 @@ paths:
                 $ref: '#/components/schemas/StandardResponse'
 components:
   schemas:
-    WebhookListResponse:
+    StandardResponse:
       type: object
       properties:
         status:
           type: string
+          enum:
+          - success
+          - fail
         result:
-          type: array
-          items:
-            $ref: '#/components/schemas/Webhook'
+          type: object
     WebhookInput:
       type: object
       required:
@@ -138,23 +137,15 @@ components:
           enum:
           - 0
           - 1
-    WebhookResponse:
+    WebhookListResponse:
       type: object
       properties:
         status:
           type: string
         result:
-          $ref: '#/components/schemas/Webhook'
-    StandardResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - success
-          - fail
-        result:
-          type: object
+          type: array
+          items:
+            $ref: '#/components/schemas/Webhook'
     Webhook:
       allOf:
       - $ref: '#/components/schemas/WebhookInput'
@@ -165,6 +156,13 @@ components:
           insertedOn:
             type: string
             format: date-time
+    WebhookResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        result:
+          $ref: '#/components/schemas/Webhook'
   securitySchemes:
     OAuth2ClientCredentials:
       type: oauth2
