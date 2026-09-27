@@ -38,6 +38,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/StandardResponse'
 components:
+  parameters:
+    ListingId:
+      name: listingId
+      in: path
+      required: true
+      schema:
+        type: integer
   schemas:
     StandardResponse:
       type: object
@@ -59,13 +66,6 @@ components:
           type: integer
         totalPages:
           type: integer
-  parameters:
-    ListingId:
-      name: listingId
-      in: path
-      required: true
-      schema:
-        type: integer
   securitySchemes:
     OAuth2ClientCredentials:
       type: oauth2

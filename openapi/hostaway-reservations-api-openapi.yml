@@ -108,40 +108,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ReservationResponse'
 components:
-  parameters:
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 10
-    ReservationId:
-      name: reservationId
-      in: path
-      required: true
-      schema:
-        type: integer
-    Offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        default: 0
   schemas:
-    Reservation:
-      allOf:
-      - $ref: '#/components/schemas/ReservationInput'
-      - type: object
-        properties:
-          id:
-            type: integer
-          reservationId:
-            type: string
-          hostawayReservationId:
-            type: string
-          insertedOn:
-            type: string
-            format: date-time
     ReservationInput:
       type: object
       required:
@@ -189,6 +156,20 @@ components:
         status:
           type: string
           description: Reservation status (new, modified, cancelled, etc.)
+    Reservation:
+      allOf:
+      - $ref: '#/components/schemas/ReservationInput'
+      - type: object
+        properties:
+          id:
+            type: integer
+          reservationId:
+            type: string
+          hostawayReservationId:
+            type: string
+          insertedOn:
+            type: string
+            format: date-time
     ReservationResponse:
       type: object
       properties:
@@ -211,6 +192,25 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Reservation'
+  parameters:
+    Offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        default: 0
+    ReservationId:
+      name: reservationId
+      in: path
+      required: true
+      schema:
+        type: integer
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 10
   securitySchemes:
     OAuth2ClientCredentials:
       type: oauth2
