@@ -109,6 +109,20 @@ paths:
                 $ref: '#/components/schemas/ReservationResponse'
 components:
   schemas:
+    Reservation:
+      allOf:
+      - $ref: '#/components/schemas/ReservationInput'
+      - type: object
+        properties:
+          id:
+            type: integer
+          reservationId:
+            type: string
+          hostawayReservationId:
+            type: string
+          insertedOn:
+            type: string
+            format: date-time
     ReservationInput:
       type: object
       required:
@@ -156,20 +170,6 @@ components:
         status:
           type: string
           description: Reservation status (new, modified, cancelled, etc.)
-    Reservation:
-      allOf:
-      - $ref: '#/components/schemas/ReservationInput'
-      - type: object
-        properties:
-          id:
-            type: integer
-          reservationId:
-            type: string
-          hostawayReservationId:
-            type: string
-          insertedOn:
-            type: string
-            format: date-time
     ReservationResponse:
       type: object
       properties:

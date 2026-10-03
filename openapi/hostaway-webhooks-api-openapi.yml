@@ -104,16 +104,15 @@ paths:
                 $ref: '#/components/schemas/StandardResponse'
 components:
   schemas:
-    Webhook:
-      allOf:
-      - $ref: '#/components/schemas/WebhookInput'
-      - type: object
-        properties:
-          id:
-            type: integer
-          insertedOn:
-            type: string
-            format: date-time
+    WebhookListResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/Webhook'
     WebhookInput:
       type: object
       required:
@@ -147,15 +146,16 @@ components:
           - fail
         result:
           type: object
-    WebhookListResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/Webhook'
+    Webhook:
+      allOf:
+      - $ref: '#/components/schemas/WebhookInput'
+      - type: object
+        properties:
+          id:
+            type: integer
+          insertedOn:
+            type: string
+            format: date-time
     WebhookResponse:
       type: object
       properties:
