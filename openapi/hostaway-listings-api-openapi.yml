@@ -90,7 +90,67 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListingResponse'
 components:
+  parameters:
+    ListingId:
+      name: listingId
+      in: path
+      required: true
+      schema:
+        type: integer
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 10
+    Offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        default: 0
   schemas:
+    Listing:
+      allOf:
+      - $ref: '#/components/schemas/ListingInput'
+      - type: object
+        properties:
+          id:
+            type: integer
+          isActive:
+            type: integer
+            description: 0 or 1
+          insertedOn:
+            type: string
+            format: date-time
+    ListingsResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+          - fail
+        count:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/Listing'
+    ListingResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+          - fail
+        result:
+          $ref: '#/components/schemas/Listing'
     ListingInput:
       type: object
       properties:
@@ -138,66 +198,6 @@ components:
           type: integer
         checkOutTime:
           type: integer
-    ListingResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - success
-          - fail
-        result:
-          $ref: '#/components/schemas/Listing'
-    ListingsResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - success
-          - fail
-        count:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/Listing'
-    Listing:
-      allOf:
-      - $ref: '#/components/schemas/ListingInput'
-      - type: object
-        properties:
-          id:
-            type: integer
-          isActive:
-            type: integer
-            description: 0 or 1
-          insertedOn:
-            type: string
-            format: date-time
-  parameters:
-    Offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        default: 0
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 10
-    ListingId:
-      name: listingId
-      in: path
-      required: true
-      schema:
-        type: integer
   securitySchemes:
     OAuth2ClientCredentials:
       type: oauth2

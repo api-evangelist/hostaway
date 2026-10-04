@@ -112,7 +112,25 @@ paths:
               schema:
                 $ref: '#/components/schemas/CalendarResponse'
 components:
+  parameters:
+    ListingId:
+      name: listingId
+      in: path
+      required: true
+      schema:
+        type: integer
   schemas:
+    CalendarDay:
+      allOf:
+      - $ref: '#/components/schemas/CalendarDayInput'
+      - type: object
+        properties:
+          reservationId:
+            type: integer
+            nullable: true
+          status:
+            type: string
+            description: available, reserved, blocked
     CalendarDayInput:
       type: object
       properties:
@@ -154,24 +172,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CalendarDay'
-    CalendarDay:
-      allOf:
-      - $ref: '#/components/schemas/CalendarDayInput'
-      - type: object
-        properties:
-          reservationId:
-            type: integer
-            nullable: true
-          status:
-            type: string
-            description: available, reserved, blocked
-  parameters:
-    ListingId:
-      name: listingId
-      in: path
-      required: true
-      schema:
-        type: integer
   securitySchemes:
     OAuth2ClientCredentials:
       type: oauth2

@@ -123,6 +123,28 @@ components:
           insertedOn:
             type: string
             format: date-time
+    ReservationsResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        count:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reservation'
+    ReservationResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        result:
+          $ref: '#/components/schemas/Reservation'
     ReservationInput:
       type: object
       required:
@@ -170,47 +192,25 @@ components:
         status:
           type: string
           description: Reservation status (new, modified, cancelled, etc.)
-    ReservationResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        result:
-          $ref: '#/components/schemas/Reservation'
-    ReservationsResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        count:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/Reservation'
   parameters:
-    Offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        default: 0
-    ReservationId:
-      name: reservationId
-      in: path
-      required: true
-      schema:
-        type: integer
     Limit:
       name: limit
       in: query
       schema:
         type: integer
         default: 10
+    ReservationId:
+      name: reservationId
+      in: path
+      required: true
+      schema:
+        type: integer
+    Offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        default: 0
   securitySchemes:
     OAuth2ClientCredentials:
       type: oauth2

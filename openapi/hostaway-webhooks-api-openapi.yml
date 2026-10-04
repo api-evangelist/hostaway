@@ -104,15 +104,6 @@ paths:
                 $ref: '#/components/schemas/StandardResponse'
 components:
   schemas:
-    WebhookListResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/Webhook'
     WebhookInput:
       type: object
       required:
@@ -136,16 +127,22 @@ components:
           enum:
           - 0
           - 1
-    StandardResponse:
+    WebhookResponse:
       type: object
       properties:
         status:
           type: string
-          enum:
-          - success
-          - fail
         result:
-          type: object
+          $ref: '#/components/schemas/Webhook'
+    WebhookListResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/Webhook'
     Webhook:
       allOf:
       - $ref: '#/components/schemas/WebhookInput'
@@ -156,13 +153,16 @@ components:
           insertedOn:
             type: string
             format: date-time
-    WebhookResponse:
+    StandardResponse:
       type: object
       properties:
         status:
           type: string
+          enum:
+          - success
+          - fail
         result:
-          $ref: '#/components/schemas/Webhook'
+          type: object
   securitySchemes:
     OAuth2ClientCredentials:
       type: oauth2
