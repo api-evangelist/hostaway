@@ -263,6 +263,9 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/hostaway.png
 access: 3rd-Party
 common:
+  - type: CapabilityMap
+    url: capabilities/hostaway-capability-edges.yml
+    name: Hostaway Business Capability Map
   - type: Website
     url: https://www.hostaway.com/
   - type: AgenticAccess
