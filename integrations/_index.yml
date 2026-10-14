@@ -366,7 +366,6 @@
   partner_name: Braintree
   type: marketplace
   marketplace: own
-  channel: partner-built
   evidence: https://www.hostaway.com/marketplace/braintree
   source: edge
   relationship: platform-app
@@ -1995,7 +1994,6 @@
   partner_name: Authorize.net
   type: marketplace
   marketplace: own
-  channel: partner-built
   evidence: https://www.hostaway.com/marketplace/authorize-net
   source: edge
   relationship: platform-app
@@ -2476,7 +2474,7 @@
   arazzo: null
 - slug: hostaway-beyond
   label: Beyond
-  partner: beyond
+  partner: beyond-pricing
   partner_name: Beyond
   type: marketplace
   marketplace: own
@@ -2548,7 +2546,6 @@
   partner_name: Stripe
   type: marketplace
   marketplace: own
-  channel: partner-built
   evidence: https://www.hostaway.com/marketplace/stripe
   source: edge
   relationship: platform-app
