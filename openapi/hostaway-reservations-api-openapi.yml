@@ -109,20 +109,6 @@ paths:
                 $ref: '#/components/schemas/ReservationResponse'
 components:
   schemas:
-    Reservation:
-      allOf:
-      - $ref: '#/components/schemas/ReservationInput'
-      - type: object
-        properties:
-          id:
-            type: integer
-          reservationId:
-            type: string
-          hostawayReservationId:
-            type: string
-          insertedOn:
-            type: string
-            format: date-time
     ReservationsResponse:
       type: object
       properties:
@@ -138,13 +124,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Reservation'
-    ReservationResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        result:
-          $ref: '#/components/schemas/Reservation'
+    Reservation:
+      allOf:
+      - $ref: '#/components/schemas/ReservationInput'
+      - type: object
+        properties:
+          id:
+            type: integer
+          reservationId:
+            type: string
+          hostawayReservationId:
+            type: string
+          insertedOn:
+            type: string
+            format: date-time
     ReservationInput:
       type: object
       required:
@@ -192,7 +185,20 @@ components:
         status:
           type: string
           description: Reservation status (new, modified, cancelled, etc.)
+    ReservationResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        result:
+          $ref: '#/components/schemas/Reservation'
   parameters:
+    Offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        default: 0
     Limit:
       name: limit
       in: query
@@ -205,12 +211,6 @@ components:
       required: true
       schema:
         type: integer
-    Offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        default: 0
   securitySchemes:
     OAuth2ClientCredentials:
       type: oauth2
