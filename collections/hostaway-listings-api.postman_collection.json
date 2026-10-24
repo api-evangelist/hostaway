@@ -1,60 +1,287 @@
 {
+  "info": {
+    "_postman_id": "a05b9358-575d-42af-8899-b1449335658d",
+    "name": "Hostaway Calendar Listings API",
+    "description": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:05:42.000Z",
+    "updatedAt": "2026-10-22T02:05:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a05b9358-575d-42af-8899-b1449335658d"
+  },
   "item": [
     {
-      "id": "2e96ad64-bf28-4e21-9f0b-971f4907cc2f",
-      "name": "Listings",
-      "description": {
-        "content": "Vacation rental listings and properties",
-        "type": "text/plain"
-      },
+      "name": "listings",
       "item": [
         {
-          "id": "2d6f222a-cb8a-4ef9-8d5a-2d07ed96e6a0",
-          "name": "Hostaway List Listings",
-          "request": {
-            "name": "Hostaway List Listings",
-            "description": {},
-            "url": {
-              "path": [
-                "listings"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
+          "name": "{listingId}",
+          "item": [
+            {
+              "name": "Hostaway Get Listing",
+              "id": "bf43d55b-9db6-4112-a8ca-9064287d9137",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/listings/:listingId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "listings",
+                    ":listingId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "618fa286-46f8-4d71-a285-66b8f1e6f5ea",
+                      "key": "listingId",
+                      "value": "<integer>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
                 {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "10"
-                },
-                {
-                  "disabled": false,
-                  "key": "offset",
-                  "value": "0"
+                  "id": "f5326fcd-50ad-409b-ad6d-8c5d760beddc",
+                  "name": "Single listing",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/listings/:listingId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "listings",
+                        ":listingId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "listingId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"name\": \"<string>\",\n    \"externalListingName\": \"<string>\",\n    \"propertyTypeId\": \"<integer>\",\n    \"address\": \"<string>\",\n    \"city\": \"<string>\",\n    \"country\": \"<string>\",\n    \"latitude\": \"<double>\",\n    \"longitude\": \"<double>\",\n    \"currencyCode\": \"<string>\",\n    \"timeZoneName\": \"<string>\",\n    \"personCapacity\": \"<integer>\",\n    \"bedroomsNumber\": \"<integer>\",\n    \"bathroomsNumber\": \"<number>\",\n    \"bedsNumber\": \"<integer>\",\n    \"squareMeters\": \"<number>\",\n    \"price\": \"<number>\",\n    \"cleaningFee\": \"<number>\",\n    \"checkInTimeStart\": \"<integer>\",\n    \"checkInTimeEnd\": \"<integer>\",\n    \"checkOutTime\": \"<integer>\",\n    \"id\": \"<integer>\",\n    \"isActive\": \"<integer>\",\n    \"insertedOn\": \"<dateTime>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:05:43.000Z",
+                  "updatedAt": "2026-10-22T02:05:43.000Z",
+                  "uid": "35240-f5326fcd-50ad-409b-ad6d-8c5d760beddc"
                 }
               ],
-              "variable": []
+              "createdAt": "2026-10-22T02:05:43.000Z",
+              "updatedAt": "2026-10-22T02:05:43.000Z",
+              "uid": "35240-bf43d55b-9db6-4112-a8ca-9064287d9137"
             },
+            {
+              "name": "Hostaway Update Listing",
+              "id": "c95dcb7c-c9b2-4c92-9d96-6c67e1073a35",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"externalListingName\": \"<string>\",\n  \"propertyTypeId\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"latitude\": \"<double>\",\n  \"longitude\": \"<double>\",\n  \"currencyCode\": \"<string>\",\n  \"timeZoneName\": \"<string>\",\n  \"personCapacity\": \"<integer>\",\n  \"bedroomsNumber\": \"<integer>\",\n  \"bathroomsNumber\": \"<number>\",\n  \"bedsNumber\": \"<integer>\",\n  \"squareMeters\": \"<number>\",\n  \"price\": \"<number>\",\n  \"cleaningFee\": \"<number>\",\n  \"checkInTimeStart\": \"<integer>\",\n  \"checkInTimeEnd\": \"<integer>\",\n  \"checkOutTime\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/listings/:listingId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "listings",
+                    ":listingId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "ce0c1e7e-9d0e-463b-9da4-c7bada97cb53",
+                      "key": "listingId",
+                      "value": "<integer>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d0b4e717-ec37-45e9-929b-aa642775833e",
+                  "name": "Listing updated",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"externalListingName\": \"<string>\",\n  \"propertyTypeId\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"latitude\": \"<double>\",\n  \"longitude\": \"<double>\",\n  \"currencyCode\": \"<string>\",\n  \"timeZoneName\": \"<string>\",\n  \"personCapacity\": \"<integer>\",\n  \"bedroomsNumber\": \"<integer>\",\n  \"bathroomsNumber\": \"<number>\",\n  \"bedsNumber\": \"<integer>\",\n  \"squareMeters\": \"<number>\",\n  \"price\": \"<number>\",\n  \"cleaningFee\": \"<number>\",\n  \"checkInTimeStart\": \"<integer>\",\n  \"checkInTimeEnd\": \"<integer>\",\n  \"checkOutTime\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/listings/:listingId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "listings",
+                        ":listingId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "listingId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"name\": \"<string>\",\n    \"externalListingName\": \"<string>\",\n    \"propertyTypeId\": \"<integer>\",\n    \"address\": \"<string>\",\n    \"city\": \"<string>\",\n    \"country\": \"<string>\",\n    \"latitude\": \"<double>\",\n    \"longitude\": \"<double>\",\n    \"currencyCode\": \"<string>\",\n    \"timeZoneName\": \"<string>\",\n    \"personCapacity\": \"<integer>\",\n    \"bedroomsNumber\": \"<integer>\",\n    \"bathroomsNumber\": \"<number>\",\n    \"bedsNumber\": \"<integer>\",\n    \"squareMeters\": \"<number>\",\n    \"price\": \"<number>\",\n    \"cleaningFee\": \"<number>\",\n    \"checkInTimeStart\": \"<integer>\",\n    \"checkInTimeEnd\": \"<integer>\",\n    \"checkOutTime\": \"<integer>\",\n    \"id\": \"<integer>\",\n    \"isActive\": \"<integer>\",\n    \"insertedOn\": \"<dateTime>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:05:43.000Z",
+                  "updatedAt": "2026-10-22T02:05:43.000Z",
+                  "uid": "35240-d0b4e717-ec37-45e9-929b-aa642775833e"
+                }
+              ],
+              "createdAt": "2026-10-22T02:05:43.000Z",
+              "updatedAt": "2026-10-22T02:05:43.000Z",
+              "uid": "35240-c95dcb7c-c9b2-4c92-9d96-6c67e1073a35"
+            }
+          ],
+          "id": "a6d1f4aa-f51d-467a-9b5b-68a388416fc9",
+          "createdAt": "2026-10-22T02:05:43.000Z",
+          "updatedAt": "2026-10-22T02:05:43.000Z",
+          "uid": "35240-a6d1f4aa-f51d-467a-9b5b-68a388416fc9"
+        },
+        {
+          "name": "Hostaway List Listings",
+          "id": "a0e6764e-ae23-448a-864d-ba0bdf1c81cc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/listings?limit=10&offset=0",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "listings"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "offset",
+                  "value": "0"
+                }
+              ]
+            }
           },
           "response": [
             {
-              "id": "adbc8e18-a6c9-414b-8996-203a1787d1dc",
+              "id": "16ac3a28-3360-4073-894c-571f7f119ddf",
               "name": "Listings collection",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    "listings"
-                  ],
+                  "raw": "{{baseUrl}}/listings?limit=10&offset=0",
                   "host": [
                     "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "listings"
                   ],
                   "query": [
                     {
@@ -65,357 +292,135 @@
                       "key": "offset",
                       "value": "0"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": \"success\",\n  \"count\": 7264,\n  \"limit\": 7699,\n  \"offset\": 743,\n  \"result\": [\n    {\n      \"name\": \"string\",\n      \"externalListingName\": \"string\",\n      \"propertyTypeId\": 9252,\n      \"address\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"latitude\": 8774.649224066263,\n      \"longitude\": 3985.992127172785,\n      \"currencyCode\": \"USD\",\n      \"timeZoneName\": \"string\",\n      \"personCapacity\": 6896,\n      \"bedroomsNumber\": 9039,\n      \"bathroomsNumber\": 8537.127666499007,\n      \"bedsNumber\": 1339,\n      \"squareMeters\": 8784.850808030547,\n      \"price\": 5746.776653129866,\n      \"cleaningFee\": 7458.43647741313,\n      \"checkInTimeStart\": 4423,\n      \"checkInTimeEnd\": 6340,\n      \"checkOutTime\": 4116,\n      \"id\": 239,\n      \"isActive\": 4981,\n      \"insertedOn\": \"1960-06-19T00:38:33.188Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"externalListingName\": \"string\",\n      \"propertyTypeId\": 7679,\n      \"address\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"latitude\": 683.919521270513,\n      \"longitude\": 9818.416024502869,\n      \"currencyCode\": \"USD\",\n      \"timeZoneName\": \"string\",\n      \"personCapacity\": 458,\n      \"bedroomsNumber\": 1556,\n      \"bathroomsNumber\": 5908.966214211155,\n      \"bedsNumber\": 262,\n      \"squareMeters\": 4522.703023825247,\n      \"price\": 9490.892105478417,\n      \"cleaningFee\": 5079.746714713117,\n      \"checkInTimeStart\": 8890,\n      \"checkInTimeEnd\": 2159,\n      \"checkOutTime\": 5231,\n      \"id\": 9061,\n      \"isActive\": 9685,\n      \"insertedOn\": \"1978-10-07T08:04:51.938Z\"\n    }\n  ]\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"status\": \"fail\",\n  \"count\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"result\": [\n    {\n      \"name\": \"<string>\",\n      \"externalListingName\": \"<string>\",\n      \"propertyTypeId\": \"<integer>\",\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<double>\",\n      \"longitude\": \"<double>\",\n      \"currencyCode\": \"<string>\",\n      \"timeZoneName\": \"<string>\",\n      \"personCapacity\": \"<integer>\",\n      \"bedroomsNumber\": \"<integer>\",\n      \"bathroomsNumber\": \"<number>\",\n      \"bedsNumber\": \"<integer>\",\n      \"squareMeters\": \"<number>\",\n      \"price\": \"<number>\",\n      \"cleaningFee\": \"<number>\",\n      \"checkInTimeStart\": \"<integer>\",\n      \"checkInTimeEnd\": \"<integer>\",\n      \"checkOutTime\": \"<integer>\",\n      \"id\": \"<integer>\",\n      \"isActive\": \"<integer>\",\n      \"insertedOn\": \"<dateTime>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"externalListingName\": \"<string>\",\n      \"propertyTypeId\": \"<integer>\",\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<double>\",\n      \"longitude\": \"<double>\",\n      \"currencyCode\": \"<string>\",\n      \"timeZoneName\": \"<string>\",\n      \"personCapacity\": \"<integer>\",\n      \"bedroomsNumber\": \"<integer>\",\n      \"bathroomsNumber\": \"<number>\",\n      \"bedsNumber\": \"<integer>\",\n      \"squareMeters\": \"<number>\",\n      \"price\": \"<number>\",\n      \"cleaningFee\": \"<number>\",\n      \"checkInTimeStart\": \"<integer>\",\n      \"checkInTimeEnd\": \"<integer>\",\n      \"checkOutTime\": \"<integer>\",\n      \"id\": \"<integer>\",\n      \"isActive\": \"<integer>\",\n      \"insertedOn\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T02:05:43.000Z",
+              "updatedAt": "2026-10-22T02:05:43.000Z",
+              "uid": "35240-16ac3a28-3360-4073-894c-571f7f119ddf"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:05:43.000Z",
+          "updatedAt": "2026-10-22T02:05:43.000Z",
+          "uid": "35240-a0e6764e-ae23-448a-864d-ba0bdf1c81cc"
         },
         {
-          "id": "22b50e46-6f70-49e0-b831-f2bbc39e34c4",
           "name": "Hostaway Create Listing",
+          "id": "d02df874-a3ca-4746-bbf1-f59ce123b669",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Hostaway Create Listing",
-            "description": {},
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"externalListingName\": \"<string>\",\n  \"propertyTypeId\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"latitude\": \"<double>\",\n  \"longitude\": \"<double>\",\n  \"currencyCode\": \"<string>\",\n  \"timeZoneName\": \"<string>\",\n  \"personCapacity\": \"<integer>\",\n  \"bedroomsNumber\": \"<integer>\",\n  \"bathroomsNumber\": \"<number>\",\n  \"bedsNumber\": \"<integer>\",\n  \"squareMeters\": \"<number>\",\n  \"price\": \"<number>\",\n  \"cleaningFee\": \"<number>\",\n  \"checkInTimeStart\": \"<integer>\",\n  \"checkInTimeEnd\": \"<integer>\",\n  \"checkOutTime\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
             "url": {
+              "raw": "{{baseUrl}}/listings",
+              "host": [
+                "{{baseUrl}}"
+              ],
               "path": [
                 "listings"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"externalListingName\": \"<string>\",\n  \"propertyTypeId\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"latitude\": \"<double>\",\n  \"longitude\": \"<double>\",\n  \"currencyCode\": \"<string>\",\n  \"timeZoneName\": \"<string>\",\n  \"personCapacity\": \"<integer>\",\n  \"bedroomsNumber\": \"<integer>\",\n  \"bathroomsNumber\": \"<number>\",\n  \"bedsNumber\": \"<integer>\",\n  \"squareMeters\": \"<number>\",\n  \"price\": \"<number>\",\n  \"cleaningFee\": \"<number>\",\n  \"checkInTimeStart\": \"<integer>\",\n  \"checkInTimeEnd\": \"<integer>\",\n  \"checkOutTime\": \"<integer>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+              ]
             }
           },
           "response": [
             {
-              "id": "7c4d8c9d-c3a6-40a0-99d9-79ab5e27a545",
+              "id": "cb1f8f4b-9e33-4fa1-ada5-df6d1ef06c17",
               "name": "Listing created",
               "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"externalListingName\": \"<string>\",\n  \"propertyTypeId\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"latitude\": \"<double>\",\n  \"longitude\": \"<double>\",\n  \"currencyCode\": \"<string>\",\n  \"timeZoneName\": \"<string>\",\n  \"personCapacity\": \"<integer>\",\n  \"bedroomsNumber\": \"<integer>\",\n  \"bathroomsNumber\": \"<number>\",\n  \"bedsNumber\": \"<integer>\",\n  \"squareMeters\": \"<number>\",\n  \"price\": \"<number>\",\n  \"cleaningFee\": \"<number>\",\n  \"checkInTimeStart\": \"<integer>\",\n  \"checkInTimeEnd\": \"<integer>\",\n  \"checkOutTime\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
                 "url": {
+                  "raw": "{{baseUrl}}/listings",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "listings"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"externalListingName\": \"<string>\",\n  \"propertyTypeId\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"latitude\": \"<double>\",\n  \"longitude\": \"<double>\",\n  \"currencyCode\": \"USD\",\n  \"timeZoneName\": \"<string>\",\n  \"personCapacity\": \"<integer>\",\n  \"bedroomsNumber\": \"<integer>\",\n  \"bathroomsNumber\": \"<number>\",\n  \"bedsNumber\": \"<integer>\",\n  \"squareMeters\": \"<number>\",\n  \"price\": \"<number>\",\n  \"cleaningFee\": \"<number>\",\n  \"checkInTimeStart\": \"<integer>\",\n  \"checkInTimeEnd\": \"<integer>\",\n  \"checkOutTime\": \"<integer>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"name\": \"string\",\n    \"externalListingName\": \"string\",\n    \"propertyTypeId\": 200,\n    \"address\": \"string\",\n    \"city\": \"string\",\n    \"country\": \"string\",\n    \"latitude\": 7906.386441649238,\n    \"longitude\": 7961.404705694035,\n    \"currencyCode\": \"USD\",\n    \"timeZoneName\": \"string\",\n    \"personCapacity\": 3668,\n    \"bedroomsNumber\": 9992,\n    \"bathroomsNumber\": 6977.2937142285655,\n    \"bedsNumber\": 3346,\n    \"squareMeters\": 716.0442750327667,\n    \"price\": 2174.9819866938738,\n    \"cleaningFee\": 5513.564326746545,\n    \"checkInTimeStart\": 9842,\n    \"checkInTimeEnd\": 3020,\n    \"checkOutTime\": 6894,\n    \"id\": 3934,\n    \"isActive\": 7281,\n    \"insertedOn\": \"2008-11-18T18:22:27.233Z\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f64aab0c-7dc9-4774-a4fb-245b40540ae1",
-          "name": "Hostaway Get Listing",
-          "request": {
-            "name": "Hostaway Get Listing",
-            "description": {},
-            "url": {
-              "path": [
-                "listings",
-                ":listingId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "listingId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "72d36d0a-2b86-4461-b684-4195f2ecd7bd",
-              "name": "Single listing",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "listings",
-                    ":listingId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "listingId",
-                      "description": "(Required) "
-                    }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"name\": \"string\",\n    \"externalListingName\": \"string\",\n    \"propertyTypeId\": 200,\n    \"address\": \"string\",\n    \"city\": \"string\",\n    \"country\": \"string\",\n    \"latitude\": 7906.386441649238,\n    \"longitude\": 7961.404705694035,\n    \"currencyCode\": \"USD\",\n    \"timeZoneName\": \"string\",\n    \"personCapacity\": 3668,\n    \"bedroomsNumber\": 9992,\n    \"bathroomsNumber\": 6977.2937142285655,\n    \"bedsNumber\": 3346,\n    \"squareMeters\": 716.0442750327667,\n    \"price\": 2174.9819866938738,\n    \"cleaningFee\": 5513.564326746545,\n    \"checkInTimeStart\": 9842,\n    \"checkInTimeEnd\": 3020,\n    \"checkOutTime\": 6894,\n    \"id\": 3934,\n    \"isActive\": 7281,\n    \"insertedOn\": \"2008-11-18T18:22:27.233Z\"\n  }\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"name\": \"<string>\",\n    \"externalListingName\": \"<string>\",\n    \"propertyTypeId\": \"<integer>\",\n    \"address\": \"<string>\",\n    \"city\": \"<string>\",\n    \"country\": \"<string>\",\n    \"latitude\": \"<double>\",\n    \"longitude\": \"<double>\",\n    \"currencyCode\": \"<string>\",\n    \"timeZoneName\": \"<string>\",\n    \"personCapacity\": \"<integer>\",\n    \"bedroomsNumber\": \"<integer>\",\n    \"bathroomsNumber\": \"<number>\",\n    \"bedsNumber\": \"<integer>\",\n    \"squareMeters\": \"<number>\",\n    \"price\": \"<number>\",\n    \"cleaningFee\": \"<number>\",\n    \"checkInTimeStart\": \"<integer>\",\n    \"checkInTimeEnd\": \"<integer>\",\n    \"checkOutTime\": \"<integer>\",\n    \"id\": \"<integer>\",\n    \"isActive\": \"<integer>\",\n    \"insertedOn\": \"<dateTime>\"\n  }\n}",
+              "createdAt": "2026-10-22T02:05:43.000Z",
+              "updatedAt": "2026-10-22T02:05:43.000Z",
+              "uid": "35240-cb1f8f4b-9e33-4fa1-ada5-df6d1ef06c17"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "73658dba-5f35-4c54-946e-5a46889bba28",
-          "name": "Hostaway Update Listing",
-          "request": {
-            "name": "Hostaway Update Listing",
-            "description": {},
-            "url": {
-              "path": [
-                "listings",
-                ":listingId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "listingId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"externalListingName\": \"<string>\",\n  \"propertyTypeId\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"latitude\": \"<double>\",\n  \"longitude\": \"<double>\",\n  \"currencyCode\": \"<string>\",\n  \"timeZoneName\": \"<string>\",\n  \"personCapacity\": \"<integer>\",\n  \"bedroomsNumber\": \"<integer>\",\n  \"bathroomsNumber\": \"<number>\",\n  \"bedsNumber\": \"<integer>\",\n  \"squareMeters\": \"<number>\",\n  \"price\": \"<number>\",\n  \"cleaningFee\": \"<number>\",\n  \"checkInTimeStart\": \"<integer>\",\n  \"checkInTimeEnd\": \"<integer>\",\n  \"checkOutTime\": \"<integer>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "b64b2844-9261-4d58-bfba-cde3b7fa7c47",
-              "name": "Listing updated",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "listings",
-                    ":listingId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "listingId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"externalListingName\": \"<string>\",\n  \"propertyTypeId\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"latitude\": \"<double>\",\n  \"longitude\": \"<double>\",\n  \"currencyCode\": \"USD\",\n  \"timeZoneName\": \"<string>\",\n  \"personCapacity\": \"<integer>\",\n  \"bedroomsNumber\": \"<integer>\",\n  \"bathroomsNumber\": \"<number>\",\n  \"bedsNumber\": \"<integer>\",\n  \"squareMeters\": \"<number>\",\n  \"price\": \"<number>\",\n  \"cleaningFee\": \"<number>\",\n  \"checkInTimeStart\": \"<integer>\",\n  \"checkInTimeEnd\": \"<integer>\",\n  \"checkOutTime\": \"<integer>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"name\": \"string\",\n    \"externalListingName\": \"string\",\n    \"propertyTypeId\": 200,\n    \"address\": \"string\",\n    \"city\": \"string\",\n    \"country\": \"string\",\n    \"latitude\": 7906.386441649238,\n    \"longitude\": 7961.404705694035,\n    \"currencyCode\": \"USD\",\n    \"timeZoneName\": \"string\",\n    \"personCapacity\": 3668,\n    \"bedroomsNumber\": 9992,\n    \"bathroomsNumber\": 6977.2937142285655,\n    \"bedsNumber\": 3346,\n    \"squareMeters\": 716.0442750327667,\n    \"price\": 2174.9819866938738,\n    \"cleaningFee\": 5513.564326746545,\n    \"checkInTimeStart\": 9842,\n    \"checkInTimeEnd\": 3020,\n    \"checkOutTime\": 6894,\n    \"id\": 3934,\n    \"isActive\": 7281,\n    \"insertedOn\": \"2008-11-18T18:22:27.233Z\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:05:43.000Z",
+          "updatedAt": "2026-10-22T02:05:43.000Z",
+          "uid": "35240-d02df874-a3ca-4746-bbf1-f59ce123b669"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.hostaway.com/v1",
-      "key": "baseUrl"
+      "id": "a8b70305-0ca9-47f8-a912-85fbf731ace3",
+      "createdAt": "2026-10-22T02:05:43.000Z",
+      "updatedAt": "2026-10-22T02:05:43.000Z",
+      "uid": "35240-a8b70305-0ca9-47f8-a912-85fbf731ace3"
     }
   ],
   "auth": {
@@ -423,25 +428,25 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "general"
+        "value": "general",
+        "type": "string"
       },
       {
         "key": "accessTokenUrl",
-        "value": "https://api.hostaway.com/v1/accessTokens"
+        "value": "https://api.hostaway.com/v1/accessTokens",
+        "type": "string"
       },
       {
         "key": "grant_type",
-        "value": "client_credentials"
+        "value": "client_credentials",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "9ef5269d-cf2e-4e68-8893-9f9a71adee29",
-    "name": "Hostaway Calendar Listings API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.hostaway.com/v1"
     }
-  }
+  ]
 }

@@ -1,234 +1,247 @@
 {
+  "info": {
+    "_postman_id": "1fd1fd93-bf8e-44ce-ae0c-1db17eb057e7",
+    "name": "Hostaway Calendar Listing Images API",
+    "description": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:06:24.000Z",
+    "updatedAt": "2026-10-22T02:06:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1fd1fd93-bf8e-44ce-ae0c-1db17eb057e7"
+  },
   "item": [
     {
-      "id": "0cb66f82-de1e-45ca-9340-994bb34cd73d",
-      "name": "Listing Images",
-      "description": {
-        "content": "Photographs attached to a listing",
-        "type": "text/plain"
-      },
+      "name": "listings",
       "item": [
         {
-          "id": "41ec580b-7fb9-4d14-b016-28e2d4d6d964",
-          "name": "Hostaway List Listing Images",
-          "request": {
-            "name": "Hostaway List Listing Images",
-            "description": {},
-            "url": {
-              "path": [
-                "listings",
-                ":listingId",
-                "images"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "listingId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{listingId}",
+          "item": [
             {
-              "id": "622b51ba-d294-4715-87ae-215c6399993b",
-              "name": "Images collection",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "listings",
-                    ":listingId",
-                    "images"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "listingId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "images",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Hostaway List Listing Images",
+                  "id": "143b902a-0d23-43a7-96f4-16fab6784815",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/listings/:listingId/images",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "listings",
+                        ":listingId",
+                        "images"
+                      ],
+                      "variable": [
+                        {
+                          "id": "33063967-3034-4912-bae4-c89eff2d0340",
+                          "key": "listingId",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "05325bcc-bf84-4254-a9ce-7d1b339acec9",
+                      "name": "Images collection",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/listings/:listingId/images",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "listings",
+                            ":listingId",
+                            "images"
+                          ],
+                          "variable": [
+                            {
+                              "key": "listingId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"fail\",\n  \"result\": {},\n  \"count\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"page\": \"<integer>\",\n  \"totalPages\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T02:06:25.000Z",
+                      "updatedAt": "2026-10-22T02:06:25.000Z",
+                      "uid": "35240-05325bcc-bf84-4254-a9ce-7d1b339acec9"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:06:25.000Z",
+                  "updatedAt": "2026-10-22T02:06:25.000Z",
+                  "uid": "35240-143b902a-0d23-43a7-96f4-16fab6784815"
+                },
+                {
+                  "name": "Hostaway Add Listing Image",
+                  "id": "c9688378-4fef-48a7-ac99-8faeb77f75e2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"url\": \"<uri>\",\n  \"caption\": \"<string>\",\n  \"sortOrder\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/listings/:listingId/images",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "listings",
+                        ":listingId",
+                        "images"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9109c95e-7bd4-4f97-846f-04559498f340",
+                          "key": "listingId",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "97e53c3c-be75-4aef-add4-9650f37ae5a0",
+                      "name": "Image added",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"url\": \"<uri>\",\n  \"caption\": \"<string>\",\n  \"sortOrder\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/listings/:listingId/images",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "listings",
+                            ":listingId",
+                            "images"
+                          ],
+                          "variable": [
+                            {
+                              "key": "listingId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"fail\",\n  \"result\": {},\n  \"count\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"page\": \"<integer>\",\n  \"totalPages\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T02:06:25.000Z",
+                      "updatedAt": "2026-10-22T02:06:25.000Z",
+                      "uid": "35240-97e53c3c-be75-4aef-add4-9650f37ae5a0"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:06:25.000Z",
+                  "updatedAt": "2026-10-22T02:06:25.000Z",
+                  "uid": "35240-c9688378-4fef-48a7-ac99-8faeb77f75e2"
                 }
               ],
-              "body": "{\n  \"status\": \"success\",\n  \"result\": {},\n  \"count\": 7790,\n  \"limit\": 9626,\n  \"offset\": 3559,\n  \"page\": 1227,\n  \"totalPages\": 5155\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "ff0f9607-df26-44ba-b5d3-780ac646c9fe",
+              "createdAt": "2026-10-22T02:06:25.000Z",
+              "updatedAt": "2026-10-22T02:06:25.000Z",
+              "uid": "35240-ff0f9607-df26-44ba-b5d3-780ac646c9fe"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "78b3d037-16d8-4650-b92b-46932262ab57",
-          "name": "Hostaway Add Listing Image",
-          "request": {
-            "name": "Hostaway Add Listing Image",
-            "description": {},
-            "url": {
-              "path": [
-                "listings",
-                ":listingId",
-                "images"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "listingId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"url\": \"<uri>\",\n  \"caption\": \"<string>\",\n  \"sortOrder\": \"<integer>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "b371f937-424c-404e-a53e-cb93a17d7977",
-              "name": "Image added",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "listings",
-                    ":listingId",
-                    "images"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "listingId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"url\": \"<uri>\",\n  \"caption\": \"<string>\",\n  \"sortOrder\": \"<integer>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": \"success\",\n  \"result\": {},\n  \"count\": 7790,\n  \"limit\": 9626,\n  \"offset\": 3559,\n  \"page\": 1227,\n  \"totalPages\": 5155\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "bf9cb83c-7a45-40ca-a3fa-22df52a08c21",
+          "createdAt": "2026-10-22T02:06:25.000Z",
+          "updatedAt": "2026-10-22T02:06:25.000Z",
+          "uid": "35240-bf9cb83c-7a45-40ca-a3fa-22df52a08c21"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.hostaway.com/v1",
-      "key": "baseUrl"
+      "id": "86608356-84a1-4e0b-b49b-7f8896f56851",
+      "createdAt": "2026-10-22T02:06:25.000Z",
+      "updatedAt": "2026-10-22T02:06:25.000Z",
+      "uid": "35240-86608356-84a1-4e0b-b49b-7f8896f56851"
     }
   ],
   "auth": {
@@ -236,25 +249,25 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "general"
+        "value": "general",
+        "type": "string"
       },
       {
         "key": "accessTokenUrl",
-        "value": "https://api.hostaway.com/v1/accessTokens"
+        "value": "https://api.hostaway.com/v1/accessTokens",
+        "type": "string"
       },
       {
         "key": "grant_type",
-        "value": "client_credentials"
+        "value": "client_credentials",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "a2c3a230-e247-43c4-9af3-615c5ae367a5",
-    "name": "Hostaway Calendar Listing Images API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.hostaway.com/v1"
     }
-  }
+  ]
 }

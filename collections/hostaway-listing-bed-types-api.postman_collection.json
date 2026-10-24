@@ -1,118 +1,130 @@
 {
+  "info": {
+    "_postman_id": "91119d97-aab3-4584-923d-36a4de37000f",
+    "name": "Hostaway Calendar Listing Bed Types API",
+    "description": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:06:20.000Z",
+    "updatedAt": "2026-10-22T02:06:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-91119d97-aab3-4584-923d-36a4de37000f"
+  },
   "item": [
     {
-      "id": "c348ef68-4c6d-4e21-b598-47fd4392567a",
-      "name": "Listing Bed Types",
-      "description": {
-        "content": "Bed types configured for a listing",
-        "type": "text/plain"
-      },
+      "name": "listings",
       "item": [
         {
-          "id": "e64eb86b-4e9c-4a2f-8b23-abca450dd07e",
-          "name": "Hostaway List Listing Bed Types",
-          "request": {
-            "name": "Hostaway List Listing Bed Types",
-            "description": {},
-            "url": {
-              "path": [
-                "listings",
-                ":listingId",
-                "bedTypes"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "listingId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{listingId}",
+          "item": [
             {
-              "id": "78456fb0-c96e-4aa3-a7f8-11c70d7ecccc",
-              "name": "Bed types collection",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "listings",
-                    ":listingId",
-                    "bedTypes"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "listingId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "bedTypes",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Hostaway List Listing Bed Types",
+                  "id": "59076b34-a2b2-45f9-b6d1-37bc9706ddcd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/listings/:listingId/bedTypes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "listings",
+                        ":listingId",
+                        "bedTypes"
+                      ],
+                      "variable": [
+                        {
+                          "id": "03ee5b6f-38ab-4c94-ab40-d7b2ba465efd",
+                          "key": "listingId",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "16091541-7a9b-4185-9b28-eb3e534b2d73",
+                      "name": "Bed types collection",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/listings/:listingId/bedTypes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "listings",
+                            ":listingId",
+                            "bedTypes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "listingId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"success\",\n  \"result\": {},\n  \"count\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"page\": \"<integer>\",\n  \"totalPages\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T02:06:21.000Z",
+                      "updatedAt": "2026-10-22T02:06:21.000Z",
+                      "uid": "35240-16091541-7a9b-4185-9b28-eb3e534b2d73"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:06:21.000Z",
+                  "updatedAt": "2026-10-22T02:06:21.000Z",
+                  "uid": "35240-59076b34-a2b2-45f9-b6d1-37bc9706ddcd"
                 }
               ],
-              "body": "{\n  \"status\": \"success\",\n  \"result\": {},\n  \"count\": 3821,\n  \"limit\": 4715,\n  \"offset\": 101,\n  \"page\": 9974,\n  \"totalPages\": 5534\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "6fc96c2e-7dd1-4cd3-82ef-20db2a20bc8c",
+              "createdAt": "2026-10-22T02:06:21.000Z",
+              "updatedAt": "2026-10-22T02:06:21.000Z",
+              "uid": "35240-6fc96c2e-7dd1-4cd3-82ef-20db2a20bc8c"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "25225d41-6560-4a6d-9c88-6df42a5d351d",
+          "createdAt": "2026-10-22T02:06:21.000Z",
+          "updatedAt": "2026-10-22T02:06:21.000Z",
+          "uid": "35240-25225d41-6560-4a6d-9c88-6df42a5d351d"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.hostaway.com/v1",
-      "key": "baseUrl"
+      "id": "f2daac7f-d820-494c-a379-b371e51d430b",
+      "createdAt": "2026-10-22T02:06:21.000Z",
+      "updatedAt": "2026-10-22T02:06:21.000Z",
+      "uid": "35240-f2daac7f-d820-494c-a379-b371e51d430b"
     }
   ],
   "auth": {
@@ -120,25 +132,25 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "general"
+        "value": "general",
+        "type": "string"
       },
       {
         "key": "accessTokenUrl",
-        "value": "https://api.hostaway.com/v1/accessTokens"
+        "value": "https://api.hostaway.com/v1/accessTokens",
+        "type": "string"
       },
       {
         "key": "grant_type",
-        "value": "client_credentials"
+        "value": "client_credentials",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "41ae01a2-8882-4de7-8650-ba410eb34ceb",
-    "name": "Hostaway Calendar Listing Bed Types API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.hostaway.com/v1"
     }
-  }
+  ]
 }

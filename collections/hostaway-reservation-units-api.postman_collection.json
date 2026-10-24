@@ -1,118 +1,130 @@
 {
+  "info": {
+    "_postman_id": "dd3352bc-d36c-48f3-9698-88c81210a6de",
+    "name": "Hostaway Calendar Reservation Units API",
+    "description": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:06:44.000Z",
+    "updatedAt": "2026-10-22T02:06:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-dd3352bc-d36c-48f3-9698-88c81210a6de"
+  },
   "item": [
     {
-      "id": "a7754cdd-330a-4d3f-990a-92f6ff269feb",
-      "name": "Reservation Units",
-      "description": {
-        "content": "Sub-units associated with a reservation",
-        "type": "text/plain"
-      },
+      "name": "reservations",
       "item": [
         {
-          "id": "5ae6cfa5-e941-410a-ae13-8fd58db8cc59",
-          "name": "Hostaway List Reservation Units",
-          "request": {
-            "name": "Hostaway List Reservation Units",
-            "description": {},
-            "url": {
-              "path": [
-                "reservations",
-                ":reservationId",
-                "units"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "reservationId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{reservationId}",
+          "item": [
             {
-              "id": "ac3bef5c-bfe8-45eb-b82d-2ec316d7fe36",
-              "name": "Units collection",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "reservations",
-                    ":reservationId",
-                    "units"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "reservationId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "units",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Hostaway List Reservation Units",
+                  "id": "787c5035-b05d-4db2-97e5-f7ddb6f063dd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reservations/:reservationId/units",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reservations",
+                        ":reservationId",
+                        "units"
+                      ],
+                      "variable": [
+                        {
+                          "id": "2c3fe89a-7ee2-4ed3-8a9d-0acb614438b2",
+                          "key": "reservationId",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "91761c04-ec62-44cf-ba07-ef2edba095cb",
+                      "name": "Units collection",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reservations/:reservationId/units",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reservations",
+                            ":reservationId",
+                            "units"
+                          ],
+                          "variable": [
+                            {
+                              "key": "reservationId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"success\",\n  \"result\": {}\n}",
+                      "createdAt": "2026-10-22T02:06:45.000Z",
+                      "updatedAt": "2026-10-22T02:06:45.000Z",
+                      "uid": "35240-91761c04-ec62-44cf-ba07-ef2edba095cb"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:06:45.000Z",
+                  "updatedAt": "2026-10-22T02:06:45.000Z",
+                  "uid": "35240-787c5035-b05d-4db2-97e5-f7ddb6f063dd"
                 }
               ],
-              "body": "{\n  \"status\": \"fail\",\n  \"result\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "208937bc-e2a9-4d51-a15c-896735385f04",
+              "createdAt": "2026-10-22T02:06:45.000Z",
+              "updatedAt": "2026-10-22T02:06:45.000Z",
+              "uid": "35240-208937bc-e2a9-4d51-a15c-896735385f04"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "92f13ad8-e3ae-4d11-9238-3ced517ed56f",
+          "createdAt": "2026-10-22T02:06:45.000Z",
+          "updatedAt": "2026-10-22T02:06:45.000Z",
+          "uid": "35240-92f13ad8-e3ae-4d11-9238-3ced517ed56f"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.hostaway.com/v1",
-      "key": "baseUrl"
+      "id": "5bf2ba97-ce84-4aa3-bc45-50a6545017b2",
+      "createdAt": "2026-10-22T02:06:45.000Z",
+      "updatedAt": "2026-10-22T02:06:45.000Z",
+      "uid": "35240-5bf2ba97-ce84-4aa3-bc45-50a6545017b2"
     }
   ],
   "auth": {
@@ -120,25 +132,25 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "general"
+        "value": "general",
+        "type": "string"
       },
       {
         "key": "accessTokenUrl",
-        "value": "https://api.hostaway.com/v1/accessTokens"
+        "value": "https://api.hostaway.com/v1/accessTokens",
+        "type": "string"
       },
       {
         "key": "grant_type",
-        "value": "client_credentials"
+        "value": "client_credentials",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "45c4aa56-cc77-4818-8607-8eb11ee3c588",
-    "name": "Hostaway Calendar Reservation Units API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.hostaway.com/v1"
     }
-  }
+  ]
 }

@@ -1,504 +1,512 @@
 {
+  "info": {
+    "_postman_id": "e225d356-afa9-4b3d-9565-eadb4a100d9c",
+    "name": "Hostaway Calendar Webhooks API",
+    "description": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:06:03.000Z",
+    "updatedAt": "2026-10-22T02:06:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e225d356-afa9-4b3d-9565-eadb4a100d9c"
+  },
   "item": [
     {
-      "id": "6d760d7e-034a-4482-b5c1-b42477483daf",
-      "name": "Webhooks",
-      "description": {
-        "content": "Unified event webhooks",
-        "type": "text/plain"
-      },
+      "name": "webhooks",
       "item": [
         {
-          "id": "ee7bb573-096a-4d96-ad9c-944ec0e321be",
-          "name": "Hostaway List Unified Webhooks",
-          "request": {
-            "name": "Hostaway List Unified Webhooks",
-            "description": {},
-            "url": {
-              "path": [
-                "webhooks",
-                "unifiedWebhooks"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "unifiedWebhooks",
+          "item": [
             {
-              "id": "4f1d8019-9ab7-4732-8cd8-da759c5b5f73",
-              "name": "Webhooks collection",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "webhooks",
-                    "unifiedWebhooks"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{webhookId}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": \"string\",\n  \"result\": [\n    {\n      \"url\": \"https://bG.jceaEleJEdLZ5vUNQyF+SVdw769\",\n      \"login\": \"string\",\n      \"password\": \"string\",\n      \"alertingEmailAddress\": \"n79o@gjMdVvswZFMDyQslPYjB.ey\",\n      \"isEnabled\": 0,\n      \"id\": 2376,\n      \"insertedOn\": \"2007-06-20T16:02:00.853Z\"\n    },\n    {\n      \"url\": \"https://isDdrfZnIpkIJXrmmLcRLLSoaMNaK.examF-wkzxeSc4QTvspaxeUjMeeGMDYJTfxex1fmHHdn.pb0dnPU.iafRhz\",\n      \"login\": \"string\",\n      \"password\": \"string\",\n      \"alertingEmailAddress\": \"6NCcSCQPvZ@wMuOTFSmeCEpUFQOvqCqbXbBEB.ig\",\n      \"isEnabled\": 0,\n      \"id\": 9261,\n      \"insertedOn\": \"1989-08-14T17:27:22.730Z\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "936e3ff0-a394-479f-875f-1f89b75e26cb",
-          "name": "Hostaway Create Unified Webhook",
-          "request": {
-            "name": "Hostaway Create Unified Webhook",
-            "description": {},
-            "url": {
-              "path": [
-                "webhooks",
-                "unifiedWebhooks"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"url\": \"<uri>\",\n  \"login\": \"<string>\",\n  \"password\": \"<string>\",\n  \"alertingEmailAddress\": \"<email>\",\n  \"isEnabled\": \"<integer>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "bc206f0e-34cd-47eb-a1ec-29cc26aa22eb",
-              "name": "Webhook created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "webhooks",
-                    "unifiedWebhooks"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
+                  "name": "Hostaway Get Unified Webhook",
+                  "id": "7b18241e-91f9-407c-acea-96fddf0aafcf",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/unifiedWebhooks/:webhookId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        "unifiedWebhooks",
+                        ":webhookId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "75392b92-81a0-4b0e-9e06-e15bcfac6ae1",
+                          "key": "webhookId",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "8ad864e4-0532-4eff-b721-007ca067bd71",
+                      "name": "Webhook",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/webhooks/unifiedWebhooks/:webhookId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhooks",
+                            "unifiedWebhooks",
+                            ":webhookId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "webhookId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"result\": {\n    \"url\": \"<uri>\",\n    \"login\": \"<string>\",\n    \"password\": \"<string>\",\n    \"alertingEmailAddress\": \"<email>\",\n    \"isEnabled\": 0,\n    \"id\": \"<integer>\",\n    \"insertedOn\": \"<dateTime>\"\n  }\n}",
+                      "createdAt": "2026-10-22T02:06:04.000Z",
+                      "updatedAt": "2026-10-22T02:06:04.000Z",
+                      "uid": "35240-8ad864e4-0532-4eff-b721-007ca067bd71"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:06:04.000Z",
+                  "updatedAt": "2026-10-22T02:06:04.000Z",
+                  "uid": "35240-7b18241e-91f9-407c-acea-96fddf0aafcf"
+                },
+                {
+                  "name": "Hostaway Update Unified Webhook",
+                  "id": "968d0be3-2b3e-4e6d-a1d4-a7eba8629ff9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"url\": \"<uri>\",\n  \"login\": \"<string>\",\n  \"password\": \"<string>\",\n  \"alertingEmailAddress\": \"<email>\",\n  \"isEnabled\": 1\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/unifiedWebhooks/:webhookId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        "unifiedWebhooks",
+                        ":webhookId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ac34e830-98b1-4997-b473-34c42c6dfd20",
+                          "key": "webhookId",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "8da68fb3-8146-4179-a0fb-f9c9e7c8dc30",
+                      "name": "Webhook updated",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"url\": \"<uri>\",\n  \"login\": \"<string>\",\n  \"password\": \"<string>\",\n  \"alertingEmailAddress\": \"<email>\",\n  \"isEnabled\": 1\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/webhooks/unifiedWebhooks/:webhookId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhooks",
+                            "unifiedWebhooks",
+                            ":webhookId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "webhookId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"result\": {\n    \"url\": \"<uri>\",\n    \"login\": \"<string>\",\n    \"password\": \"<string>\",\n    \"alertingEmailAddress\": \"<email>\",\n    \"isEnabled\": 0,\n    \"id\": \"<integer>\",\n    \"insertedOn\": \"<dateTime>\"\n  }\n}",
+                      "createdAt": "2026-10-22T02:06:04.000Z",
+                      "updatedAt": "2026-10-22T02:06:04.000Z",
+                      "uid": "35240-8da68fb3-8146-4179-a0fb-f9c9e7c8dc30"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:06:04.000Z",
+                  "updatedAt": "2026-10-22T02:06:04.000Z",
+                  "uid": "35240-968d0be3-2b3e-4e6d-a1d4-a7eba8629ff9"
+                },
+                {
+                  "name": "Hostaway Delete Unified Webhook",
+                  "id": "fb4577e5-d80f-4b3d-ac89-0f5095b74dcc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/unifiedWebhooks/:webhookId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        "unifiedWebhooks",
+                        ":webhookId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b7095388-d014-49a1-96ca-7077aea51474",
+                          "key": "webhookId",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "ff2a0cfe-e239-4339-b957-6cd7935088a9",
+                      "name": "Webhook deleted",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/webhooks/unifiedWebhooks/:webhookId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhooks",
+                            "unifiedWebhooks",
+                            ":webhookId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "webhookId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"fail\",\n  \"result\": {}\n}",
+                      "createdAt": "2026-10-22T02:06:04.000Z",
+                      "updatedAt": "2026-10-22T02:06:04.000Z",
+                      "uid": "35240-ff2a0cfe-e239-4339-b957-6cd7935088a9"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:06:04.000Z",
+                  "updatedAt": "2026-10-22T02:06:04.000Z",
+                  "uid": "35240-fb4577e5-d80f-4b3d-ac89-0f5095b74dcc"
+                }
+              ],
+              "id": "3e1a858d-688c-4346-b3fb-684c4ae14127",
+              "createdAt": "2026-10-22T02:06:04.000Z",
+              "updatedAt": "2026-10-22T02:06:04.000Z",
+              "uid": "35240-3e1a858d-688c-4346-b3fb-684c4ae14127"
+            },
+            {
+              "name": "Hostaway List Unified Webhooks",
+              "id": "c9a13d49-41ed-4762-a00a-fb429afdc9c7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks/unifiedWebhooks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks",
+                    "unifiedWebhooks"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "bd91e575-6939-4cdd-8ea3-58fe8a1e2884",
+                  "name": "Webhooks collection",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/unifiedWebhooks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        "unifiedWebhooks"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<string>\",\n  \"result\": [\n    {\n      \"url\": \"<uri>\",\n      \"login\": \"<string>\",\n      \"password\": \"<string>\",\n      \"alertingEmailAddress\": \"<email>\",\n      \"isEnabled\": 0,\n      \"id\": \"<integer>\",\n      \"insertedOn\": \"<dateTime>\"\n    },\n    {\n      \"url\": \"<uri>\",\n      \"login\": \"<string>\",\n      \"password\": \"<string>\",\n      \"alertingEmailAddress\": \"<email>\",\n      \"isEnabled\": 1,\n      \"id\": \"<integer>\",\n      \"insertedOn\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T02:06:04.000Z",
+                  "updatedAt": "2026-10-22T02:06:04.000Z",
+                  "uid": "35240-bd91e575-6939-4cdd-8ea3-58fe8a1e2884"
+                }
+              ],
+              "createdAt": "2026-10-22T02:06:04.000Z",
+              "updatedAt": "2026-10-22T02:06:04.000Z",
+              "uid": "35240-c9a13d49-41ed-4762-a00a-fb429afdc9c7"
+            },
+            {
+              "name": "Hostaway Create Unified Webhook",
+              "id": "1cc97255-fec4-488b-94ee-d4e7909b288f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
                 "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"url\": \"<uri>\",\n  \"login\": \"<string>\",\n  \"password\": \"<string>\",\n  \"alertingEmailAddress\": \"<email>\",\n  \"isEnabled\": \"<integer>\"\n}",
+                  "raw": "{\n  \"url\": \"<uri>\",\n  \"login\": \"<string>\",\n  \"password\": \"<string>\",\n  \"alertingEmailAddress\": \"<email>\",\n  \"isEnabled\": 1\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": \"string\",\n  \"result\": {\n    \"url\": \"https://px.qhzaM.0l,wNjt\",\n    \"login\": \"string\",\n    \"password\": \"string\",\n    \"alertingEmailAddress\": \"sKMFln14imK-v1@tWYp.iivn\",\n    \"isEnabled\": 1,\n    \"id\": 8488,\n    \"insertedOn\": \"1973-10-10T01:30:35.475Z\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3bf62b66-30ea-4a07-88f3-36390c134292",
-          "name": "Hostaway Get Unified Webhook",
-          "request": {
-            "name": "Hostaway Get Unified Webhook",
-            "description": {},
-            "url": {
-              "path": [
-                "webhooks",
-                "unifiedWebhooks",
-                ":webhookId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "webhookId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "50d372f5-18b8-4645-b0cd-bc4c6d008965",
-              "name": "Webhook",
-              "originalRequest": {
+                },
                 "url": {
-                  "path": [
-                    "webhooks",
-                    "unifiedWebhooks",
-                    ":webhookId"
-                  ],
+                  "raw": "{{baseUrl}}/webhooks/unifiedWebhooks",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "webhookId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": \"string\",\n  \"result\": {\n    \"url\": \"https://px.qhzaM.0l,wNjt\",\n    \"login\": \"string\",\n    \"password\": \"string\",\n    \"alertingEmailAddress\": \"sKMFln14imK-v1@tWYp.iivn\",\n    \"isEnabled\": 1,\n    \"id\": 8488,\n    \"insertedOn\": \"1973-10-10T01:30:35.475Z\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "8aa7eb84-a513-48c0-b747-8cc2da00ca1a",
-          "name": "Hostaway Update Unified Webhook",
-          "request": {
-            "name": "Hostaway Update Unified Webhook",
-            "description": {},
-            "url": {
-              "path": [
-                "webhooks",
-                "unifiedWebhooks",
-                ":webhookId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "webhookId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"url\": \"<uri>\",\n  \"login\": \"<string>\",\n  \"password\": \"<string>\",\n  \"alertingEmailAddress\": \"<email>\",\n  \"isEnabled\": \"<integer>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "8032828e-c703-4ec0-a8fc-e187b7d31991",
-              "name": "Webhook updated",
-              "originalRequest": {
-                "url": {
                   "path": [
                     "webhooks",
-                    "unifiedWebhooks",
-                    ":webhookId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "webhookId",
-                      "description": "(Required) "
-                    }
+                    "unifiedWebhooks"
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"url\": \"<uri>\",\n  \"login\": \"<string>\",\n  \"password\": \"<string>\",\n  \"alertingEmailAddress\": \"<email>\",\n  \"isEnabled\": \"<integer>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
                 }
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": \"string\",\n  \"result\": {\n    \"url\": \"https://px.qhzaM.0l,wNjt\",\n    \"login\": \"string\",\n    \"password\": \"string\",\n    \"alertingEmailAddress\": \"sKMFln14imK-v1@tWYp.iivn\",\n    \"isEnabled\": 1,\n    \"id\": 8488,\n    \"insertedOn\": \"1973-10-10T01:30:35.475Z\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a6b6b1f9-4df6-4652-9f06-c79d1905f14e",
-          "name": "Hostaway Delete Unified Webhook",
-          "request": {
-            "name": "Hostaway Delete Unified Webhook",
-            "description": {},
-            "url": {
-              "path": [
-                "webhooks",
-                "unifiedWebhooks",
-                ":webhookId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "webhookId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "1f484af6-6c78-433b-b1ad-7cfa18877544",
-              "name": "Webhook deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "webhooks",
-                    "unifiedWebhooks",
-                    ":webhookId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "webhookId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
+                  "id": "7760e692-e783-4a3b-bf81-938fc8572ba9",
+                  "name": "Webhook created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"url\": \"<uri>\",\n  \"login\": \"<string>\",\n  \"password\": \"<string>\",\n  \"alertingEmailAddress\": \"<email>\",\n  \"isEnabled\": 1\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
                     },
-                    "key": "Authorization",
-                    "value": "<token>"
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/unifiedWebhooks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        "unifiedWebhooks"
+                      ]
+                    }
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<string>\",\n  \"result\": {\n    \"url\": \"<uri>\",\n    \"login\": \"<string>\",\n    \"password\": \"<string>\",\n    \"alertingEmailAddress\": \"<email>\",\n    \"isEnabled\": 0,\n    \"id\": \"<integer>\",\n    \"insertedOn\": \"<dateTime>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:06:04.000Z",
+                  "updatedAt": "2026-10-22T02:06:04.000Z",
+                  "uid": "35240-7760e692-e783-4a3b-bf81-938fc8572ba9"
                 }
               ],
-              "body": "{\n  \"status\": \"success\",\n  \"result\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-22T02:06:04.000Z",
+              "updatedAt": "2026-10-22T02:06:04.000Z",
+              "uid": "35240-1cc97255-fec4-488b-94ee-d4e7909b288f"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "90568ae7-9f16-4449-87c4-81d2b1a23290",
+          "createdAt": "2026-10-22T02:06:04.000Z",
+          "updatedAt": "2026-10-22T02:06:04.000Z",
+          "uid": "35240-90568ae7-9f16-4449-87c4-81d2b1a23290"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.hostaway.com/v1",
-      "key": "baseUrl"
+      "id": "c4fe7a0f-a48f-4bd4-a0d1-9c795da5df85",
+      "createdAt": "2026-10-22T02:06:04.000Z",
+      "updatedAt": "2026-10-22T02:06:04.000Z",
+      "uid": "35240-c4fe7a0f-a48f-4bd4-a0d1-9c795da5df85"
     }
   ],
   "auth": {
@@ -506,25 +514,25 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "general"
+        "value": "general",
+        "type": "string"
       },
       {
         "key": "accessTokenUrl",
-        "value": "https://api.hostaway.com/v1/accessTokens"
+        "value": "https://api.hostaway.com/v1/accessTokens",
+        "type": "string"
       },
       {
         "key": "grant_type",
-        "value": "client_credentials"
+        "value": "client_credentials",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "81d8c522-3de1-4336-ae25-f317b896589a",
-    "name": "Hostaway Calendar Webhooks API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.hostaway.com/v1"
     }
-  }
+  ]
 }

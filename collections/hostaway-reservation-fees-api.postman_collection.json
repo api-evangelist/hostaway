@@ -1,118 +1,130 @@
 {
+  "info": {
+    "_postman_id": "a4ab8a57-b3c3-4793-beb6-de644f7b1bc0",
+    "name": "Hostaway Calendar Reservation Fees API",
+    "description": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:06:36.000Z",
+    "updatedAt": "2026-10-22T02:06:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a4ab8a57-b3c3-4793-beb6-de644f7b1bc0"
+  },
   "item": [
     {
-      "id": "1953b2d4-c7b8-4c65-9be5-851153ce363c",
-      "name": "Reservation Fees",
-      "description": {
-        "content": "Fees applied to a reservation",
-        "type": "text/plain"
-      },
+      "name": "reservations",
       "item": [
         {
-          "id": "f83f59a7-231b-451b-a9b5-c31aee4f0219",
-          "name": "Hostaway List Reservation Fees",
-          "request": {
-            "name": "Hostaway List Reservation Fees",
-            "description": {},
-            "url": {
-              "path": [
-                "reservations",
-                ":reservationId",
-                "fees"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "reservationId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{reservationId}",
+          "item": [
             {
-              "id": "4b966157-82ca-49ff-972f-54243f34c7f2",
-              "name": "Fees collection",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "reservations",
-                    ":reservationId",
-                    "fees"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "reservationId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "fees",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Hostaway List Reservation Fees",
+                  "id": "78ec94a4-03f4-4183-9e4d-dcfaa95ecd22",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reservations/:reservationId/fees",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reservations",
+                        ":reservationId",
+                        "fees"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9e0eb4fe-845a-4678-b922-3bd4a6aefe67",
+                          "key": "reservationId",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "eb61f1fa-54a3-42c6-b040-110682e0cfdf",
+                      "name": "Fees collection",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reservations/:reservationId/fees",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reservations",
+                            ":reservationId",
+                            "fees"
+                          ],
+                          "variable": [
+                            {
+                              "key": "reservationId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"fail\",\n  \"result\": {}\n}",
+                      "createdAt": "2026-10-22T02:06:36.000Z",
+                      "updatedAt": "2026-10-22T02:06:36.000Z",
+                      "uid": "35240-eb61f1fa-54a3-42c6-b040-110682e0cfdf"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:06:36.000Z",
+                  "updatedAt": "2026-10-22T02:06:36.000Z",
+                  "uid": "35240-78ec94a4-03f4-4183-9e4d-dcfaa95ecd22"
                 }
               ],
-              "body": "{\n  \"status\": \"fail\",\n  \"result\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "cd4822d2-431e-49ab-9f3e-d86fb97b39db",
+              "createdAt": "2026-10-22T02:06:36.000Z",
+              "updatedAt": "2026-10-22T02:06:36.000Z",
+              "uid": "35240-cd4822d2-431e-49ab-9f3e-d86fb97b39db"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "0cefec95-b561-44df-b834-f984e0de20c8",
+          "createdAt": "2026-10-22T02:06:36.000Z",
+          "updatedAt": "2026-10-22T02:06:36.000Z",
+          "uid": "35240-0cefec95-b561-44df-b834-f984e0de20c8"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.hostaway.com/v1",
-      "key": "baseUrl"
+      "id": "1254d728-995e-49f2-b284-9d3e0957baeb",
+      "createdAt": "2026-10-22T02:06:36.000Z",
+      "updatedAt": "2026-10-22T02:06:36.000Z",
+      "uid": "35240-1254d728-995e-49f2-b284-9d3e0957baeb"
     }
   ],
   "auth": {
@@ -120,25 +132,25 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "general"
+        "value": "general",
+        "type": "string"
       },
       {
         "key": "accessTokenUrl",
-        "value": "https://api.hostaway.com/v1/accessTokens"
+        "value": "https://api.hostaway.com/v1/accessTokens",
+        "type": "string"
       },
       {
         "key": "grant_type",
-        "value": "client_credentials"
+        "value": "client_credentials",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "59865487-f9cc-4adf-982e-10715dd5d2ae",
-    "name": "Hostaway Calendar Reservation Fees API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.hostaway.com/v1"
     }
-  }
+  ]
 }

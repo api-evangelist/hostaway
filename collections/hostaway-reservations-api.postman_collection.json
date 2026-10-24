@@ -1,80 +1,303 @@
 {
+  "info": {
+    "_postman_id": "e8ac6ee1-ce51-4ccc-a85c-0f1bb457c56c",
+    "name": "Hostaway Calendar Reservations API",
+    "description": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:05:50.000Z",
+    "updatedAt": "2026-10-22T02:05:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e8ac6ee1-ce51-4ccc-a85c-0f1bb457c56c"
+  },
   "item": [
     {
-      "id": "78738fb6-f079-4964-a5ac-fcb8b4f86427",
-      "name": "Reservations",
-      "description": {
-        "content": "Bookings and reservations across channels",
-        "type": "text/plain"
-      },
+      "name": "reservations",
       "item": [
         {
-          "id": "da61a7fa-49e4-4e37-b48d-6c31768715ab",
-          "name": "Hostaway List Reservations",
-          "request": {
-            "name": "Hostaway List Reservations",
-            "description": {},
-            "url": {
-              "path": [
-                "reservations"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
+          "name": "{reservationId}",
+          "item": [
+            {
+              "name": "Hostaway Get Reservation",
+              "id": "383eee69-b42d-4aad-868e-7399e1074c7c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/reservations/:reservationId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "reservations",
+                    ":reservationId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "a3e95621-0935-4ffc-aba3-05f7afb5fe2b",
+                      "key": "reservationId",
+                      "value": "<integer>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
                 {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "10"
-                },
-                {
-                  "disabled": false,
-                  "key": "offset",
-                  "value": "0"
-                },
-                {
-                  "disabled": false,
-                  "key": "listingId",
-                  "value": "<integer>"
-                },
-                {
-                  "disabled": false,
-                  "key": "arrivalStartDate",
-                  "value": "<date>"
-                },
-                {
-                  "disabled": false,
-                  "key": "arrivalEndDate",
-                  "value": "<date>"
-                },
-                {
-                  "disabled": false,
-                  "key": "channelId",
-                  "value": "<integer>"
+                  "id": "fc638a3a-38d6-4c66-b66f-3aa48b66e391",
+                  "name": "Single reservation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reservations/:reservationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reservations",
+                        ":reservationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "reservationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<string>\",\n  \"result\": {\n    \"listingMapId\": \"<integer>\",\n    \"arrivalDate\": \"<date>\",\n    \"departureDate\": \"<date>\",\n    \"channelId\": \"<integer>\",\n    \"channelName\": \"<string>\",\n    \"guestName\": \"<string>\",\n    \"guestFirstName\": \"<string>\",\n    \"guestLastName\": \"<string>\",\n    \"guestEmail\": \"<email>\",\n    \"guestPicture\": \"<uri>\",\n    \"numberOfGuests\": \"<integer>\",\n    \"adults\": \"<integer>\",\n    \"children\": \"<integer>\",\n    \"infants\": \"<integer>\",\n    \"totalPrice\": \"<number>\",\n    \"currency\": \"<string>\",\n    \"status\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"reservationId\": \"<string>\",\n    \"hostawayReservationId\": \"<string>\",\n    \"insertedOn\": \"<dateTime>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:05:51.000Z",
+                  "updatedAt": "2026-10-22T02:05:51.000Z",
+                  "uid": "35240-fc638a3a-38d6-4c66-b66f-3aa48b66e391"
                 }
               ],
-              "variable": []
+              "createdAt": "2026-10-22T02:05:51.000Z",
+              "updatedAt": "2026-10-22T02:05:51.000Z",
+              "uid": "35240-383eee69-b42d-4aad-868e-7399e1074c7c"
             },
+            {
+              "name": "Hostaway Update Reservation",
+              "id": "de3cd129-282f-4e60-99c3-dca287ae1cc3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"listingMapId\": \"<integer>\",\n  \"arrivalDate\": \"<date>\",\n  \"departureDate\": \"<date>\",\n  \"channelId\": \"<integer>\",\n  \"channelName\": \"<string>\",\n  \"guestName\": \"<string>\",\n  \"guestFirstName\": \"<string>\",\n  \"guestLastName\": \"<string>\",\n  \"guestEmail\": \"<email>\",\n  \"guestPicture\": \"<uri>\",\n  \"numberOfGuests\": \"<integer>\",\n  \"adults\": \"<integer>\",\n  \"children\": \"<integer>\",\n  \"infants\": \"<integer>\",\n  \"totalPrice\": \"<number>\",\n  \"currency\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/reservations/:reservationId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "reservations",
+                    ":reservationId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "0fe8cff7-33e3-45b3-bc73-d35cebb9f6df",
+                      "key": "reservationId",
+                      "value": "<integer>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d2127cbd-1660-426b-b26e-18e03cac8ad8",
+                  "name": "Reservation updated",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"listingMapId\": \"<integer>\",\n  \"arrivalDate\": \"<date>\",\n  \"departureDate\": \"<date>\",\n  \"channelId\": \"<integer>\",\n  \"channelName\": \"<string>\",\n  \"guestName\": \"<string>\",\n  \"guestFirstName\": \"<string>\",\n  \"guestLastName\": \"<string>\",\n  \"guestEmail\": \"<email>\",\n  \"guestPicture\": \"<uri>\",\n  \"numberOfGuests\": \"<integer>\",\n  \"adults\": \"<integer>\",\n  \"children\": \"<integer>\",\n  \"infants\": \"<integer>\",\n  \"totalPrice\": \"<number>\",\n  \"currency\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/reservations/:reservationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reservations",
+                        ":reservationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "reservationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<string>\",\n  \"result\": {\n    \"listingMapId\": \"<integer>\",\n    \"arrivalDate\": \"<date>\",\n    \"departureDate\": \"<date>\",\n    \"channelId\": \"<integer>\",\n    \"channelName\": \"<string>\",\n    \"guestName\": \"<string>\",\n    \"guestFirstName\": \"<string>\",\n    \"guestLastName\": \"<string>\",\n    \"guestEmail\": \"<email>\",\n    \"guestPicture\": \"<uri>\",\n    \"numberOfGuests\": \"<integer>\",\n    \"adults\": \"<integer>\",\n    \"children\": \"<integer>\",\n    \"infants\": \"<integer>\",\n    \"totalPrice\": \"<number>\",\n    \"currency\": \"<string>\",\n    \"status\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"reservationId\": \"<string>\",\n    \"hostawayReservationId\": \"<string>\",\n    \"insertedOn\": \"<dateTime>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:05:51.000Z",
+                  "updatedAt": "2026-10-22T02:05:51.000Z",
+                  "uid": "35240-d2127cbd-1660-426b-b26e-18e03cac8ad8"
+                }
+              ],
+              "createdAt": "2026-10-22T02:05:51.000Z",
+              "updatedAt": "2026-10-22T02:05:51.000Z",
+              "uid": "35240-de3cd129-282f-4e60-99c3-dca287ae1cc3"
+            }
+          ],
+          "id": "a2332b66-e078-44ad-8e02-46d66d278213",
+          "createdAt": "2026-10-22T02:05:51.000Z",
+          "updatedAt": "2026-10-22T02:05:51.000Z",
+          "uid": "35240-a2332b66-e078-44ad-8e02-46d66d278213"
+        },
+        {
+          "name": "Hostaway List Reservations",
+          "id": "7cbad487-95d0-4e60-995d-25056d30b3f1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/reservations?limit=10&offset=0&listingId=<integer>&arrivalStartDate=<date>&arrivalEndDate=<date>&channelId=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reservations"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "key": "listingId",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "arrivalStartDate",
+                  "value": "<date>"
+                },
+                {
+                  "key": "arrivalEndDate",
+                  "value": "<date>"
+                },
+                {
+                  "key": "channelId",
+                  "value": "<integer>"
+                }
+              ]
+            }
           },
           "response": [
             {
-              "id": "a829f6c1-6dc7-4d68-a488-10a0e82a33ba",
+              "id": "73aec5a7-74d5-43ae-9f8c-e90d259a5faf",
               "name": "Reservations collection",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    "reservations"
-                  ],
+                  "raw": "{{baseUrl}}/reservations?limit=10&offset=0&listingId=<integer>&arrivalStartDate=<date>&arrivalEndDate=<date>&channelId=<integer>",
                   "host": [
                     "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "reservations"
                   ],
                   "query": [
                     {
@@ -101,357 +324,135 @@
                       "key": "channelId",
                       "value": "<integer>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": \"string\",\n  \"count\": 1011,\n  \"limit\": 258,\n  \"offset\": 5873,\n  \"result\": [\n    {\n      \"listingMapId\": 3225,\n      \"arrivalDate\": \"1990-01-15\",\n      \"departureDate\": \"1955-12-31\",\n      \"channelId\": 7163,\n      \"channelName\": \"string\",\n      \"guestName\": \"string\",\n      \"guestFirstName\": \"string\",\n      \"guestLastName\": \"string\",\n      \"guestEmail\": \"533EFuODM@LTndG.ls\",\n      \"guestPicture\": \"http://ODP.lzMn+\",\n      \"numberOfGuests\": 9945,\n      \"adults\": 2217,\n      \"children\": 2477,\n      \"infants\": 1294,\n      \"totalPrice\": 6589.8861859131075,\n      \"currency\": \"string\",\n      \"status\": \"string\",\n      \"id\": 4726,\n      \"reservationId\": \"string\",\n      \"hostawayReservationId\": \"string\",\n      \"insertedOn\": \"1987-11-16T12:46:38.593Z\"\n    },\n    {\n      \"listingMapId\": 9355,\n      \"arrivalDate\": \"1948-02-18\",\n      \"departureDate\": \"1972-05-31\",\n      \"channelId\": 8579,\n      \"channelName\": \"string\",\n      \"guestName\": \"string\",\n      \"guestFirstName\": \"string\",\n      \"guestLastName\": \"string\",\n      \"guestEmail\": \"i1s@KjAQLcQFFaeOeheWjngrWnWRCnZE.ipdz\",\n      \"guestPicture\": \"https://FbM.zatqO7pE57gKu-xKky5\",\n      \"numberOfGuests\": 7965,\n      \"adults\": 2226,\n      \"children\": 3860,\n      \"infants\": 5408,\n      \"totalPrice\": 4815.4972513775865,\n      \"currency\": \"string\",\n      \"status\": \"string\",\n      \"id\": 5016,\n      \"reservationId\": \"string\",\n      \"hostawayReservationId\": \"string\",\n      \"insertedOn\": \"2004-01-16T16:30:00.277Z\"\n    }\n  ]\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<string>\",\n  \"count\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"result\": [\n    {\n      \"listingMapId\": \"<integer>\",\n      \"arrivalDate\": \"<date>\",\n      \"departureDate\": \"<date>\",\n      \"channelId\": \"<integer>\",\n      \"channelName\": \"<string>\",\n      \"guestName\": \"<string>\",\n      \"guestFirstName\": \"<string>\",\n      \"guestLastName\": \"<string>\",\n      \"guestEmail\": \"<email>\",\n      \"guestPicture\": \"<uri>\",\n      \"numberOfGuests\": \"<integer>\",\n      \"adults\": \"<integer>\",\n      \"children\": \"<integer>\",\n      \"infants\": \"<integer>\",\n      \"totalPrice\": \"<number>\",\n      \"currency\": \"<string>\",\n      \"status\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"reservationId\": \"<string>\",\n      \"hostawayReservationId\": \"<string>\",\n      \"insertedOn\": \"<dateTime>\"\n    },\n    {\n      \"listingMapId\": \"<integer>\",\n      \"arrivalDate\": \"<date>\",\n      \"departureDate\": \"<date>\",\n      \"channelId\": \"<integer>\",\n      \"channelName\": \"<string>\",\n      \"guestName\": \"<string>\",\n      \"guestFirstName\": \"<string>\",\n      \"guestLastName\": \"<string>\",\n      \"guestEmail\": \"<email>\",\n      \"guestPicture\": \"<uri>\",\n      \"numberOfGuests\": \"<integer>\",\n      \"adults\": \"<integer>\",\n      \"children\": \"<integer>\",\n      \"infants\": \"<integer>\",\n      \"totalPrice\": \"<number>\",\n      \"currency\": \"<string>\",\n      \"status\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"reservationId\": \"<string>\",\n      \"hostawayReservationId\": \"<string>\",\n      \"insertedOn\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T02:05:51.000Z",
+              "updatedAt": "2026-10-22T02:05:51.000Z",
+              "uid": "35240-73aec5a7-74d5-43ae-9f8c-e90d259a5faf"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:05:51.000Z",
+          "updatedAt": "2026-10-22T02:05:51.000Z",
+          "uid": "35240-7cbad487-95d0-4e60-995d-25056d30b3f1"
         },
         {
-          "id": "c64dea49-b5dd-4902-a52f-1dad54fba131",
           "name": "Hostaway Create Reservation",
+          "id": "f559fe46-71c5-4771-a65e-457027a5036b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Hostaway Create Reservation",
-            "description": {},
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"listingMapId\": \"<integer>\",\n  \"arrivalDate\": \"<date>\",\n  \"departureDate\": \"<date>\",\n  \"channelId\": \"<integer>\",\n  \"channelName\": \"<string>\",\n  \"guestName\": \"<string>\",\n  \"guestFirstName\": \"<string>\",\n  \"guestLastName\": \"<string>\",\n  \"guestEmail\": \"<email>\",\n  \"guestPicture\": \"<uri>\",\n  \"numberOfGuests\": \"<integer>\",\n  \"adults\": \"<integer>\",\n  \"children\": \"<integer>\",\n  \"infants\": \"<integer>\",\n  \"totalPrice\": \"<number>\",\n  \"currency\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
             "url": {
+              "raw": "{{baseUrl}}/reservations",
+              "host": [
+                "{{baseUrl}}"
+              ],
               "path": [
                 "reservations"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"listingMapId\": \"<integer>\",\n  \"arrivalDate\": \"<date>\",\n  \"departureDate\": \"<date>\",\n  \"channelId\": \"<integer>\",\n  \"channelName\": \"<string>\",\n  \"guestName\": \"<string>\",\n  \"guestFirstName\": \"<string>\",\n  \"guestLastName\": \"<string>\",\n  \"guestEmail\": \"<email>\",\n  \"guestPicture\": \"<uri>\",\n  \"numberOfGuests\": \"<integer>\",\n  \"adults\": \"<integer>\",\n  \"children\": \"<integer>\",\n  \"infants\": \"<integer>\",\n  \"totalPrice\": \"<number>\",\n  \"currency\": \"<string>\",\n  \"status\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+              ]
             }
           },
           "response": [
             {
-              "id": "d661cc42-8411-461a-b47e-1d8e7aaf02df",
+              "id": "283c75be-a01c-4c2c-a295-2dbc6ce79824",
               "name": "Reservation created",
               "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"listingMapId\": \"<integer>\",\n  \"arrivalDate\": \"<date>\",\n  \"departureDate\": \"<date>\",\n  \"channelId\": \"<integer>\",\n  \"channelName\": \"<string>\",\n  \"guestName\": \"<string>\",\n  \"guestFirstName\": \"<string>\",\n  \"guestLastName\": \"<string>\",\n  \"guestEmail\": \"<email>\",\n  \"guestPicture\": \"<uri>\",\n  \"numberOfGuests\": \"<integer>\",\n  \"adults\": \"<integer>\",\n  \"children\": \"<integer>\",\n  \"infants\": \"<integer>\",\n  \"totalPrice\": \"<number>\",\n  \"currency\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
                 "url": {
+                  "raw": "{{baseUrl}}/reservations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "reservations"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"listingMapId\": \"<integer>\",\n  \"arrivalDate\": \"<date>\",\n  \"departureDate\": \"<date>\",\n  \"channelId\": \"<integer>\",\n  \"channelName\": \"<string>\",\n  \"guestName\": \"<string>\",\n  \"guestFirstName\": \"<string>\",\n  \"guestLastName\": \"<string>\",\n  \"guestEmail\": \"<email>\",\n  \"guestPicture\": \"<uri>\",\n  \"numberOfGuests\": \"<integer>\",\n  \"adults\": \"<integer>\",\n  \"children\": \"<integer>\",\n  \"infants\": \"<integer>\",\n  \"totalPrice\": \"<number>\",\n  \"currency\": \"<string>\",\n  \"status\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": \"string\",\n  \"result\": {\n    \"listingMapId\": 345,\n    \"arrivalDate\": \"2006-04-27\",\n    \"departureDate\": \"2003-11-06\",\n    \"channelId\": 347,\n    \"channelName\": \"string\",\n    \"guestName\": \"string\",\n    \"guestFirstName\": \"string\",\n    \"guestLastName\": \"string\",\n    \"guestEmail\": \"I2te0kqc@dCWPUT.ala\",\n    \"guestPicture\": \"http://KlXjqWtddjYih.ytG6Cm,k3OyigZHX8lCxawJix-Wh4IYbU\",\n    \"numberOfGuests\": 5816,\n    \"adults\": 7511,\n    \"children\": 4963,\n    \"infants\": 5118,\n    \"totalPrice\": 4523.5429712628575,\n    \"currency\": \"string\",\n    \"status\": \"string\",\n    \"id\": 6163,\n    \"reservationId\": \"string\",\n    \"hostawayReservationId\": \"string\",\n    \"insertedOn\": \"1958-08-19T19:31:49.426Z\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "1f8c24b5-5ae8-4ca6-b489-778e8eeddd75",
-          "name": "Hostaway Get Reservation",
-          "request": {
-            "name": "Hostaway Get Reservation",
-            "description": {},
-            "url": {
-              "path": [
-                "reservations",
-                ":reservationId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "reservationId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "1906d3b7-31b5-45e2-87ec-efa6ed20e669",
-              "name": "Single reservation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "reservations",
-                    ":reservationId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "reservationId",
-                      "description": "(Required) "
-                    }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": \"string\",\n  \"result\": {\n    \"listingMapId\": 345,\n    \"arrivalDate\": \"2006-04-27\",\n    \"departureDate\": \"2003-11-06\",\n    \"channelId\": 347,\n    \"channelName\": \"string\",\n    \"guestName\": \"string\",\n    \"guestFirstName\": \"string\",\n    \"guestLastName\": \"string\",\n    \"guestEmail\": \"I2te0kqc@dCWPUT.ala\",\n    \"guestPicture\": \"http://KlXjqWtddjYih.ytG6Cm,k3OyigZHX8lCxawJix-Wh4IYbU\",\n    \"numberOfGuests\": 5816,\n    \"adults\": 7511,\n    \"children\": 4963,\n    \"infants\": 5118,\n    \"totalPrice\": 4523.5429712628575,\n    \"currency\": \"string\",\n    \"status\": \"string\",\n    \"id\": 6163,\n    \"reservationId\": \"string\",\n    \"hostawayReservationId\": \"string\",\n    \"insertedOn\": \"1958-08-19T19:31:49.426Z\"\n  }\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<string>\",\n  \"result\": {\n    \"listingMapId\": \"<integer>\",\n    \"arrivalDate\": \"<date>\",\n    \"departureDate\": \"<date>\",\n    \"channelId\": \"<integer>\",\n    \"channelName\": \"<string>\",\n    \"guestName\": \"<string>\",\n    \"guestFirstName\": \"<string>\",\n    \"guestLastName\": \"<string>\",\n    \"guestEmail\": \"<email>\",\n    \"guestPicture\": \"<uri>\",\n    \"numberOfGuests\": \"<integer>\",\n    \"adults\": \"<integer>\",\n    \"children\": \"<integer>\",\n    \"infants\": \"<integer>\",\n    \"totalPrice\": \"<number>\",\n    \"currency\": \"<string>\",\n    \"status\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"reservationId\": \"<string>\",\n    \"hostawayReservationId\": \"<string>\",\n    \"insertedOn\": \"<dateTime>\"\n  }\n}",
+              "createdAt": "2026-10-22T02:05:51.000Z",
+              "updatedAt": "2026-10-22T02:05:51.000Z",
+              "uid": "35240-283c75be-a01c-4c2c-a295-2dbc6ce79824"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "8b9ab168-67f0-474b-963e-ca9b2509d87c",
-          "name": "Hostaway Update Reservation",
-          "request": {
-            "name": "Hostaway Update Reservation",
-            "description": {},
-            "url": {
-              "path": [
-                "reservations",
-                ":reservationId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "reservationId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"listingMapId\": \"<integer>\",\n  \"arrivalDate\": \"<date>\",\n  \"departureDate\": \"<date>\",\n  \"channelId\": \"<integer>\",\n  \"channelName\": \"<string>\",\n  \"guestName\": \"<string>\",\n  \"guestFirstName\": \"<string>\",\n  \"guestLastName\": \"<string>\",\n  \"guestEmail\": \"<email>\",\n  \"guestPicture\": \"<uri>\",\n  \"numberOfGuests\": \"<integer>\",\n  \"adults\": \"<integer>\",\n  \"children\": \"<integer>\",\n  \"infants\": \"<integer>\",\n  \"totalPrice\": \"<number>\",\n  \"currency\": \"<string>\",\n  \"status\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "ae20ae66-3123-45d4-bfd1-505e06e79b41",
-              "name": "Reservation updated",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "reservations",
-                    ":reservationId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "reservationId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"listingMapId\": \"<integer>\",\n  \"arrivalDate\": \"<date>\",\n  \"departureDate\": \"<date>\",\n  \"channelId\": \"<integer>\",\n  \"channelName\": \"<string>\",\n  \"guestName\": \"<string>\",\n  \"guestFirstName\": \"<string>\",\n  \"guestLastName\": \"<string>\",\n  \"guestEmail\": \"<email>\",\n  \"guestPicture\": \"<uri>\",\n  \"numberOfGuests\": \"<integer>\",\n  \"adults\": \"<integer>\",\n  \"children\": \"<integer>\",\n  \"infants\": \"<integer>\",\n  \"totalPrice\": \"<number>\",\n  \"currency\": \"<string>\",\n  \"status\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": \"string\",\n  \"result\": {\n    \"listingMapId\": 345,\n    \"arrivalDate\": \"2006-04-27\",\n    \"departureDate\": \"2003-11-06\",\n    \"channelId\": 347,\n    \"channelName\": \"string\",\n    \"guestName\": \"string\",\n    \"guestFirstName\": \"string\",\n    \"guestLastName\": \"string\",\n    \"guestEmail\": \"I2te0kqc@dCWPUT.ala\",\n    \"guestPicture\": \"http://KlXjqWtddjYih.ytG6Cm,k3OyigZHX8lCxawJix-Wh4IYbU\",\n    \"numberOfGuests\": 5816,\n    \"adults\": 7511,\n    \"children\": 4963,\n    \"infants\": 5118,\n    \"totalPrice\": 4523.5429712628575,\n    \"currency\": \"string\",\n    \"status\": \"string\",\n    \"id\": 6163,\n    \"reservationId\": \"string\",\n    \"hostawayReservationId\": \"string\",\n    \"insertedOn\": \"1958-08-19T19:31:49.426Z\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:05:51.000Z",
+          "updatedAt": "2026-10-22T02:05:51.000Z",
+          "uid": "35240-f559fe46-71c5-4771-a65e-457027a5036b"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.hostaway.com/v1",
-      "key": "baseUrl"
+      "id": "2beec305-b51b-4d42-8cc1-977b22f16d4c",
+      "createdAt": "2026-10-22T02:05:51.000Z",
+      "updatedAt": "2026-10-22T02:05:51.000Z",
+      "uid": "35240-2beec305-b51b-4d42-8cc1-977b22f16d4c"
     }
   ],
   "auth": {
@@ -459,25 +460,25 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "general"
+        "value": "general",
+        "type": "string"
       },
       {
         "key": "accessTokenUrl",
-        "value": "https://api.hostaway.com/v1/accessTokens"
+        "value": "https://api.hostaway.com/v1/accessTokens",
+        "type": "string"
       },
       {
         "key": "grant_type",
-        "value": "client_credentials"
+        "value": "client_credentials",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "cc9a25aa-8f83-46e0-ab55-e7aae1c61083",
-    "name": "Hostaway Calendar Reservations API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.hostaway.com/v1"
     }
-  }
+  ]
 }

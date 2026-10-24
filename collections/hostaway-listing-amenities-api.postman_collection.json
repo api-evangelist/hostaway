@@ -1,118 +1,130 @@
 {
+  "info": {
+    "_postman_id": "347a2232-2b96-408f-9e4e-d4c5b0b76642",
+    "name": "Hostaway Calendar Listing Amenities API",
+    "description": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:06:11.000Z",
+    "updatedAt": "2026-10-22T02:06:11.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-347a2232-2b96-408f-9e4e-d4c5b0b76642"
+  },
   "item": [
     {
-      "id": "e184bb95-7432-41c3-bf46-b1aea1220ecd",
-      "name": "Listing Amenities",
-      "description": {
-        "content": "Amenities offered by a listing",
-        "type": "text/plain"
-      },
+      "name": "listings",
       "item": [
         {
-          "id": "303d13c9-9a5d-4364-9e64-1ceda9325658",
-          "name": "Hostaway List Listing Amenities",
-          "request": {
-            "name": "Hostaway List Listing Amenities",
-            "description": {},
-            "url": {
-              "path": [
-                "listings",
-                ":listingId",
-                "amenities"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "listingId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{listingId}",
+          "item": [
             {
-              "id": "ba47ac67-af26-4deb-9b02-b5749ea19ac5",
-              "name": "Amenities collection",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "listings",
-                    ":listingId",
-                    "amenities"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "listingId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "amenities",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Hostaway List Listing Amenities",
+                  "id": "eb9a1c01-62b1-492f-9e4e-199799daa0af",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/listings/:listingId/amenities",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "listings",
+                        ":listingId",
+                        "amenities"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9510dbe6-09f4-454c-91ce-3aa6667c7217",
+                          "key": "listingId",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "7a0a0142-10cd-43ac-84ea-9fb753fbbb03",
+                      "name": "Amenities collection",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/listings/:listingId/amenities",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "listings",
+                            ":listingId",
+                            "amenities"
+                          ],
+                          "variable": [
+                            {
+                              "key": "listingId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"fail\",\n  \"result\": {},\n  \"count\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"page\": \"<integer>\",\n  \"totalPages\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T02:06:12.000Z",
+                      "updatedAt": "2026-10-22T02:06:12.000Z",
+                      "uid": "35240-7a0a0142-10cd-43ac-84ea-9fb753fbbb03"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:06:12.000Z",
+                  "updatedAt": "2026-10-22T02:06:12.000Z",
+                  "uid": "35240-eb9a1c01-62b1-492f-9e4e-199799daa0af"
                 }
               ],
-              "body": "{\n  \"status\": \"success\",\n  \"result\": {},\n  \"count\": 5408,\n  \"limit\": 4797,\n  \"offset\": 5375,\n  \"page\": 7103,\n  \"totalPages\": 8357\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "65fc0391-e946-48d9-a010-b873321d382c",
+              "createdAt": "2026-10-22T02:06:12.000Z",
+              "updatedAt": "2026-10-22T02:06:12.000Z",
+              "uid": "35240-65fc0391-e946-48d9-a010-b873321d382c"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "2dab6f2d-804a-499f-8c68-701cc895de9e",
+          "createdAt": "2026-10-22T02:06:12.000Z",
+          "updatedAt": "2026-10-22T02:06:12.000Z",
+          "uid": "35240-2dab6f2d-804a-499f-8c68-701cc895de9e"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.hostaway.com/v1",
-      "key": "baseUrl"
+      "id": "54c094ba-2e67-4fce-8f30-a428edd5dec7",
+      "createdAt": "2026-10-22T02:06:12.000Z",
+      "updatedAt": "2026-10-22T02:06:12.000Z",
+      "uid": "35240-54c094ba-2e67-4fce-8f30-a428edd5dec7"
     }
   ],
   "auth": {
@@ -120,25 +132,25 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "general"
+        "value": "general",
+        "type": "string"
       },
       {
         "key": "accessTokenUrl",
-        "value": "https://api.hostaway.com/v1/accessTokens"
+        "value": "https://api.hostaway.com/v1/accessTokens",
+        "type": "string"
       },
       {
         "key": "grant_type",
-        "value": "client_credentials"
+        "value": "client_credentials",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "b1dbcf08-cb2b-4ef3-b085-3ea27a5ceda9",
-    "name": "Hostaway Calendar Listing Amenities API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.hostaway.com/v1"
     }
-  }
+  ]
 }

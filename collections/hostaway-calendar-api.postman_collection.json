@@ -1,381 +1,403 @@
 {
+  "info": {
+    "_postman_id": "fe85c76b-c1cc-4ab3-8500-02ef3b77826a",
+    "name": "Hostaway Calendar API",
+    "description": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:05:58.000Z",
+    "updatedAt": "2026-10-22T02:05:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fe85c76b-c1cc-4ab3-8500-02ef3b77826a"
+  },
   "item": [
     {
-      "id": "c86f1860-f965-4bcd-8846-0913825ea9c2",
-      "name": "Calendar",
-      "description": {
-        "content": "Listing calendar availability and pricing",
-        "type": "text/plain"
-      },
+      "name": "listings",
       "item": [
         {
-          "id": "28c97dbe-bada-4495-b27a-9f14273cdf18",
-          "name": "Hostaway Get Calendar Days",
-          "request": {
-            "name": "Hostaway Get Calendar Days",
-            "description": {},
-            "url": {
-              "path": [
-                "listings",
-                ":listingId",
-                "calendar"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "startDate",
-                  "value": "<date>"
-                },
-                {
-                  "disabled": false,
-                  "key": "endDate",
-                  "value": "<date>"
-                },
-                {
-                  "disabled": false,
-                  "key": "includeResources",
-                  "value": "<integer>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "listingId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{listingId}",
+          "item": [
             {
-              "id": "6298a2f7-ff88-4d31-9105-2a83ffa56653",
-              "name": "Calendar days collection",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "listings",
-                    ":listingId",
-                    "calendar"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "startDate",
-                      "value": "<date>"
-                    },
-                    {
-                      "key": "endDate",
-                      "value": "<date>"
-                    },
-                    {
-                      "key": "includeResources",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "listingId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "calendar",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "batch",
+                  "item": [
+                    {
+                      "name": "Hostaway Batch Update Calendar",
+                      "id": "dcf4daf0-ae05-4ebb-a242-070f2637199b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"dates\": [\n    \"<date>\",\n    \"<date>\"\n  ],\n  \"price\": \"<number>\",\n  \"minimumStay\": \"<integer>\",\n  \"isAvailable\": 1,\n  \"note\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/listings/:listingId/calendar/batch",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "listings",
+                            ":listingId",
+                            "calendar",
+                            "batch"
+                          ],
+                          "variable": [
+                            {
+                              "id": "900ea464-c63b-4fc5-b5c8-47411395b5b5",
+                              "key": "listingId",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "b02cdb0a-624d-4b6e-8115-c2e5af86c641",
+                          "name": "Batch update applied",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"dates\": [\n    \"<date>\",\n    \"<date>\"\n  ],\n  \"price\": \"<number>\",\n  \"minimumStay\": \"<integer>\",\n  \"isAvailable\": 1,\n  \"note\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/listings/:listingId/calendar/batch",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "listings",
+                                ":listingId",
+                                "calendar",
+                                "batch"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "listingId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"success\",\n  \"result\": [\n    {\n      \"date\": \"<date>\",\n      \"price\": \"<number>\",\n      \"minimumStay\": \"<integer>\",\n      \"maximumStay\": \"<integer>\",\n      \"closedOnArrival\": 0,\n      \"closedOnDeparture\": 0,\n      \"isAvailable\": 0,\n      \"note\": \"<string>\",\n      \"reservationId\": \"<integer>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"date\": \"<date>\",\n      \"price\": \"<number>\",\n      \"minimumStay\": \"<integer>\",\n      \"maximumStay\": \"<integer>\",\n      \"closedOnArrival\": 0,\n      \"closedOnDeparture\": 0,\n      \"isAvailable\": 1,\n      \"note\": \"<string>\",\n      \"reservationId\": \"<integer>\",\n      \"status\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T02:05:59.000Z",
+                          "updatedAt": "2026-10-22T02:05:59.000Z",
+                          "uid": "35240-b02cdb0a-624d-4b6e-8115-c2e5af86c641"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:05:59.000Z",
+                      "updatedAt": "2026-10-22T02:05:59.000Z",
+                      "uid": "35240-dcf4daf0-ae05-4ebb-a242-070f2637199b"
+                    }
+                  ],
+                  "id": "3641dccb-af00-4054-928a-ce54b9d8fd63",
+                  "createdAt": "2026-10-22T02:05:59.000Z",
+                  "updatedAt": "2026-10-22T02:05:59.000Z",
+                  "uid": "35240-3641dccb-af00-4054-928a-ce54b9d8fd63"
+                },
+                {
+                  "name": "Hostaway Get Calendar Days",
+                  "id": "e9994962-eff9-4d6f-b745-9901aa0863a1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/listings/:listingId/calendar?startDate=<date>&endDate=<date>&includeResources=1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "listings",
+                        ":listingId",
+                        "calendar"
+                      ],
+                      "query": [
+                        {
+                          "key": "startDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "key": "endDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "key": "includeResources",
+                          "value": "1"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "47ab871a-0f8b-4bb0-870b-8fd73bf37810",
+                          "key": "listingId",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "2a919af8-51d4-45f3-9d62-f6f91abed04d",
+                      "name": "Calendar days collection",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/listings/:listingId/calendar?startDate=<date>&endDate=<date>&includeResources=1",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "listings",
+                            ":listingId",
+                            "calendar"
+                          ],
+                          "query": [
+                            {
+                              "key": "startDate",
+                              "value": "<date>"
+                            },
+                            {
+                              "key": "endDate",
+                              "value": "<date>"
+                            },
+                            {
+                              "key": "includeResources",
+                              "value": "1"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "listingId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"success\",\n  \"result\": [\n    {\n      \"date\": \"<date>\",\n      \"price\": \"<number>\",\n      \"minimumStay\": \"<integer>\",\n      \"maximumStay\": \"<integer>\",\n      \"closedOnArrival\": 0,\n      \"closedOnDeparture\": 0,\n      \"isAvailable\": 0,\n      \"note\": \"<string>\",\n      \"reservationId\": \"<integer>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"date\": \"<date>\",\n      \"price\": \"<number>\",\n      \"minimumStay\": \"<integer>\",\n      \"maximumStay\": \"<integer>\",\n      \"closedOnArrival\": 0,\n      \"closedOnDeparture\": 0,\n      \"isAvailable\": 1,\n      \"note\": \"<string>\",\n      \"reservationId\": \"<integer>\",\n      \"status\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:05:59.000Z",
+                      "updatedAt": "2026-10-22T02:05:59.000Z",
+                      "uid": "35240-2a919af8-51d4-45f3-9d62-f6f91abed04d"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:05:59.000Z",
+                  "updatedAt": "2026-10-22T02:05:59.000Z",
+                  "uid": "35240-e9994962-eff9-4d6f-b745-9901aa0863a1"
+                },
+                {
+                  "name": "Hostaway Update Calendar Day",
+                  "id": "bf5830c6-3319-4d9e-9e66-7b96a4662c33",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"date\": \"<date>\",\n  \"price\": \"<number>\",\n  \"minimumStay\": \"<integer>\",\n  \"maximumStay\": \"<integer>\",\n  \"closedOnArrival\": 1,\n  \"closedOnDeparture\": 1,\n  \"isAvailable\": 1,\n  \"note\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/listings/:listingId/calendar",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "listings",
+                        ":listingId",
+                        "calendar"
+                      ],
+                      "variable": [
+                        {
+                          "id": "31d29412-36d8-49a2-bbe3-bd2d4c23bc24",
+                          "key": "listingId",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "d49db35e-a4c2-446f-ab78-d0fe7896e1f9",
+                      "name": "Calendar day updated",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"date\": \"<date>\",\n  \"price\": \"<number>\",\n  \"minimumStay\": \"<integer>\",\n  \"maximumStay\": \"<integer>\",\n  \"closedOnArrival\": 1,\n  \"closedOnDeparture\": 1,\n  \"isAvailable\": 1,\n  \"note\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/listings/:listingId/calendar",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "listings",
+                            ":listingId",
+                            "calendar"
+                          ],
+                          "variable": [
+                            {
+                              "key": "listingId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"success\",\n  \"result\": [\n    {\n      \"date\": \"<date>\",\n      \"price\": \"<number>\",\n      \"minimumStay\": \"<integer>\",\n      \"maximumStay\": \"<integer>\",\n      \"closedOnArrival\": 0,\n      \"closedOnDeparture\": 0,\n      \"isAvailable\": 0,\n      \"note\": \"<string>\",\n      \"reservationId\": \"<integer>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"date\": \"<date>\",\n      \"price\": \"<number>\",\n      \"minimumStay\": \"<integer>\",\n      \"maximumStay\": \"<integer>\",\n      \"closedOnArrival\": 0,\n      \"closedOnDeparture\": 0,\n      \"isAvailable\": 1,\n      \"note\": \"<string>\",\n      \"reservationId\": \"<integer>\",\n      \"status\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:05:59.000Z",
+                      "updatedAt": "2026-10-22T02:05:59.000Z",
+                      "uid": "35240-d49db35e-a4c2-446f-ab78-d0fe7896e1f9"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:05:59.000Z",
+                  "updatedAt": "2026-10-22T02:05:59.000Z",
+                  "uid": "35240-bf5830c6-3319-4d9e-9e66-7b96a4662c33"
                 }
               ],
-              "body": "{\n  \"status\": \"fail\",\n  \"result\": [\n    {\n      \"date\": \"1954-09-03\",\n      \"price\": 1817.0829417995194,\n      \"minimumStay\": 848,\n      \"maximumStay\": 2967,\n      \"closedOnArrival\": 0,\n      \"closedOnDeparture\": 1,\n      \"isAvailable\": 0,\n      \"note\": \"string\",\n      \"reservationId\": 5085,\n      \"status\": \"string\"\n    },\n    {\n      \"date\": \"1988-09-01\",\n      \"price\": 8462.756283058026,\n      \"minimumStay\": 509,\n      \"maximumStay\": 6081,\n      \"closedOnArrival\": 1,\n      \"closedOnDeparture\": 1,\n      \"isAvailable\": 0,\n      \"note\": \"string\",\n      \"reservationId\": 6938,\n      \"status\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "618ab94f-6311-4e2e-be07-f841bee5461d",
+              "createdAt": "2026-10-22T02:05:59.000Z",
+              "updatedAt": "2026-10-22T02:05:59.000Z",
+              "uid": "35240-618ab94f-6311-4e2e-be07-f841bee5461d"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "2a12da22-fcec-4cfc-bae2-25e5b78c5f50",
-          "name": "Hostaway Update Calendar Day",
-          "request": {
-            "name": "Hostaway Update Calendar Day",
-            "description": {},
-            "url": {
-              "path": [
-                "listings",
-                ":listingId",
-                "calendar"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "listingId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"date\": \"<date>\",\n  \"price\": \"<number>\",\n  \"minimumStay\": \"<integer>\",\n  \"maximumStay\": \"<integer>\",\n  \"closedOnArrival\": \"<integer>\",\n  \"closedOnDeparture\": \"<integer>\",\n  \"isAvailable\": \"<integer>\",\n  \"note\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "bf9a71b7-629d-4201-8987-1a5973f2cc37",
-              "name": "Calendar day updated",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "listings",
-                    ":listingId",
-                    "calendar"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "listingId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"date\": \"<date>\",\n  \"price\": \"<number>\",\n  \"minimumStay\": \"<integer>\",\n  \"maximumStay\": \"<integer>\",\n  \"closedOnArrival\": \"<integer>\",\n  \"closedOnDeparture\": \"<integer>\",\n  \"isAvailable\": \"<integer>\",\n  \"note\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": \"fail\",\n  \"result\": [\n    {\n      \"date\": \"1954-09-03\",\n      \"price\": 1817.0829417995194,\n      \"minimumStay\": 848,\n      \"maximumStay\": 2967,\n      \"closedOnArrival\": 0,\n      \"closedOnDeparture\": 1,\n      \"isAvailable\": 0,\n      \"note\": \"string\",\n      \"reservationId\": 5085,\n      \"status\": \"string\"\n    },\n    {\n      \"date\": \"1988-09-01\",\n      \"price\": 8462.756283058026,\n      \"minimumStay\": 509,\n      \"maximumStay\": 6081,\n      \"closedOnArrival\": 1,\n      \"closedOnDeparture\": 1,\n      \"isAvailable\": 0,\n      \"note\": \"string\",\n      \"reservationId\": 6938,\n      \"status\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "4cb843c9-e5a2-4327-a394-3a823a41395b",
-          "name": "Hostaway Batch Update Calendar",
-          "request": {
-            "name": "Hostaway Batch Update Calendar",
-            "description": {},
-            "url": {
-              "path": [
-                "listings",
-                ":listingId",
-                "calendar",
-                "batch"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "listingId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"dates\": [\n    \"<date>\",\n    \"<date>\"\n  ],\n  \"price\": \"<number>\",\n  \"minimumStay\": \"<integer>\",\n  \"isAvailable\": \"<integer>\",\n  \"note\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "ec4808f7-6d9d-4281-b61b-39a1d5ef4eca",
-              "name": "Batch update applied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "listings",
-                    ":listingId",
-                    "calendar",
-                    "batch"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "listingId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"dates\": [\n    \"<date>\",\n    \"<date>\"\n  ],\n  \"price\": \"<number>\",\n  \"minimumStay\": \"<integer>\",\n  \"isAvailable\": \"<integer>\",\n  \"note\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": \"fail\",\n  \"result\": [\n    {\n      \"date\": \"1954-09-03\",\n      \"price\": 1817.0829417995194,\n      \"minimumStay\": 848,\n      \"maximumStay\": 2967,\n      \"closedOnArrival\": 0,\n      \"closedOnDeparture\": 1,\n      \"isAvailable\": 0,\n      \"note\": \"string\",\n      \"reservationId\": 5085,\n      \"status\": \"string\"\n    },\n    {\n      \"date\": \"1988-09-01\",\n      \"price\": 8462.756283058026,\n      \"minimumStay\": 509,\n      \"maximumStay\": 6081,\n      \"closedOnArrival\": 1,\n      \"closedOnDeparture\": 1,\n      \"isAvailable\": 0,\n      \"note\": \"string\",\n      \"reservationId\": 6938,\n      \"status\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "3fb4f34c-8398-4ec4-ae8c-c047a77f59ed",
+          "createdAt": "2026-10-22T02:05:59.000Z",
+          "updatedAt": "2026-10-22T02:05:59.000Z",
+          "uid": "35240-3fb4f34c-8398-4ec4-ae8c-c047a77f59ed"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.hostaway.com/v1",
-      "key": "baseUrl"
+      "id": "b3fc6344-387a-4fab-8891-87041590025c",
+      "createdAt": "2026-10-22T02:05:59.000Z",
+      "updatedAt": "2026-10-22T02:05:59.000Z",
+      "uid": "35240-b3fc6344-387a-4fab-8891-87041590025c"
     }
   ],
   "auth": {
@@ -383,25 +405,25 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "general"
+        "value": "general",
+        "type": "string"
       },
       {
         "key": "accessTokenUrl",
-        "value": "https://api.hostaway.com/v1/accessTokens"
+        "value": "https://api.hostaway.com/v1/accessTokens",
+        "type": "string"
       },
       {
         "key": "grant_type",
-        "value": "client_credentials"
+        "value": "client_credentials",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "a9f6f5c0-0857-4589-b1d5-e9b80db9d48d",
-    "name": "Hostaway Calendar API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Read and update availability and nightly pricing on the Hostaway listing\ncalendar. Supports per-day retrieval, batch updates, and embedded\nreservation context via the includeResources query parameter.\n\n\nContact Support:\n Name: Hostaway Support\n Email: support@hostaway.com",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.hostaway.com/v1"
     }
-  }
+  ]
 }
